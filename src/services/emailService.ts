@@ -143,8 +143,8 @@ export async function sendInternshipEnquiry(
 export async function sendContactForm(
   formElement: HTMLFormElement | string
 ): Promise<EmailJSResult> {
-  const { serviceId, publicKey, contactTemplateId, internshipTemplateId } = getEnvVars();
-  console.log('EmailJS env debug:', { serviceId, publicKey, contactTemplateId, internshipTemplateId });
+  const { serviceId, publicKey, generalTemplateId, contactTemplateId, internshipTemplateId } = getEnvVars();
+  console.log('EmailJS env debug:', { serviceId, publicKey, generalTemplateId, contactTemplateId, internshipTemplateId });
 
   // Initialize EmailJS SDK once (avoid double init)
   if (publicKey) {
@@ -155,14 +155,14 @@ export async function sendContactForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // Ensure a template ID is available – fallback to internship template if contact template missing
-  const effectiveContactTemplateId = contactTemplateId || internshipTemplateId;
+  // Choose template: General > Contact > Internship (fallback)
+  const effectiveTemplateId = generalTemplateId || contactTemplateId || internshipTemplateId;
 
-  if (serviceId && effectiveContactTemplateId && publicKey) {
+  if (serviceId && effectiveTemplateId && publicKey) {
     try {
       const response = await emailjs.sendForm(
         serviceId,
-        effectiveContactTemplateId,
+        effectiveTemplateId,
         formElement,
         publicKey
       );
