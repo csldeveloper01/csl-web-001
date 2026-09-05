@@ -67,10 +67,7 @@ export async function sendInternshipForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // Production guard – warn if missing vars but proceed
-  if ((import.meta as any).env.PROD && (!serviceId || !publicKey || !internshipTemplateId)) {
-    console.warn('EmailJS configuration missing in production environment.');
-  }
+  // Production guard removed – rely on environment validation elsewhere
 
   if (serviceId && internshipTemplateId && publicKey) {
     try {
@@ -235,10 +232,7 @@ export async function sendCourseCallbackForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // Production guard – warn if missing vars but proceed
-  if ((import.meta as any).env.PROD && (!serviceId || !publicKey || !courseTemplateId)) {
-    console.warn('EmailJS configuration missing in production environment.');
-  }
+// Production guard removed – rely on environment validation elsewhere
 
   if (serviceId && courseTemplateId && publicKey) {
     try {

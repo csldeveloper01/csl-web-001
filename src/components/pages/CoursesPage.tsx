@@ -17,7 +17,7 @@ import {
   Layers
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
-import { sendCourseCallback, sendCourseCallbackForm, EmailJSResult } from '../../services/emailService';
+import { sendContactForm, EmailJSResult } from '../../services/emailService';
 import { useDeepLinkHighlight } from '../../hooks/useDeepLinkHighlight';
 import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
 
@@ -1730,17 +1730,31 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
 
     let result: EmailJSResult;
     if (formRef.current) {
-      result = await sendCourseCallbackForm(formRef.current);
+      result = await sendContactForm(formRef.current);
     } else {
-      result = await sendCourseCallback({
-        courseName: course.title,
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        institution: formData.institution,
-        preferredContactMethod: formData.preferredContactMethod,
-        message: formData.message
+      // Fallback if ref missing – invoke sendContactForm with form data via hidden fields
+      // Create a temporary form element to submit
+      const tempForm = document.createElement('form');
+      tempForm.style.display = 'none';
+      // Populate required fields
+      const fields = [
+        { name: 'name', value: formData.name },
+        { name: 'email', value: formData.email },
+        { name: 'phone', value: formData.phone },
+        { name: 'institution', value: formData.institution },
+        { name: 'subject', value: 'Course callback request' },
+        { name: 'message', value: formData.message },
+      ];
+      fields.forEach(f => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = f.name;
+        input.value = f.value;
+        tempForm.appendChild(input);
       });
+      document.body.appendChild(tempForm);
+      result = await sendContactForm(tempForm);
+      document.body.removeChild(tempForm);
     }
 
     if (result.success) {
