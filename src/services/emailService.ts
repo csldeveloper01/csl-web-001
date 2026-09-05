@@ -35,13 +35,17 @@ export interface EmailJSResult {
 }
 
 function getEnvVars() {
-  const env = (import.meta as any).env || {};
+  const metaEnv = (import.meta as any).env || {};
+  const nodeEnv = (process as any).env || {};
   return {
-    serviceId: env.VITE_EMAILJS_SERVICE_ID || '',
-    publicKey: env.VITE_EMAILJS_PUBLIC_KEY || '',
-    internshipTemplateId: env.VITE_EMAILJS_INTERNSHIP_TEMPLATE_ID || env.VITE_EMAILJS_TEMPLATE_ID || '',
-    courseTemplateId: env.VITE_EMAILJS_COURSE_TEMPLATE_ID || env.VITE_EMAILJS_TEMPLATE_ID || '',
-    contactTemplateId: env.VITE_EMAILJS_CONTACT_TEMPLATE_ID || env.VITE_EMAILJS_TEMPLATE_ID || '',
+    serviceId: metaEnv.VITE_EMAILJS_SERVICE_ID || nodeEnv.VITE_EMAILJS_SERVICE_ID || '',
+    publicKey: metaEnv.VITE_EMAILJS_PUBLIC_KEY || nodeEnv.VITE_EMAILJS_PUBLIC_KEY || '',
+    internshipTemplateId:
+      metaEnv.VITE_EMAILJS_INTERNSHIP_TEMPLATE_ID || metaEnv.VITE_EMAILJS_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_INTERNSHIP_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_TEMPLATE_ID || '',
+    courseTemplateId:
+      metaEnv.VITE_EMAILJS_COURSE_TEMPLATE_ID || metaEnv.VITE_EMAILJS_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_COURSE_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_TEMPLATE_ID || '',
+    contactTemplateId:
+      metaEnv.VITE_EMAILJS_CONTACT_TEMPLATE_ID || metaEnv.VITE_EMAILJS_INTERNSHIP_TEMPLATE_ID || metaEnv.VITE_EMAILJS_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_CONTACT_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_INTERNSHIP_TEMPLATE_ID || nodeEnv.VITE_EMAILJS_TEMPLATE_ID || '',
   };
 }
 
@@ -63,10 +67,9 @@ export async function sendInternshipForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // In production, ensure required env vars are present
+  // Production guard – warn if missing vars but proceed
   if ((import.meta as any).env.PROD && (!serviceId || !publicKey || !internshipTemplateId)) {
-    console.error('EmailJS configuration missing in production environment.');
-    return { success: false, message: 'EmailJS not configured for production.' };
+    console.warn('EmailJS configuration missing in production environment.');
   }
 
   if (serviceId && internshipTemplateId && publicKey) {
@@ -141,7 +144,8 @@ export async function sendInternshipEnquiry(
 export async function sendContactForm(
   formElement: HTMLFormElement | string
 ): Promise<EmailJSResult> {
-  const { serviceId, publicKey, contactTemplateId } = getEnvVars();
+  const { serviceId, publicKey, contactTemplateId, internshipTemplateId } = getEnvVars();
+  console.log('EmailJS env debug:', { serviceId, publicKey, contactTemplateId, internshipTemplateId });
 
   // Initialize EmailJS SDK once (avoid double init)
   if (publicKey) {
@@ -152,17 +156,14 @@ export async function sendContactForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // Production guard
-  if ((import.meta as any).env.PROD && (!serviceId || !publicKey || !contactTemplateId)) {
-    console.error('EmailJS configuration missing in production environment.');
-    return { success: false, message: 'EmailJS not configured for production.' };
-  }
+  // Ensure a template ID is available – fallback to internship template if contact template missing
+  const effectiveContactTemplateId = contactTemplateId || internshipTemplateId;
 
-  if (serviceId && contactTemplateId && publicKey) {
+  if (serviceId && effectiveContactTemplateId && publicKey) {
     try {
       const response = await emailjs.sendForm(
         serviceId,
-        contactTemplateId,
+        effectiveContactTemplateId,
         formElement,
         publicKey
       );
@@ -234,10 +235,9 @@ export async function sendCourseCallbackForm(
     console.warn('EmailJS public key is missing.');
   }
 
-  // Production guard
+  // Production guard – warn if missing vars but proceed
   if ((import.meta as any).env.PROD && (!serviceId || !publicKey || !courseTemplateId)) {
-    console.error('EmailJS configuration missing in production environment.');
-    return { success: false, message: 'EmailJS not configured for production.' };
+    console.warn('EmailJS configuration missing in production environment.');
   }
 
   if (serviceId && courseTemplateId && publicKey) {
