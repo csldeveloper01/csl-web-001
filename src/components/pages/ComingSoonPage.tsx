@@ -1,13 +1,26 @@
-import { Construction } from 'lucide-react';
+// @ts-expect-error — Vite asset import
+import comingSoonImage from '../../../Elements/STUDENT PORTAL/Coming Soon.png';
 
 export function ComingSoonPage() {
   return (
-    <section className="flex flex-col items-center justify-center min-h-[70vh] bg-csl-bg px-8 py-16">
-      <Construction className="h-24 w-24 text-csl-blue" strokeWidth={1.5} />
-      <h1 className="mt-6 text-2xl font-bold text-csl-blue">Student Portal – Coming Soon</h1>
-      <p className="mt-2 text-center text-csl-muted max-w-xl">
-        We are working hard to launch the Student Portal. Stay tuned for updates!
-      </p>
+    <section className="flex flex-col items-center justify-center min-h-[70vh] bg-csl-bg px-6 py-16">
+      <img
+        src={comingSoonImage}
+        alt="Student Portal Coming Soon"
+        className="w-full max-w-3xl h-auto object-contain"
+        draggable={false}
+      />
+      <div className="mt-8 text-center max-w-xl space-y-3">
+        <p className="text-lg md:text-xl font-semibold text-csl-blue">
+          Your space is almost ready.
+        </p>
+        <p className="text-base md:text-lg text-csl-muted">
+          A smarter way to learn, track your journey, and stay connected.
+        </p>
+        <p className="text-base md:text-lg font-semibold text-csl-blue">
+          Student Portal — Coming Soon.
+        </p>
+      </div>
     </section>
   );
 }

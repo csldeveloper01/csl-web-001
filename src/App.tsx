@@ -18,12 +18,23 @@ import { AboutPage } from './components/pages/AboutPage';
 import { WorkshopsPage } from './components/pages/WorkshopsPage';
 import { ComingSoonPage } from './components/pages/ComingSoonPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
+import { IntroOverlay } from './components/intro/IntroOverlay';
+import { LoadingIndicator } from './components/ui/LoadingIndicator';
+import { preloadHomeAssets } from './lib/preloadHomeAssets';
+
+const INTRO_SESSION_KEY = 'csl-intro-complete';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => 
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [introComplete, setIntroComplete] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    if (window.location.pathname !== '/') return true;
+    return sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
+  });
+  const [assetsReady, setAssetsReady] = useState(false);
 
   useEffect(() => {
     const handleLocationChange = () => {
@@ -32,6 +43,10 @@ export function App() {
 
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  useEffect(() => {
+    preloadHomeAssets().then(() => setAssetsReady(true));
   }, []);
 
   useEffect(() => {
@@ -68,7 +83,15 @@ export function App() {
     }
   };
 
-  const isStandalonePage = currentPath === '/internships' || currentPath === '/services' || currentPath === '/courses' || currentPath === '/about' || currentPath === '/workshops';
+  const handleIntroComplete = () => {
+    sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
+    setIntroComplete(true);
+  };
+
+  const isHomePage = currentPath === '/';
+  const showIntro = isHomePage && !introComplete;
+  const showHomeLoading = isHomePage && introComplete && !assetsReady;
+  const homeVisible = isHomePage && introComplete && assetsReady;
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
@@ -76,7 +99,7 @@ export function App() {
       <Navbar />
 
       {/* Persistent Left-Side Vertical Sideways Section Rail (on Home Page) */}
-      {!isStandalonePage && (
+      {isHomePage && homeVisible && (
         <NavigationRail activeSection={activeSection} onNavigate={handleNavigate} />
       )}
 
@@ -93,7 +116,7 @@ export function App() {
       ) : currentPath === '/student-portal' ? (
         <ComingSoonPage />
       ) : currentPath === '/' ? (
-        <>
+        <div className={homeVisible ? '' : 'invisible'} aria-hidden={!homeVisible}>
           <div id="hero">
             <GlobalDistortionWrapper>
               <Hero />
@@ -120,13 +143,21 @@ export function App() {
           <div id="contact">
             <ContactSection />
           </div>
-        </>
+        </div>
       ) : (
         <NotFoundPage />
       )}
 
       {/* Universal Footer */}
       <Footer />
+
+      {showIntro && <IntroOverlay onComplete={handleIntroComplete} />}
+
+      {showHomeLoading && (
+        <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-csl-bg">
+          <LoadingIndicator />
+        </div>
+      )}
     </div>
   );
 }
