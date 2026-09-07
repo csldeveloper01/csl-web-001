@@ -80,183 +80,49 @@ export function App() {
         <NavigationRail activeSection={activeSection} onNavigate={handleNavigate} />
       )}
 
-  {
-  currentPath === '/workshops' ? (
-    <WorkshopsPage />
-  ) : currentPath === '/about' ? (
-    <AboutPage />
-  ) : currentPath === '/courses' ? (
-    <CoursesPage />
-  ) : currentPath === '/services' ? (
-    <ServicesPage />
-  ) : currentPath === '/internships' ? (
-    <InternshipsPage />
-  ) : currentPath === '/student-portal' ? (
-    <ComingSoonPage />
-  ) : currentPath === '/' ? (
-    <>
-      <div id="hero">
-        <GlobalDistortionWrapper>
-          <Hero />
-        </GlobalDistortionWrapper>
-      </div>
-      <div id="about">
-        <AboutSection />
-      </div>
-      <div id="courses">
-        <CoursesSection />
-      </div>
-      <div id="internships">
-        <InternshipsSection />
-      </div>
-      <div id="services">
-        <ServicesSection />
-      </div>
-      <div id="tie-ups">
-        <TieupsSection />
-      </div>
-      <div id="success-stories">
-        <SuccessStoriesSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
-    </>
-  ) : (
-    <NotFoundPage />
-  )
-}
-  
-    <WorkshopsPage />
-  ) : currentPath === '/about' ? (
-    <AboutPage />
-  ) : currentPath === '/courses' ? (
-    <CoursesPage />
-  ) : currentPath === '/services' ? (
-    <ServicesPage />
-  ) : currentPath === '/internships' ? (
-    <InternshipsPage />
-  ) : currentPath === '/student-portal' ? (
-    <ComingSoonPage />
-  ) : currentPath === '/' ? (
-    <>
-      <div id="hero">
-        <GlobalDistortionWrapper>
-          <Hero />
-        </GlobalDistortionWrapper>
-      </div>
-      <div id="about">
-        <AboutSection />
-      </div>
-      <div id="courses">
-        <CoursesSection />
-      </div>
-      <div id="internships">
-        <InternshipsSection />
-      </div>
-      <div id="services">
-        <ServicesSection />
-      </div>
-      <div id="tie-ups">
-        <TieupsSection />
-      </div>
-      <div id="success-stories">
-        <SuccessStoriesSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
-    </>
-  ) : (
-    <NotFoundPage />
-  )
-}
-  
-) : currentPath === '/' ? (
-  /* Home Page Sections */
-  <>
-    <div id="hero">
-      <GlobalDistortionWrapper>
-        <Hero />
-      </GlobalDistortionWrapper>
-    </div>
-    <div id="about">
-      <AboutSection />
-    </div>
-    <div id="courses">
-      <CoursesSection />
-    </div>
-    <div id="internships">
-      <InternshipsSection />
-    </div>
-    <div id="services">
-      <ServicesSection />
-    </div>
-    <div id="tie-ups">
-      <TieupsSection />
-    </div>
-    <div id="success-stories">
-      <SuccessStoriesSection />
-    </div>
-    <div id="contact">
-      <ContactSection />
-    </div>
-  </>
-) : (
-  /* 404 fallback */
-  <NotFoundPage />
-)}
-
-
-      
-        /* Standalone About Page (/about) */
+      {currentPath === '/workshops' ? (
+        <WorkshopsPage />
+      ) : currentPath === '/about' ? (
         <AboutPage />
       ) : currentPath === '/courses' ? (
-        /* Standalone Courses Page (/courses) */
         <CoursesPage />
       ) : currentPath === '/services' ? (
-        /* Standalone Services Page (/services) */
         <ServicesPage />
       ) : currentPath === '/internships' ? (
-        /* Standalone Internships Page (/internships) */
         <InternshipsPage />
-      ) : (
-        /* Home Page Sections */
+      ) : currentPath === '/student-portal' ? (
+        <ComingSoonPage />
+      ) : currentPath === '/' ? (
         <>
           <div id="hero">
             <GlobalDistortionWrapper>
               <Hero />
             </GlobalDistortionWrapper>
           </div>
-
           <div id="about">
             <AboutSection />
           </div>
-
           <div id="courses">
             <CoursesSection />
           </div>
-
           <div id="internships">
             <InternshipsSection />
           </div>
-
           <div id="services">
             <ServicesSection />
           </div>
-
           <div id="tie-ups">
             <TieupsSection />
           </div>
-
           <div id="success-stories">
             <SuccessStoriesSection />
           </div>
-
           <div id="contact">
             <ContactSection />
           </div>
         </>
+      ) : (
+        <NotFoundPage />
       )}
 
       {/* Universal Footer */}
