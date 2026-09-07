@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { LoadingIndicator } from '../../ui/LoadingIndicator';
+
+const CAROUSEL_LOADED_KEY = 'csl-about-carousel-loaded';
 
 // @ts-expect-error - TS doesn't know about files outside src but Vite handles it
 import img1 from '../../../../Elements/ABOUT/AI INNOVATION.png';
@@ -55,8 +58,24 @@ const carouselData = [
 ];
 
 export function AboutCarousel() {
+  const [hasLoadedBefore] = useState(() => sessionStorage.getItem(CAROUSEL_LOADED_KEY) === 'true');
+  const [showLoader, setShowLoader] = useState(!hasLoadedBefore);
+  const [showContent, setShowContent] = useState(hasLoadedBefore);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!showLoader) return;
+    const timer = setTimeout(() => setShowLoader(false), 2500);
+    return () => clearTimeout(timer);
+  }, [showLoader]);
+
+  const handleLoaderExitComplete = () => {
+    if (!hasLoadedBefore) {
+      setShowContent(true);
+      sessionStorage.setItem(CAROUSEL_LOADED_KEY, 'true');
+    }
+  };
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % carouselData.length);
@@ -71,10 +90,10 @@ export function AboutCarousel() {
   };
 
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || !showContent) return;
     const timer = setInterval(nextSlide, 3500);
     return () => clearInterval(timer);
-  }, [isHovered, nextSlide]);
+  }, [isHovered, nextSlide, showContent]);
 
   const getVisibleStates = () => {
     const prev = (currentIndex - 1 + carouselData.length) % carouselData.length;
@@ -93,6 +112,26 @@ export function AboutCarousel() {
       
       {/* Visual Stage */}
       <div className="relative w-full max-w-[600px] aspect-[4/3] flex items-center justify-center mb-2">
+        <AnimatePresence onExitComplete={handleLoaderExitComplete}>
+          {showLoader && (
+            <motion.div
+              key="carousel-loader"
+              className="absolute inset-0 z-30 flex items-center justify-center"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+            >
+              <LoadingIndicator />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          className="relative w-full h-full flex items-center justify-center"
+          initial={false}
+          animate={{ opacity: showContent ? 1 : 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+        >
         
         {/* Controls - Left */}
         <button 
@@ -208,10 +247,17 @@ export function AboutCarousel() {
           <ArrowRight className="w-5 h-5" />
         </button>
 
+        </motion.div>
+
       </div>
 
       {/* Info & Pagination */}
-      <div className="flex flex-col items-center text-center">
+      <motion.div
+        className="flex flex-col items-center text-center w-full"
+        initial={false}
+        animate={{ opacity: showContent ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -267,7 +313,7 @@ export function AboutCarousel() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
     </div>
   );

@@ -14,6 +14,11 @@ const heroNavItems = [
   { label: 'Contact', href: '#contact', icon: Mail },
 ];
 
+const navigateToStudentPortal = () => {
+  window.history.pushState({}, '', '/student-portal');
+  window.dispatchEvent(new PopStateEvent('popstate'));
+};
+
 export function Hero() {
   const yellowBlocks = [
     { size: 'w-10 h-10', pos: 'top-[18%] left-[8%]', delay: 0.5, duration: 6 },
@@ -92,10 +97,14 @@ export function Hero() {
               Start Learning
               <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#contact" className="flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm">
+            <button
+              type="button"
+              onClick={navigateToStudentPortal}
+              className="flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm"
+            >
               Go to Student Portal
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -110,10 +119,14 @@ export function Hero() {
             Start Learning
             <ArrowRight className="w-4 h-4" />
           </a>
-          <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm">
+          <button
+            type="button"
+            onClick={navigateToStudentPortal}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm"
+          >
             Go to Student Portal
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </button>
         </div>
       </main>
 

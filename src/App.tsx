@@ -34,6 +34,7 @@ export function App() {
     if (window.location.pathname !== '/') return true;
     return sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
   });
+  const [introFading, setIntroFading] = useState(false);
   const [assetsReady, setAssetsReady] = useState(false);
 
   useEffect(() => {
@@ -83,15 +84,20 @@ export function App() {
     }
   };
 
+  const handleIntroFadeStart = () => {
+    setIntroFading(true);
+  };
+
   const handleIntroComplete = () => {
     sessionStorage.setItem(INTRO_SESSION_KEY, 'true');
     setIntroComplete(true);
+    setIntroFading(false);
   };
 
   const isHomePage = currentPath === '/';
   const showIntro = isHomePage && !introComplete;
-  const showHomeLoading = isHomePage && introComplete && !assetsReady;
-  const homeVisible = isHomePage && introComplete && assetsReady;
+  const showHomeLoading = isHomePage && introComplete && !assetsReady && !introFading;
+  const homeVisible = isHomePage && assetsReady && (introComplete || introFading);
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
@@ -116,7 +122,10 @@ export function App() {
       ) : currentPath === '/student-portal' ? (
         <ComingSoonPage />
       ) : currentPath === '/' ? (
-        <div className={homeVisible ? '' : 'invisible'} aria-hidden={!homeVisible}>
+        <div
+          className={`transition-opacity duration-500 ease-out ${homeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          aria-hidden={!homeVisible}
+        >
           <div id="hero">
             <GlobalDistortionWrapper>
               <Hero />
@@ -151,7 +160,9 @@ export function App() {
       {/* Universal Footer */}
       <Footer />
 
-      {showIntro && <IntroOverlay onComplete={handleIntroComplete} />}
+      {showIntro && (
+        <IntroOverlay onFadeStart={handleIntroFadeStart} onComplete={handleIntroComplete} />
+      )}
 
       {showHomeLoading && (
         <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-csl-bg">
