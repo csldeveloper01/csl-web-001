@@ -133,7 +133,7 @@ export function App() {
   <NotFoundPage />
 )}
 
-        <WorkshopsPage />
+
       ) : currentPath === '/about' ? (
         /* Standalone About Page (/about) */
         <AboutPage />
