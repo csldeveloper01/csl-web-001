@@ -132,7 +132,7 @@ export function App() {
   /* 404 fallback */
   <NotFoundPage />
 )}
-        /* Standalone Workshops Page (/workshops) */
+
         <WorkshopsPage />
       ) : currentPath === '/about' ? (
         /* Standalone About Page (/about) */
