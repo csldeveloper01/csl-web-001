@@ -80,24 +80,98 @@ export function App() {
         <NavigationRail activeSection={activeSection} onNavigate={handleNavigate} />
       )}
 
-      {currentPath === '/workshops' ? (
-  /* Standalone Workshops Page (/workshops) */
-  <WorkshopsPage />
-) : currentPath === '/about' ? (
-  /* Standalone About Page (/about) */
-  <AboutPage />
-) : currentPath === '/courses' ? (
-  /* Standalone Courses Page (/courses) */
-  <CoursesPage />
-) : currentPath === '/services' ? (
-  /* Standalone Services Page (/services) */
-  <ServicesPage />
-) : currentPath === '/internships' ? (
-  /* Standalone Internships Page (/internships) */
-  <InternshipsPage />
-) : currentPath === '/student-portal' ? (
-  /* Coming Soon Page */
-  <ComingSoonPage />
+  {
+  currentPath === '/workshops' ? (
+    <WorkshopsPage />
+  ) : currentPath === '/about' ? (
+    <AboutPage />
+  ) : currentPath === '/courses' ? (
+    <CoursesPage />
+  ) : currentPath === '/services' ? (
+    <ServicesPage />
+  ) : currentPath === '/internships' ? (
+    <InternshipsPage />
+  ) : currentPath === '/student-portal' ? (
+    <ComingSoonPage />
+  ) : currentPath === '/' ? (
+    <>
+      <div id="hero">
+        <GlobalDistortionWrapper>
+          <Hero />
+        </GlobalDistortionWrapper>
+      </div>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="courses">
+        <CoursesSection />
+      </div>
+      <div id="internships">
+        <InternshipsSection />
+      </div>
+      <div id="services">
+        <ServicesSection />
+      </div>
+      <div id="tie-ups">
+        <TieupsSection />
+      </div>
+      <div id="success-stories">
+        <SuccessStoriesSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
+    </>
+  ) : (
+    <NotFoundPage />
+  )
+}
+  
+    <WorkshopsPage />
+  ) : currentPath === '/about' ? (
+    <AboutPage />
+  ) : currentPath === '/courses' ? (
+    <CoursesPage />
+  ) : currentPath === '/services' ? (
+    <ServicesPage />
+  ) : currentPath === '/internships' ? (
+    <InternshipsPage />
+  ) : currentPath === '/student-portal' ? (
+    <ComingSoonPage />
+  ) : currentPath === '/' ? (
+    <>
+      <div id="hero">
+        <GlobalDistortionWrapper>
+          <Hero />
+        </GlobalDistortionWrapper>
+      </div>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="courses">
+        <CoursesSection />
+      </div>
+      <div id="internships">
+        <InternshipsSection />
+      </div>
+      <div id="services">
+        <ServicesSection />
+      </div>
+      <div id="tie-ups">
+        <TieupsSection />
+      </div>
+      <div id="success-stories">
+        <SuccessStoriesSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
+    </>
+  ) : (
+    <NotFoundPage />
+  )
+}
+  
 ) : currentPath === '/' ? (
   /* Home Page Sections */
   <>
@@ -134,7 +208,7 @@ export function App() {
 )}
 
 
-      ) : currentPath === '/about' ? (
+      
         /* Standalone About Page (/about) */
         <AboutPage />
       ) : currentPath === '/courses' ? (
