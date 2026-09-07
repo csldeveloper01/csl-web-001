@@ -146,7 +146,7 @@ export function Navbar() {
             </div>
 
             {/* Desktop Links (with Little Square Boxes) */}
-            <div className="hidden md:flex flex-1 items-center justify-center gap-8 lg:gap-10">
+            <div className="custom1195:hidden flex flex-1 items-center justify-center gap-8 lg:gap-10">
               {activeNavItems.map((item) => (
                 <button
                   key={item.label}
@@ -163,7 +163,7 @@ export function Navbar() {
             </div>
 
             {/* Mobile Navigation Icons + 2x2 "More" Icon */}
-            <div className="flex md:hidden items-center gap-2.5 sm:gap-3.5">
+            <div className="hidden custom1195:flex items-center gap-2.5 sm:gap-3.5">
               {activeNavItems.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -191,7 +191,7 @@ export function Navbar() {
             {/* Right: CTA (Desktop) */}
             <div className="hidden md:block">
               <button 
-                onClick={() => handleScrollTo('contact')}
+                onClick={() => { window.history.pushState({}, '', '/student-portal'); window.dispatchEvent(new PopStateEvent('popstate')); } }
                 className="group flex items-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-5 py-2.5 rounded-lg font-semibold text-xs md:text-sm hover:shadow-lg hover:shadow-csl-blue/20 transition-all duration-300 cursor-pointer"
               >
                 Student Portal
@@ -261,7 +261,7 @@ export function Navbar() {
             {/* Footer Area */}
             <div className="pt-4 border-t border-csl-gold/20 flex flex-col w-full max-w-lg mx-auto">
               <button
-                onClick={() => handleScrollTo('contact')}
+                onClick={() => { window.history.pushState({}, '', '/student-portal'); window.dispatchEvent(new PopStateEvent('popstate')); } }
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white py-3 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
               >
                 Student Portal

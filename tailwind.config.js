@@ -10,6 +10,7 @@ export default {
       'md': '768px',   // Tablet
       'lg': '1024px',  // Desktop
       'xl': '1280px',  // Large desktop
+      'custom1195': { max: '1194px' },
       '2xl': '1536px', // Extra large desktop
     },
     extend: {

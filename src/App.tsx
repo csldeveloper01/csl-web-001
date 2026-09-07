@@ -16,6 +16,8 @@ import { ServicesPage } from './components/pages/ServicesPage';
 import { CoursesPage } from './components/pages/CoursesPage';
 import { AboutPage } from './components/pages/AboutPage';
 import { WorkshopsPage } from './components/pages/WorkshopsPage';
+import { ComingSoonPage } from './components/pages/ComingSoonPage';
+import { NotFoundPage } from './components/pages/NotFoundPage';
 
 export function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => 
@@ -79,6 +81,57 @@ export function App() {
       )}
 
       {currentPath === '/workshops' ? (
+  /* Standalone Workshops Page (/workshops) */
+  <WorkshopsPage />
+) : currentPath === '/about' ? (
+  /* Standalone About Page (/about) */
+  <AboutPage />
+) : currentPath === '/courses' ? (
+  /* Standalone Courses Page (/courses) */
+  <CoursesPage />
+) : currentPath === '/services' ? (
+  /* Standalone Services Page (/services) */
+  <ServicesPage />
+) : currentPath === '/internships' ? (
+  /* Standalone Internships Page (/internships) */
+  <InternshipsPage />
+) : currentPath === '/student-portal' ? (
+  /* Coming Soon Page */
+  <ComingSoonPage />
+) : currentPath === '/' ? (
+  /* Home Page Sections */
+  <>
+    <div id="hero">
+      <GlobalDistortionWrapper>
+        <Hero />
+      </GlobalDistortionWrapper>
+    </div>
+    <div id="about">
+      <AboutSection />
+    </div>
+    <div id="courses">
+      <CoursesSection />
+    </div>
+    <div id="internships">
+      <InternshipsSection />
+    </div>
+    <div id="services">
+      <ServicesSection />
+    </div>
+    <div id="tie-ups">
+      <TieupsSection />
+    </div>
+    <div id="success-stories">
+      <SuccessStoriesSection />
+    </div>
+    <div id="contact">
+      <ContactSection />
+    </div>
+  </>
+) : (
+  /* 404 fallback */
+  <NotFoundPage />
+)}
         /* Standalone Workshops Page (/workshops) */
         <WorkshopsPage />
       ) : currentPath === '/about' ? (
