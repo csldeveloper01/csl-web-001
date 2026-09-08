@@ -3,7 +3,7 @@ import comingSoonImage from '../../../Elements/STUDENT PORTAL/Coming Soon.png';
 
 export function ComingSoonPage() {
   return (
-    <section className="flex items-center justify-center min-h-[70vh] bg-csl-bg px-6 py-16">
+    <section className="flex items-center justify-center min-h-[70vh] bg-csl-bg px-6 pt-28 md:pt-36 pb-16">
       <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-center gap-10 md:gap-12 lg:gap-16">
         <div className="w-full md:w-1/2 flex justify-center md:justify-start">
           <img

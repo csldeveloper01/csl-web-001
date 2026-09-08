@@ -7,8 +7,7 @@ const root = path.resolve(__dirname, '..');
 
 const copies = [
   {
-    src: path.join(root, 'Elements/INTRO VIDEO/Logo_intro_animation.mp4'),
-    fallback: path.join(root, 'Elements/VIDEO ASSETS/Logo_intro_animation.mp4'),
+    src: path.join(root, 'Elements/VIDEO ASSETS/Intro 2.mp4'),
     dest: path.join(root, 'public/intro/logo_intro_animation.mp4'),
   },
   {

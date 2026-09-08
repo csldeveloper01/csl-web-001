@@ -126,10 +126,11 @@ export function AboutCarousel() {
           )}
         </AnimatePresence>
 
+        {showContent && (
         <motion.div
           className="relative w-full h-full flex items-center justify-center"
-          initial={false}
-          animate={{ opacity: showContent ? 1 : 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
         >
         
@@ -248,14 +249,16 @@ export function AboutCarousel() {
         </button>
 
         </motion.div>
+        )}
 
       </div>
 
       {/* Info & Pagination */}
+      {showContent && (
       <motion.div
         className="flex flex-col items-center text-center w-full"
-        initial={false}
-        animate={{ opacity: showContent ? 1 : 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         <AnimatePresence mode="wait">
@@ -314,6 +317,7 @@ export function AboutCarousel() {
           ))}
         </div>
       </motion.div>
+      )}
 
     </div>
   );
