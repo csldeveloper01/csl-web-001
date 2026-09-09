@@ -551,7 +551,7 @@ export function ContactSection() {
               </span>
               <div className="flex items-center gap-2">
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/company/creatorspacelab/" 
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="LinkedIn"
@@ -560,7 +560,7 @@ export function ContactSection() {
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/creator_spacelab/" 
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="Instagram"

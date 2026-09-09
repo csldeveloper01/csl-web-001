@@ -192,7 +192,7 @@ export function Footer() {
               </span>
               <div className="flex items-center gap-2">
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://www.linkedin.com/company/creatorspacelab/" 
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="LinkedIn"
@@ -201,7 +201,7 @@ export function Footer() {
                   <Linkedin className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/creator_spacelab/" 
                   target="_blank" 
                   rel="noreferrer" 
                   aria-label="Instagram"

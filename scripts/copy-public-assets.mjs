@@ -18,6 +18,10 @@ const copies = [
     src: path.join(root, 'Elements/PUBLIC/thumbnail.png'),
     dest: path.join(root, 'public/thumbnail.png'),
   },
+  {
+    src: path.join(root, 'Elements/LOGOS/CSL-C.png'),
+    dest: path.join(root, 'public/assets/csl-c.png'),
+  },
 ];
 
 for (const { src, fallback, dest } of copies) {

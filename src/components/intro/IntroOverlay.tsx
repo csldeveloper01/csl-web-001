@@ -61,7 +61,8 @@ export function IntroOverlay({ onFadeStart, onComplete }: IntroOverlayProps) {
       <video
         ref={videoRef}
         src="/intro/logo_intro_animation.mp4"
-        className="intro-video h-auto w-auto max-h-[min(240px,32vh)] max-w-[min(240px,55vw)] object-contain outline-none border-0 shadow-none"
+        poster="/assets/csl-c.png"
+        className="intro-video h-auto w-auto max-h-[min(480px,65vh)] max-w-[min(480px,85vw)] object-contain outline-none border-0 shadow-none"
         muted
         playsInline
         autoPlay
