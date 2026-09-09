@@ -21,6 +21,7 @@ import { NotFoundPage } from './components/pages/NotFoundPage';
 import { IntroOverlay } from './components/intro/IntroOverlay';
 import { LoadingIndicator } from './components/ui/LoadingIndicator';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
+import { preloadPageAssets } from './lib/preloadPageAssets';
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
@@ -28,6 +29,10 @@ export function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => 
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
+  const [displayedPath, setDisplayedPath] = useState<string>(() => 
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  );
+  const [isNavigating, setIsNavigating] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [introComplete, setIntroComplete] = useState(() => {
     if (typeof window === 'undefined') return true;
@@ -35,23 +40,37 @@ export function App() {
     return sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
   });
   const [introFading, setIntroFading] = useState(false);
-  const [assetsReady, setAssetsReady] = useState(false);
+  const [homeAssetsReady, setHomeAssetsReady] = useState(false);
+
+  useEffect(() => {
+    preloadHomeAssets().then(() => setHomeAssetsReady(true));
+  }, []);
 
   useEffect(() => {
     const handleLocationChange = () => {
-      setCurrentPath(window.location.pathname);
+      const targetPath = window.location.pathname;
+      setCurrentPath(targetPath);
+
+      if (targetPath === displayedPath) return;
+
+      setIsNavigating(true);
+
+      const assetLoader = targetPath === '/' ? preloadHomeAssets() : preloadPageAssets(targetPath);
+
+      assetLoader.then(() => {
+        setDisplayedPath(targetPath);
+        setTimeout(() => {
+          setIsNavigating(false);
+        }, 150);
+      });
     };
 
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
-  }, []);
+  }, [displayedPath]);
 
   useEffect(() => {
-    preloadHomeAssets().then(() => setAssetsReady(true));
-  }, []);
-
-  useEffect(() => {
-    if (currentPath === '/internships' || currentPath === '/services' || currentPath === '/courses' || currentPath === '/about' || currentPath === '/workshops') return;
+    if (displayedPath === '/internships' || displayedPath === '/services' || displayedPath === '/courses' || displayedPath === '/about' || displayedPath === '/workshops') return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -75,7 +94,7 @@ export function App() {
     });
 
     return () => observer.disconnect();
-  }, [currentPath]);
+  }, [displayedPath]);
 
   const handleNavigate = (id: string) => {
     const el = document.getElementById(id);
@@ -96,8 +115,7 @@ export function App() {
 
   const isHomePage = currentPath === '/';
   const showIntro = isHomePage && !introComplete;
-  const showHomeLoading = isHomePage && introComplete && !assetsReady && !introFading;
-  const homeVisible = isHomePage && assetsReady && (introComplete || introFading);
+  const homeVisible = isHomePage && homeAssetsReady && (introComplete || introFading);
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
@@ -109,63 +127,68 @@ export function App() {
         <NavigationRail activeSection={activeSection} onNavigate={handleNavigate} />
       )}
 
-      {currentPath === '/workshops' ? (
-        <WorkshopsPage />
-      ) : currentPath === '/about' ? (
-        <AboutPage />
-      ) : currentPath === '/courses' ? (
-        <CoursesPage />
-      ) : currentPath === '/services' ? (
-        <ServicesPage />
-      ) : currentPath === '/internships' ? (
-        <InternshipsPage />
-      ) : currentPath === '/student-portal' ? (
-        <ComingSoonPage />
-      ) : currentPath === '/' ? (
-        <div
-          className={`transition-opacity duration-500 ease-out ${homeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-          aria-hidden={!homeVisible}
-        >
-          <div id="hero">
-            <GlobalDistortionWrapper>
-              <Hero />
-            </GlobalDistortionWrapper>
+      {/* Main Page Render Area */}
+      <div className={`transition-opacity duration-300 ease-out ${isNavigating ? 'opacity-0' : 'opacity-100'}`}>
+        {displayedPath === '/workshops' ? (
+          <WorkshopsPage />
+        ) : displayedPath === '/about' ? (
+          <AboutPage />
+        ) : displayedPath === '/courses' ? (
+          <CoursesPage />
+        ) : displayedPath === '/services' ? (
+          <ServicesPage />
+        ) : displayedPath === '/internships' ? (
+          <InternshipsPage />
+        ) : displayedPath === '/student-portal' ? (
+          <ComingSoonPage />
+        ) : displayedPath === '/' ? (
+          <div
+            className={`transition-opacity duration-500 ease-out ${homeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            aria-hidden={!homeVisible}
+          >
+            <div id="hero">
+              <GlobalDistortionWrapper>
+                <Hero />
+              </GlobalDistortionWrapper>
+            </div>
+            <div id="about">
+              <AboutSection />
+            </div>
+            <div id="courses">
+              <CoursesSection />
+            </div>
+            <div id="internships">
+              <InternshipsSection />
+            </div>
+            <div id="services">
+              <ServicesSection />
+            </div>
+            <div id="tie-ups">
+              <TieupsSection />
+            </div>
+            <div id="success-stories">
+              <SuccessStoriesSection />
+            </div>
+            <div id="contact">
+              <ContactSection />
+            </div>
           </div>
-          <div id="about">
-            <AboutSection />
-          </div>
-          <div id="courses">
-            <CoursesSection />
-          </div>
-          <div id="internships">
-            <InternshipsSection />
-          </div>
-          <div id="services">
-            <ServicesSection />
-          </div>
-          <div id="tie-ups">
-            <TieupsSection />
-          </div>
-          <div id="success-stories">
-            <SuccessStoriesSection />
-          </div>
-          <div id="contact">
-            <ContactSection />
-          </div>
-        </div>
-      ) : (
-        <NotFoundPage />
-      )}
+        ) : (
+          <NotFoundPage />
+        )}
+      </div>
 
       {/* Universal Footer */}
       <Footer />
 
+      {/* Intro Overlay — Video Only, pure white background */}
       {showIntro && (
         <IntroOverlay onFadeStart={handleIntroFadeStart} onComplete={handleIntroComplete} />
       )}
 
-      {showHomeLoading && (
-        <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-csl-bg">
+      {/* Page Navigation CSL Loading GIF Overlay */}
+      {isNavigating && (
+        <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-csl-bg/95 backdrop-blur-sm transition-opacity duration-300 ease-out">
           <LoadingIndicator />
         </div>
       )}

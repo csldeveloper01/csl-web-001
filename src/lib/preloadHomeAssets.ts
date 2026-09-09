@@ -30,7 +30,13 @@ let preloadPromise: Promise<void> | null = null;
 function preloadImage(src: string): Promise<void> {
   return new Promise((resolve) => {
     const img = new Image();
-    img.onload = () => resolve();
+    img.onload = () => {
+      if ('decode' in img) {
+        img.decode().then(() => resolve()).catch(() => resolve());
+      } else {
+        resolve();
+      }
+    };
     img.onerror = () => resolve();
     img.src = src;
   });
