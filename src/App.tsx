@@ -13,7 +13,10 @@ import { WorkshopsPage } from './components/pages/WorkshopsPage';
 import { ComingSoonPage } from './components/pages/ComingSoonPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
 import { IntroOverlay } from './components/intro/IntroOverlay';
-import { LoadingIndicator } from './components/ui/LoadingIndicator';
+import { AboutPage } from './components/pages/AboutPage';
+import { CoursesPage } from './components/pages/CoursesPage';
+import { ServicesPage } from './components/pages/ServicesPage';
+import { InternshipsPage } from './components/pages/InternshipsPage';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
 import { preloadPageAssets } from './lib/preloadPageAssets';
 
@@ -27,7 +30,6 @@ export function App() {
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
   const [isNavigating, setIsNavigating] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>('hero');
   const [introComplete, setIntroComplete] = useState(() => {
     if (typeof window === 'undefined') return true;
     if (window.location.pathname !== '/') return true;
@@ -64,13 +66,6 @@ export function App() {
   }, [displayedPath]);
 
   // Removed side‑rail IntersectionObserver; no longer needed after NavigationRail removal.
-
-  const handleNavigate = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleIntroFadeStart = () => {
     setIntroFading(true);

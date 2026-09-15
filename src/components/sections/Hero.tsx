@@ -7,13 +7,6 @@ import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
 // @ts-expect-error
 import cslC from '../../../Elements/LOGOS/CSL-C.svg';
 
-const heroNavItems = [
-  { label: 'Courses', href: '#courses', icon: BookOpen },
-  { label: 'Internships', href: '#internships', icon: Briefcase },
-  { label: 'Services', href: '#services', icon: Layers },
-  { label: 'Contact', href: '#contact', icon: Mail },
-];
-
 const navigateToStudentPortal = () => {
   window.history.pushState({}, '', '/student-portal');
   window.dispatchEvent(new PopStateEvent('popstate'));
