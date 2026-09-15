@@ -19,6 +19,7 @@ import { ServicesPage } from './components/pages/ServicesPage';
 import { InternshipsPage } from './components/pages/InternshipsPage';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
 import { preloadPageAssets } from './lib/preloadPageAssets';
+import { LoadingIndicator } from './components/ui/LoadingIndicator';
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 

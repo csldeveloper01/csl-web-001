@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, Briefcase, Layers, Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { HeroVisual } from './HeroVisual';
 import { YellowBox } from '../effects/YellowBox';
 
