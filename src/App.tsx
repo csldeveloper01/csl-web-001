@@ -8,13 +8,7 @@ import { TieupsSection } from './components/sections/Tieups/TieupsSection';
 import { SuccessStoriesSection } from './components/sections/SuccessStories/SuccessStoriesSection';
 import { ContactSection } from './components/sections/Contact/ContactSection';
 import { Footer } from './components/layout/Footer';
-import { GlobalDistortionWrapper } from './components/effects/GlobalDistortionWrapper';
 import { Navbar } from './components/layout/Navbar';
-import { NavigationRail, SECTIONS } from './components/layout/NavigationRail';
-import { InternshipsPage } from './components/pages/InternshipsPage';
-import { ServicesPage } from './components/pages/ServicesPage';
-import { CoursesPage } from './components/pages/CoursesPage';
-import { AboutPage } from './components/pages/AboutPage';
 import { WorkshopsPage } from './components/pages/WorkshopsPage';
 import { ComingSoonPage } from './components/pages/ComingSoonPage';
 import { NotFoundPage } from './components/pages/NotFoundPage';
@@ -69,32 +63,7 @@ export function App() {
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, [displayedPath]);
 
-  useEffect(() => {
-    if (displayedPath === '/internships' || displayedPath === '/services' || displayedPath === '/courses' || displayedPath === '/about' || displayedPath === '/workshops') return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        threshold: 0.3,
-        rootMargin: '-10% 0px -20% 0px',
-      }
-    );
-
-    SECTIONS.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) {
-        observer.observe(el);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, [displayedPath]);
+  // Removed side‑rail IntersectionObserver; no longer needed after NavigationRail removal.
 
   const handleNavigate = (id: string) => {
     const el = document.getElementById(id);
@@ -122,10 +91,7 @@ export function App() {
       {/* Persistent Sticky Navbar */}
       <Navbar />
 
-      {/* Persistent Left-Side Vertical Sideways Section Rail (on Home Page) */}
-      {isHomePage && homeVisible && (
-        <NavigationRail activeSection={activeSection} onNavigate={handleNavigate} />
-      )}
+      
 
       {/* Main Page Render Area */}
       <div className={`transition-opacity duration-300 ease-out ${isNavigating ? 'opacity-0' : 'opacity-100'}`}>
@@ -147,9 +113,7 @@ export function App() {
             aria-hidden={!homeVisible}
           >
             <div id="hero">
-              <GlobalDistortionWrapper>
-                <Hero />
-              </GlobalDistortionWrapper>
+              <Hero />
             </div>
             <div id="about">
               <AboutSection />

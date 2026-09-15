@@ -32,7 +32,7 @@ export function Hero() {
   ];
 
   return (
-    <div id="hero" className="relative min-h-screen overflow-hidden flex flex-col justify-between cursor-default bg-[#FBF7F4] pt-4 sm:pt-6 pb-8 md:pb-12">
+    <div id="hero" className="relative min-h-screen overflow-hidden flex flex-col justify-between cursor-default bg-[#FBF7F4] mt-16 pt-4 sm:pt-6 pb-8 md:pb-12">
       {/* Static Background Blocks */}
       <div className="absolute inset-0 pointer-events-none z-0 2xl:max-w-[1600px] 2xl:mx-auto">
         {yellowBlocks.map((block, i) => (
@@ -40,26 +40,7 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Standalone Integrated Navbar for Hero */}
-      <header className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 py-3 sm:py-4 flex items-center justify-center pointer-events-auto">
-        <nav className="w-full flex items-center justify-center gap-6 sm:gap-10 md:gap-20 lg:gap-24">
-          {heroNavItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <a 
-                key={item.label} 
-                href={item.href} 
-                aria-label={item.label}
-                className="group flex items-center gap-2 text-csl-text font-bold text-sm lg:text-[15px] hover:text-csl-blue transition-colors tracking-wide p-1.5 md:p-0"
-              >
-                <Icon className="w-4 h-4 md:hidden text-csl-blue" />
-                <span className="hidden md:inline">{item.label}</span>
-                <span className="hidden md:inline-block w-1.5 h-1.5 rounded-[1px] bg-csl-gold opacity-0 group-hover:opacity-100 transition-all group-hover:scale-125 shadow-xs" />
-              </a>
-            );
-          })}
-        </nav>
-      </header>
+
 
       {/* Main Hero Content (Mobile: Title -> Bitmap -> Buttons) */}
       <main className="flex-1 relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-center pt-4 sm:pt-6 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 h-full pointer-events-none">
