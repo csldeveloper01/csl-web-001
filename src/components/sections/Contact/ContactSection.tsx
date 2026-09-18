@@ -161,9 +161,10 @@ export function ContactSection() {
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
             
-            <h2 
-              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4" 
+            <h2
+              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight mb-4"
               data-distort="text"
+              style={{ lineHeight: '0.99' }}
             >
               Let’s build <br />
               <span className="text-csl-blue">something great</span> <br />

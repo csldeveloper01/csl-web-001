@@ -115,8 +115,9 @@ export function SuccessStoriesSection() {
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4" 
+            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4"
             data-distort="text"
+            style={{ lineHeight: '0.99' }}
           >
             Our <br />
             <span className="text-csl-blue">Success Stories</span>

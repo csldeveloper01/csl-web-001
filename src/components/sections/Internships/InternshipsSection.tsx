@@ -68,13 +68,13 @@ export function InternshipsSection() {
           
           {/* Header */}
           <h2 
-            className="text-3xl sm:text-4xl md:text-[3.1rem] font-extrabold text-csl-text section-heading tracking-tight mb-4" 
+            className="text-3xl sm:text-4xl md:text-[3.1rem] font-extrabold text-csl-text section-heading tracking-tight mb-4"
             data-distort="text"
+            style={{ lineHeight: '0.99' }}
           >
             Build beyond <br />
             the <span className="text-csl-blue">classroom.</span>
-          </h2>
-          
+          </h2>          
           {/* Subtitle */}
           <p className="text-csl-muted font-medium text-sm md:text-base mb-6 lg:mb-9 section-subheading max-w-lg">
             Work on real-world problems, build with modern technologies, and turn your skills into experience.
