@@ -77,7 +77,7 @@ export function TieupsSection() {
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>
           </div>
           <h2 
-            className="text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight leading-[1.12]" 
+            className="text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading" 
             data-distort="text"
           >
             Trusted by Global <br />
@@ -148,7 +148,7 @@ export function TieupsSection() {
 
         {/* Partnership Description */}
         <div className="w-full max-w-5xl mt-2">
-          <p className="text-csl-muted font-medium text-sm md:text-[15px] leading-relaxed md:leading-loose">
+          <p className="text-csl-muted font-medium text-sm md:text-[15px] section-subheading md:leading-loose">
             We build meaningful partnerships with leading enterprises, institutions, and emerging startups to bridge the gap between learning and the real world. Through these collaborations, we create opportunities for students and aspiring professionals to gain industry exposure, participate in practical projects, access mentorship, and understand evolving technology landscapes. Our growing network of 125+ startups and industry connections strengthens our ability to bring relevant knowledge, innovative ideas, and career opportunities closer to learners. Together with our partners, we aim to create an ecosystem where education, technology, and industry come together to inspire innovation, develop talent, and shape future-ready professionals.
           </p>
         </div>

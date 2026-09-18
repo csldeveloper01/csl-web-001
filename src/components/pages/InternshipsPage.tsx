@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
 import { sendInternshipEnquiry, sendInternshipForm, InternshipEnquiryPayload, EmailJSResult } from '../../services/emailService';
-import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
 
 // @ts-ignore
 import heroStandaloneVisual from '../../../Elements/INTERNSHIPS/INTERNSHIPS - Standalone.png';
@@ -121,14 +120,6 @@ const whyJoinUsFeatures = [
   }
 ];
 
-const internshipsSections: SectionInfo[] = [
-  { id: 'hero', title: 'INTERNSHIPS' },
-  { id: 'tracks', title: 'TRACKS' },
-  { id: 'experience', title: 'EXPERIENCE' },
-  { id: 'why-join', title: 'WHY JOIN' },
-  { id: 'apply-form', title: 'APPLY' },
-];
-
 export function InternshipsPage() {
   // Internship Enquiry Form State
   const [formData, setFormData] = useState<InternshipEnquiryPayload>({
@@ -150,30 +141,10 @@ export function InternshipsPage() {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [submittingDots, setSubmittingDots] = useState('.');
   const [errorMessage, setErrorMessage] = useState('');
-  const [activeSection, setActiveSection] = useState('hero');
 
   const formRef = useRef<HTMLDivElement>(null);
   const actualFormRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
-    );
-
-    internshipsSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   // Submitting dots animation loop (Submitting -> Submitting.. -> Submitting...)
   useEffect(() => {
@@ -297,8 +268,6 @@ export function InternshipsPage() {
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Page Internal Navigation Rail */}
-      <NavigationRail sections={internshipsSections} activeSection={activeSection} />
       
       {/* ==================================================
           1. HERO SECTION (RECLINING SCROLL EFFECT)
@@ -384,10 +353,10 @@ export function InternshipsPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Internship <span className="text-csl-blue">Tracks</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Choose your domain and gain production-grade engineering experience with guidance from industry experts.
             </p>
           </div>
@@ -496,10 +465,10 @@ export function InternshipsPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Why Join <span className="text-csl-blue">Us?</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
                 Gain tangible industry credentials, production-grade project experience, and mentorship.
               </p>
             </div>
@@ -559,10 +528,10 @@ export function InternshipsPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Looking for an <span className="text-csl-blue">Internship?</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="text-csl-muted font-medium text-sm md:text-base section-subheading max-w-xl mx-auto">
                 Tell us a little about yourself and the kind of internship you're looking for. Send us an enquiry and our team will get in touch regarding available internship opportunities that match your interests and background.
               </p>
             </div>

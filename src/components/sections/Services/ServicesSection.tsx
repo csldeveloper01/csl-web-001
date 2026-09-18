@@ -139,7 +139,7 @@ export function ServicesSection() {
 
             {/* Headline */}
             <h2 
-              className="text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight leading-[1.08] mb-2" 
+              className="text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-2" 
               data-distort="text"
             >
               Our <span className="text-csl-blue">Services</span>
@@ -147,7 +147,7 @@ export function ServicesSection() {
             <div className="h-[2px] w-12 bg-csl-gold/50 mb-5"></div>
 
             {/* Main General Description */}
-            <p className="text-csl-muted font-medium text-sm md:text-[15px] leading-relaxed mb-6 max-w-md">
+            <p className="text-csl-muted font-medium text-sm md:text-[15px] section-subheading mb-6 max-w-md">
               We provide end-to-end academic, research and technology solutions designed to help students, researchers and organizations innovate, build and grow with confidence.
             </p>
 

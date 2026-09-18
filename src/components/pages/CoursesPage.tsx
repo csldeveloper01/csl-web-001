@@ -19,15 +19,6 @@ import {
 import { YellowBox } from '../effects/YellowBox';
 import { sendContactForm, EmailJSResult } from '../../services/emailService';
 import { useDeepLinkHighlight } from '../../hooks/useDeepLinkHighlight';
-import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
-
-const coursesSections: SectionInfo[] = [
-  { id: 'hero', title: 'COURSES' },
-  { id: 'featured-course', title: 'FEATURED' },
-  { id: 'catalogue', title: 'CATALOGUE' },
-  { id: 'learning-journey', title: 'LEARNING' },
-  { id: 'practical', title: 'PRACTICAL' },
-];
 
 // @ts-ignore
 import iconAI from '../../../Elements/COURSES/AI and Machine Learning.png';
@@ -929,32 +920,10 @@ export function CoursesPage() {
     { size: 'w-16 h-16', pos: 'bottom-[15%] right-[25%]', delay: 0.9, duration: 7.5 },
   ];
 
-  const [activeSection, setActiveSection] = useState<string>('hero');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
-    );
-
-    coursesSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Page Internal Navigation Rail */}
-      <NavigationRail sections={coursesSections} activeSection={activeSection} />
       
       {/* ==================================================
           1. COURSES HERO SECTION
@@ -1035,10 +1004,10 @@ export function CoursesPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Start <span className="text-csl-blue">Here</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Build a strong foundation with practical, structured learning designed around real-world skills.
             </p>
           </div>
@@ -1151,10 +1120,10 @@ export function CoursesPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Find Your Next <span className="text-csl-blue">Skill</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Explore courses across development, design, data science, data analytics, marketing, cloud, and AI/ML.
             </p>
           </div>
@@ -1325,10 +1294,10 @@ export function CoursesPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Choose Your <span className="text-csl-blue">Starting Point</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
                 Clear skill progressions structured from beginner fundamentals to advanced specialization.
               </p>
             </div>
@@ -1429,10 +1398,10 @@ export function CoursesPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Learn by <span className="text-csl-blue">Doing.</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Our curriculum prioritizes hands-on project building over passive lectures.
             </p>
           </div>
@@ -1495,11 +1464,11 @@ export function CoursesPage() {
               <BookOpen className="w-6 h-6" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Your next skill <span className="text-csl-blue">starts here.</span>
             </h2>
 
-            <p className="text-csl-muted font-medium text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+            <p className="text-csl-muted font-medium text-sm md:text-base section-subheading mb-8 max-w-lg">
               Pick a course, start learning, and turn knowledge into something you can build.
             </p>
 

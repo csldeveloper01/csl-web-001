@@ -16,16 +16,6 @@ import {
   Rocket
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
-import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
-
-const aboutSections: SectionInfo[] = [
-  { id: 'hero', title: 'ABOUT' },
-  { id: 'who-we-are', title: 'IDENTITY' },
-  { id: 'why-csl', title: 'WHY CSL' },
-  { id: 'our-difference', title: 'METHODOLOGY' },
-  { id: 'ecosystem', title: 'ECOSYSTEM' },
-  { id: 'whats-next', title: 'NEXT' },
-];
 
 // @ts-ignore
 import heroAboutVisual from '../../../Elements/ABOUT/AI INNOVATION.png';
@@ -178,10 +168,13 @@ function WhatsNextSection() {
           <span className="text-csl-blue font-bold tracking-widest text-xs uppercase block mb-3">
             NEXT STEPS
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-csl-text tracking-tight uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-csl-text section-heading tracking-tight uppercase">
             WHAT'S NEXT <span className="text-csl-blue">FOR YOU?</span>
           </h2>
           <div className="h-[2px] w-24 bg-gradient-to-r from-csl-gold to-csl-blue mx-auto mt-4" />
+          <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl mx-auto section-subheading mt-6">
+            Choose your path and take the next step with Creator Space Lab.
+          </p>
         </motion.div>
 
         {/* 3 Editorial Destination Pillars */}
@@ -227,27 +220,7 @@ function WhatsNextSection() {
 
 export function AboutPage() {
   const [activeDifferenceIndex, setActiveDifferenceIndex] = useState<number>(0);
-  const [activeSection, setActiveSection] = useState<string>('hero');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
-    );
-
-    aboutSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   // Reclining Hero Scroll Effect
   const { scrollY } = useScroll();
@@ -354,8 +327,6 @@ export function AboutPage() {
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Page Internal Navigation Rail */}
-      <NavigationRail sections={aboutSections} activeSection={activeSection} />
       
       {/* ==================================================
           1. ABOUT HERO SECTION
@@ -483,10 +454,10 @@ export function AboutPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-6">
               Who <span className="text-csl-blue">We Are</span>
             </h2>
-            <p className="text-base sm:text-lg text-csl-text font-medium leading-relaxed">
+            <p className="text-base sm:text-lg text-csl-text font-medium section-subheading">
               We are a modern EdTech & Software Solutions company dedicated to transforming careers and accelerating business innovation. Through hands-on training, real-world project experience, and end-to-end software development services, we empower learners and organizations to grow with confidence in a rapidly evolving digital world.
             </p>
           </motion.div>
@@ -584,10 +555,10 @@ export function AboutPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-6">
                 Why Choose <span className="text-csl-blue">Creator Space Lab?</span>
               </h2>
-              <p className="text-base sm:text-lg text-csl-text font-medium leading-relaxed">
+              <p className="text-base sm:text-lg text-csl-text font-medium section-subheading">
                 We don't just deliver education—we transform learning experiences. With AI-powered personalization, expert mentorship, and proven methodologies, we turn every student's potential into measurable academic success.
               </p>
             </motion.div>
@@ -646,10 +617,10 @@ export function AboutPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               The CSL <span className="text-csl-blue">Difference</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Six core operational principles engineered for maximum learning outcome and career transformation.
             </p>
           </motion.div>
@@ -735,10 +706,10 @@ export function AboutPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Comprehensive <span className="text-csl-blue">Learning Ecosystem</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
                 An interconnected learning framework covering every stage of education, professional growth, and skill mastery.
               </p>
             </motion.div>
@@ -821,13 +792,13 @@ export function AboutPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-2">
               Transform Your Learning Journey Today
             </h2>
             <h3 className="text-lg sm:text-xl font-bold text-csl-blue mb-4">
               Ready to Unlock Your Full Potential?
             </h3>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Join millions of students who have transformed their academic journey with our innovative learning platform. Start your personalized learning experience today.
             </p>
           </motion.div>

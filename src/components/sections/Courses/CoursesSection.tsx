@@ -93,12 +93,12 @@ export function CoursesSection() {
           </div>
           
           {/* Header */}
-          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-csl-text leading-[1.1] tracking-tight mb-4" data-distort="text">
+          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-csl-text section-heading tracking-tight mb-4" data-distort="text">
             Learn what <br className="hidden sm:block" />
             moves you <span className="text-csl-blue">forward.</span>
           </h2>
 
-          <p className="text-csl-muted text-sm sm:text-base leading-relaxed mb-8 max-w-md">
+          <p className="text-csl-muted text-sm sm:text-base section-subheading mb-8 max-w-md">
             Industry-focused courses designed around practical skills, real projects, and technologies that actually get used.
           </p>
 
@@ -152,7 +152,7 @@ export function CoursesSection() {
           </div>
           
           {/* Subheading */}
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-csl-text leading-tight tracking-tight mb-8" data-distort="text">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-csl-text section-heading tracking-tight mb-8" data-distort="text">
             Hands-on workshops in <br />
             high-demand domains
           </h3>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -153,40 +153,11 @@ function SpecializationCard({ track, idx, isHighlighted }: { track: any; idx: nu
   );
 }
 
-import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
-
-const workshopsSections: SectionInfo[] = [
-  { id: 'hero', title: 'WORKSHOP' },
-  { id: 'domains', title: 'DOMAINS' },
-  { id: 'pipeline', title: 'PIPELINE' },
-  { id: 'why-choose', title: 'WHY CHOOSE' },
-  { id: 'participation-cta', title: 'JOIN' },
-];
 
 export function WorkshopsPage() {
   const [activeWhyChooseIndex, setActiveWhyChooseIndex] = useState<number>(0);
-  const [activeSection, setActiveSection] = useState<string>('hero');
   const highlightedId = useDeepLinkHighlight();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
-    );
-
-    workshopsSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   // Reclining Hero Scroll Effect
   const { scrollY } = useScroll();
@@ -217,8 +188,6 @@ export function WorkshopsPage() {
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Page Internal Navigation Rail */}
-      <NavigationRail sections={workshopsSections} activeSection={activeSection} />
       
       {/* ==================================================
           1. WORKSHOP HERO SECTION
@@ -330,10 +299,10 @@ export function WorkshopsPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Specialization <span className="text-csl-blue">Tracks</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Focus on AI, Cloud & AWS with expert guidance
             </p>
           </div>
@@ -405,10 +374,10 @@ export function WorkshopsPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 From Concept to <span className="text-csl-blue">Cloud</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
                 Learn AI, Cloud & AWS deployment from IT industry experts. Build and deploy real-world AI-powered cloud applications with live mentorship.
               </p>
             </div>
@@ -462,10 +431,10 @@ export function WorkshopsPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-3">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Why Choose Our <span className="text-csl-blue">AI & AWS Workshop?</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               Industry-grade training with real results
             </p>
           </div>
@@ -544,11 +513,11 @@ export function WorkshopsPage() {
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Learn AI, Cloud & AWS deployment from <span className="text-csl-blue">IT industry experts.</span>
             </h2>
 
-            <p className="text-csl-muted font-medium text-base sm:text-lg leading-relaxed mb-10 max-w-2xl">
+            <p className="text-csl-muted font-medium text-base sm:text-lg section-subheading mb-10 max-w-2xl">
               Build and deploy real-world AI-powered cloud applications with live mentorship.
             </p>
 

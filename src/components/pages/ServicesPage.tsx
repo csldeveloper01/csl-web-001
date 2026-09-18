@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   FileCode2, 
@@ -240,39 +240,10 @@ const categoryFilterOptions = [
   'UI/UX'
 ];
 
-import { NavigationRail, SectionInfo } from '../layout/NavigationRail';
-
-const servicesSections: SectionInfo[] = [
-  { id: 'hero', title: 'SERVICES' },
-  { id: 'our-services', title: 'SERVICES LIST' },
-  { id: 'metrics', title: 'METRICS' },
-  { id: 'selected-work', title: 'PROJECTS' },
-  { id: 'final-cta', title: 'CTA' },
-];
 
 export function ServicesPage() {
   const [activeFilter, setActiveFilter] = useState('ALL');
-  const [activeSection, setActiveSection] = useState('hero');
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-10% 0px -20% 0px' }
-    );
-
-    servicesSections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   // Reclining Hero Scroll Effect
   const { scrollY } = useScroll();
@@ -312,8 +283,6 @@ export function ServicesPage() {
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Page Internal Navigation Rail */}
-      <NavigationRail sections={servicesSections} activeSection={activeSection} />
       
       {/* ==================================================
           1. SERVICES HERO SECTION
@@ -399,10 +368,10 @@ export function ServicesPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Our <span className="text-csl-blue">Services</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               From research and engineering to training and product development, we turn complex ideas into practical solutions.
             </p>
           </div>
@@ -471,10 +440,10 @@ export function ServicesPage() {
                 </span>
                 <div className="h-[2px] w-8 bg-csl-gold/60"></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Built to <span className="text-csl-blue">Deliver.</span>
               </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
                 Real projects, measurable outcomes, and a team focused on turning ideas into working solutions.
               </p>
             </div>
@@ -519,10 +488,10 @@ export function ServicesPage() {
               </span>
               <div className="h-[2px] w-8 bg-csl-gold/60"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Selected <span className="text-csl-blue">Work</span>
             </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl leading-relaxed">
+            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
               A look at the engineering, research, and digital solutions we've built across industries.
             </p>
           </div>
@@ -707,11 +676,11 @@ export function ServicesPage() {
               <Sparkles className="w-6 h-6" />
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Have something <span className="text-csl-blue">worth building?</span>
             </h2>
 
-            <p className="text-csl-muted font-medium text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+            <p className="text-csl-muted font-medium text-sm md:text-base section-subheading mb-8 max-w-lg">
               Tell us what you're working on. We'll figure out what it takes to turn the idea into something real.
             </p>
 

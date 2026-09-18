@@ -30,6 +30,25 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Section Subheading — shared supporting text under section headings.
+   Keeps the existing font size & typography, but gives multi-line
+   subheadings comfortable breathing room between wrapped lines. */
+.section-subheading {
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .section-subheading {
+    line-height: 1.8;
+  }
+}
+
+/* Section Heading — display headings inside page sections.
+   Opens up line spacing so multi-line headings breathe comfortably. */
+.section-heading {
+  line-height: 1.45;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-csl-bg);

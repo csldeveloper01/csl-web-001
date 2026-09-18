@@ -162,15 +162,15 @@ export function ContactSection() {
             </div>
             
             <h2 
-              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight leading-[1.08] mb-4" 
+              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4" 
               data-distort="text"
             >
-              Let’s build <br />
+              Let’s build <br /><br />
               <span className="text-csl-blue">something great</span> <br />
               together.
             </h2>
             
-            <p className="text-csl-muted font-medium text-sm md:text-base leading-relaxed max-w-md">
+            <p className="text-csl-muted font-medium text-sm md:text-base section-subheading max-w-md">
               Have questions or want to collaborate? <br />
               We’d love to hear from you.
             </p>

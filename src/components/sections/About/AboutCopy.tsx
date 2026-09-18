@@ -12,13 +12,13 @@ export function AboutCopy() {
       </div>
 
       {/* Heading */}
-      <h2 className="text-5xl md:text-6xl font-extrabold text-csl-text leading-[1.1] tracking-tight mb-8">
+      <h2 className="text-5xl md:text-6xl font-extrabold text-csl-text section-heading tracking-tight mb-8">
         About <br />
         <span className="text-csl-gold">Creator Space Lab</span>
       </h2>
 
       {/* Paragraph */}
-      <p className="text-base text-csl-muted leading-relaxed mb-10 max-w-lg">
+      <p className="text-base text-csl-muted section-subheading mb-10 max-w-lg">
         We are a modern EdTech & Software Solutions company dedicated to transforming careers and accelerating business innovation. Through hands-on training, real-world project experience, and end-to-end software development services, we empower learners and organizations to grow with confidence in a rapidly evolving digital world.
       </p>
 

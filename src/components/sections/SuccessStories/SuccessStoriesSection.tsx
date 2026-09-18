@@ -115,13 +115,13 @@ export function SuccessStoriesSection() {
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight leading-[1.08] mb-4" 
+            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4" 
             data-distort="text"
           >
-            Our <br />
+            Our <br/><br />
             <span className="text-csl-blue">Success Stories</span>
           </h2>
-          <p className="text-csl-muted font-medium text-xs md:text-sm leading-relaxed max-w-lg">
+          <p className="text-csl-muted font-medium text-xs md:text-sm section-subheading max-w-lg">
             Real people. Real journeys. Real success. <br />
             Here are some of our learners who transformed their careers with the right skills and guidance.
           </p>

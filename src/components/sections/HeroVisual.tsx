@@ -89,7 +89,7 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div className="relative w-full h-[480px] sm:h-[520px] lg:h-[660px] flex flex-col items-center justify-center pt-4 sm:pt-10 lg:pt-0">
+    <div className="relative isolate w-full h-[480px] sm:h-[520px] lg:h-[660px] flex flex-col items-center justify-center pt-4 sm:pt-10 lg:pt-0">
       
       {/* Voxel Bitmap Pieces Container with Original Hover & Float Behavior */}
       <div className="relative flex flex-col items-center justify-center w-full max-w-[320px] sm:max-w-[340px] lg:max-w-[380px]">
@@ -148,46 +148,58 @@ export function HeroVisual() {
           if (hoveredId !== piece.id) return null;
 
           return (
+            /* Positioning wrapper: carries the static placement transform ONLY.
+               (No transform values are animated here, so the Tailwind centering
+               translate is never overwritten — popups stay perfectly centered
+               above the state images on mobile and anchored on desktop.) */
             <motion.div
               key={`panel-${piece.id}`}
-              initial={{ opacity: 0, scale: 0.96, y: -6 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -6 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:top-auto md:translate-x-0 md:translate-y-0 md:left-[-125px] lg:md:left-[-135px] xl:md:left-[-145px] ${piece.panelTop} z-50 w-[270px] sm:w-[285px] md:w-[245px] pointer-events-none`}
             >
-              {/* Stained Glass Panel Box */}
-              <div className="relative bg-[#FFFBEA]/95 md:bg-[#FFFBEA]/90 backdrop-blur-md border border-[#FFB703]/70 md:border-[#FFB703]/60 shadow-2xl shadow-[#FFB703]/25 md:shadow-xl md:shadow-[#FFB703]/15 rounded-xl p-3.5 md:p-4 flex flex-col">
-                
-                {/* Connector Line to the Bitmap on Desktop */}
-                <div className="absolute top-1/2 -right-3 w-3 h-[1.5px] bg-[#FFB703]/70 pointer-events-none hidden md:block" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96, y: -6 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.96, y: -6 }}
+                transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full max-w-full"
+              >
+                {/* Stained Glass Panel Box */}
+                <div className="relative bg-[#FFFBEA]/95 md:bg-[#FFFBEA]/90 backdrop-blur-md border border-[#FFB703]/70 md:border-[#FFB703]/60 shadow-2xl shadow-[#FFB703]/25 md:shadow-xl md:shadow-[#FFB703]/15 rounded-xl p-3.5 md:p-4 flex flex-col">
+                  
+                  {/* Connector Line to the Bitmap on Desktop */}
+                  <div className="absolute top-1/2 -right-3 w-3 h-[1.5px] bg-[#FFB703]/70 pointer-events-none hidden md:block" />
 
-                {/* Header with Title Decrypt Animation ONLY */}
-                <div className="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-[#FFB703]/30">
-                  <div className="flex items-center gap-2">
-                    <div className="w-1.5 h-3 bg-gradient-to-b from-csl-blue to-csl-deep-blue rounded-sm" />
-                    <DecryptText
-                      text={piece.title}
-                      isActive={hoveredId === piece.id}
-                      speed={26}
-                      className="text-xs md:text-sm font-extrabold tracking-widest text-csl-blue font-mono uppercase"
-                    />
+                  {/* Header with Title Decrypt Animation ONLY */}
+                  <div className="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-[#FFB703]/30">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-3 bg-gradient-to-b from-csl-blue to-csl-deep-blue rounded-sm" />
+                      <DecryptText
+                        text={piece.title}
+                        isActive={hoveredId === piece.id}
+                        speed={26}
+                        className="text-xs md:text-sm font-extrabold tracking-widest text-csl-blue font-mono uppercase"
+                      />
+                    </div>
+                    <span className="text-[9px] font-bold text-csl-gold/80 uppercase tracking-wider">
+                      CSL
+                    </span>
                   </div>
-                  <span className="text-[9px] font-bold text-csl-gold/80 uppercase tracking-wider">
-                    CSL
-                  </span>
+
+                  {/* Subtitle (Static text) */}
+                  <h4 className="text-[11px] md:text-xs font-bold text-csl-text leading-snug mb-1">
+                    {piece.subtitle}
+                  </h4>
+
+                  {/* Description (Static text) */}
+                  <p className="text-[10px] md:text-[11px] text-csl-muted font-medium leading-relaxed">
+                    {piece.description}
+                  </p>
                 </div>
-
-                {/* Subtitle (Static text) */}
-                <h4 className="text-[11px] md:text-xs font-bold text-csl-text leading-snug mb-1">
-                  {piece.subtitle}
-                </h4>
-
-                {/* Description (Static text) */}
-                <p className="text-[10px] md:text-[11px] text-csl-muted font-medium leading-relaxed">
-                  {piece.description}
-                </p>
-              </div>
+              </motion.div>
             </motion.div>
           );
         })}
