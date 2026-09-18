@@ -245,11 +245,11 @@ export function Navbar() {
                   <AnimatePresence>
                     {isCoursesOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8, x: '-50%' }}
-                        animate={{ opacity: 1, y: 0, x: '-50%' }}
-                        exit={{ opacity: 0, y: 8, x: '-50%' }}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed left-1/2 top-[60px] w-[min(1080px,calc(100vw-32px))] z-50"
+                        className="fixed inset-x-0 mx-auto top-[60px] w-[min(1080px,calc(100vw-32px))] z-50"
                         onMouseEnter={openCoursesMenu}
                         onMouseLeave={closeCoursesMenuWithDelay}
                       >
@@ -320,6 +320,9 @@ export function Navbar() {
                     onClick={() => {
                       if (item.isHomeLink) {
                         handleScrollTo(item.targetId, true);
+                      } else if (item.targetId === 'contact') {
+                        // Contact has no standalone page — scroll to the contact section
+                        handleScrollTo('contact');
                       } else {
                         // Navigate to standalone page based on targetId
                         const path = `/${item.targetId}`;
