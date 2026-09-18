@@ -71,7 +71,7 @@ export function InternshipsSection() {
             className="text-3xl sm:text-4xl md:text-[3.1rem] font-extrabold text-csl-text section-heading tracking-tight mb-4" 
             data-distort="text"
           >
-            Build beyond <br/><br />
+            Build beyond <br />
             the <span className="text-csl-blue">classroom.</span>
           </h2>
           

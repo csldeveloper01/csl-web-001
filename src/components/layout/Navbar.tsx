@@ -245,11 +245,11 @@ export function Navbar() {
                   <AnimatePresence>
                     {isCoursesOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 8 }}
+                        initial={{ opacity: 0, y: 8, x: '-50%' }}
+                        animate={{ opacity: 1, y: 0, x: '-50%' }}
+                        exit={{ opacity: 0, y: 8, x: '-50%' }}
                         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                        className="fixed left-1/2 -translate-x-1/2 top-[52px] mt-2 w-[min(92vw,1080px)] z-50"
+                        className="fixed left-1/2 top-[60px] w-[min(1080px,calc(100vw-32px))] z-50"
                         onMouseEnter={openCoursesMenu}
                         onMouseLeave={closeCoursesMenuWithDelay}
                       >
@@ -272,11 +272,11 @@ export function Navbar() {
                           </div>
 
                           {/* Multi-Column Category Grid (from existing course data) */}
-                          <div className="px-5 sm:px-7 py-6 grid grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-7">
+                          <div className="px-5 sm:px-7 py-6 flex flex-wrap justify-center gap-x-8 gap-y-7">
                             {courseMenuCategories.map((category) => {
                               const CategoryIcon = category.icon;
                               return (
-                                <div key={category.name}>
+                                <div key={category.name} className="flex-[1_1_170px] min-w-[170px] max-w-[220px]">
                                   {/* Category Heading */}
                                   <div className="flex items-center gap-2 mb-3 pb-2 border-b border-csl-gold/25">
                                     <CategoryIcon className="w-3.5 h-3.5 text-csl-gold" />
