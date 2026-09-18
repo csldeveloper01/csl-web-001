@@ -245,11 +245,11 @@ export function Navbar() {
                   <AnimatePresence>
                     {isCoursesOpen && (
                       <motion.div
-                        initial={{ opacity: 0, y: 8, x: '-50%' }}
-                        animate={{ opacity: 1, y: 0, x: '-50%' }}
-                        exit={{ opacity: 0, y: 8, x: '-50%' }}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
                         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute right-0 top-full mt-2 w-[min(92vw,1080px)] max-w-[calc(100vw-20px)] overflow-x-auto z-50"
+                        className="fixed left-1/2 -translate-x-1/2 top-[52px] mt-2 w-[min(92vw,1080px)] z-50"
                         onMouseEnter={openCoursesMenu}
                         onMouseLeave={closeCoursesMenuWithDelay}
                       >
