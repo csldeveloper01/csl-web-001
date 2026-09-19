@@ -119,18 +119,16 @@ export function TieupsSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-start transform scale-[0.88] origin-center">
+      <div className="relative z-10 section-container flex flex-col items-start">
         
         {/* Header */}
-        <div className="mb-10 w-full">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
-              Tie-ups
-            </span>
-            <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+        <div className="mb-8 lg:mb-10 w-full">
+          <div className="section-eyebrow">
+            <span>Tie-ups</span>
+            <div></div>
           </div>
           <h2 
-            className="text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading" 
+            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading max-w-2xl" 
             data-distort="text"
           >
             Trusted by Global <br />

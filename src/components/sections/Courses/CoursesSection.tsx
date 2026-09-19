@@ -80,20 +80,18 @@ export function CoursesSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-24 items-start">
+      <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
         
         {/* LEFT COLUMN: COURSES */}
         <div className="flex flex-col w-full">
           {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-              Courses
-            </span>
-            <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+          <div className="section-eyebrow">
+            <span>Courses</span>
+            <div></div>
           </div>
           
           {/* Header */}
-          <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-csl-text section-heading tracking-tight mb-4" data-distort="text">
+          <h2 className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4 max-w-lg" data-distort="text">
             Learn what <br className="hidden sm:block" />
             moves you <span className="text-csl-blue">forward.</span>
           </h2>
@@ -144,15 +142,13 @@ export function CoursesSection() {
         {/* RIGHT COLUMN: WORKSHOPS & EMERGING TECH */}
         <div className="flex flex-col w-full">
           {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-              Workshops & Emerging Tech
-            </span>
-            <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+          <div className="section-eyebrow">
+            <span>Workshops & Emerging Tech</span>
+            <div></div>
           </div>
           
           {/* Subheading */}
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-csl-text section-heading tracking-tight mb-8" data-distort="text">
+          <h3 className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-6 sm:mb-8" data-distort="text">
             Hands-on workshops in <br />
             high-demand domains
           </h3>

@@ -155,7 +155,7 @@ function WhatsNextSection() {
 
   return (
     <section id="whats-next" className="relative w-full py-20 md:py-28 bg-gradient-to-b from-csl-bg via-[#FBF7F4] to-white border-t border-csl-gold/20">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col items-center">
+      <div className="section-container flex flex-col items-center">
         
         {/* Section Header */}
         <motion.div
@@ -343,15 +343,13 @@ export function AboutPage() {
           ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Mobile Order 1: Title & Eyebrow */}
           <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                ABOUT CREATORSPACE LAB
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>ABOUT CREATORSPACE LAB</span>
+              <div></div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-extrabold text-csl-text leading-[1.06] tracking-tight mb-2">
@@ -401,7 +399,7 @@ export function AboutPage() {
             2. HERO METRICS (Count-Up Entrance Animation)
            ================================================== */}
         <section className="relative w-full py-12 md:py-16 bg-white/40 border-b border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-csl-gold/20 w-full">
               
               <div className="flex flex-col items-center text-center p-6 first:pt-0 last:pb-0 md:py-2">
@@ -438,7 +436,7 @@ export function AboutPage() {
         {/* ==================================================
             3. WHO WE ARE (Paragraph + 3 Large Pillars with TOP-RIGHT LED DOTS)
            ================================================== */}
-        <section id="who-we-are" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="who-we-are" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <motion.div 
@@ -448,11 +446,9 @@ export function AboutPage() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mb-12"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                IDENTITY
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>IDENTITY</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-6">
               Who <span className="text-csl-blue">We Are</span>
@@ -539,7 +535,7 @@ export function AboutPage() {
             4. WHY CHOOSE CREATOR SPACE LAB (Count-Up Animation)
            ================================================== */}
         <section id="why-csl" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <motion.div 
@@ -549,11 +545,9 @@ export function AboutPage() {
               transition={{ duration: 0.5 }}
               className="max-w-3xl mb-12"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  OUR PROMISE
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow">
+                <span>OUR PROMISE</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-6">
                 Why Choose <span className="text-csl-blue">Creator Space Lab?</span>
@@ -601,7 +595,7 @@ export function AboutPage() {
         {/* ==================================================
             5. THE CSL DIFFERENCE (6 Sequential Vertical Items)
            ================================================== */}
-        <section id="our-difference" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="our-difference" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <motion.div 
@@ -611,11 +605,9 @@ export function AboutPage() {
             transition={{ duration: 0.5 }}
             className="mb-12"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                METHODOLOGY
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>METHODOLOGY</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               The CSL <span className="text-csl-blue">Difference</span>
@@ -690,7 +682,7 @@ export function AboutPage() {
             (Fixed Radial Desktop Composition + Separated Position & Animation Architecture)
            ================================================== */}
         <section id="ecosystem" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <motion.div 
@@ -700,11 +692,9 @@ export function AboutPage() {
               transition={{ duration: 0.5 }}
               className="mb-14 text-center flex flex-col items-center"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  HOLISTIC PROGRAM
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>HOLISTIC PROGRAM</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Comprehensive <span className="text-csl-blue">Learning Ecosystem</span>
@@ -776,7 +766,7 @@ export function AboutPage() {
         {/* ==================================================
             8. TRANSFORM YOUR LEARNING JOURNEY (CTA & 4 Steps)
            ================================================== */}
-        <section id="learning-journey" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="learning-journey" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <motion.div 
@@ -786,11 +776,9 @@ export function AboutPage() {
             transition={{ duration: 0.5 }}
             className="mb-12 text-center flex flex-col items-center"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                TAKE ACTION
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow justify-center">
+              <span>TAKE ACTION</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-2">
               Transform Your Learning Journey Today

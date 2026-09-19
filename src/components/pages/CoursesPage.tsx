@@ -936,15 +936,13 @@ export function CoursesPage() {
           ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Mobile Order 1: Title & Eyebrow */}
           <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                COURSES
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>COURSES</span>
+              <div></div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-extrabold text-csl-text leading-[1.06] tracking-tight mb-2">
@@ -994,15 +992,13 @@ export function CoursesPage() {
         {/* ==================================================
             2. FEATURED COURSE ("Start Here")
            ================================================== */}
-        <section id="featured-course" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="featured-course" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-10">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                FEATURED PROGRAM
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>FEATURED PROGRAM</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Start <span className="text-csl-blue">Here</span>
@@ -1110,15 +1106,13 @@ export function CoursesPage() {
         {/* ==================================================
             3. COURSE DISCOVERY & CATALOGUE
            ================================================== */}
-        <section id="catalogue" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 border-t border-csl-gold/20">
+        <section id="catalogue" className="relative w-full py-16 md:py-24 section-container border-t border-csl-gold/20">
           
           {/* Header */}
           <div className="mb-10 text-center flex flex-col items-center">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                EXPLORE CATALOGUE
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow justify-center">
+              <span>EXPLORE CATALOGUE</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Find Your Next <span className="text-csl-blue">Skill</span>
@@ -1284,15 +1278,13 @@ export function CoursesPage() {
             4. LEARNING JOURNEY ("Choose Your Starting Point")
            ================================================== */}
         <section id="learning-journey" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <div className="mb-12 text-center flex flex-col items-center">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  PROGRESSION
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>PROGRESSION</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Choose Your <span className="text-csl-blue">Starting Point</span>
@@ -1388,15 +1380,13 @@ export function CoursesPage() {
         {/* ==================================================
             5. LEARN BY DOING
            ================================================== */}
-        <section id="practical" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="practical" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-12 text-center flex flex-col items-center">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                METHODOLOGY
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow justify-center">
+              <span>METHODOLOGY</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Learn by <span className="text-csl-blue">Doing.</span>

@@ -147,24 +147,21 @@ export function ContactSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-center">
+      <div className="relative z-10 section-container flex flex-col items-center">
         
         {/* TOP ROW: HEADER & 3D ARTWORK (Mobile: order 1 & 2) */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 items-center mb-8 lg:mb-10">
           
           {/* Top Left: Header (order-1 on mobile) */}
           <div className="flex flex-col order-1">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                Contact Us
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>Contact Us</span>
+              <div></div>
             </div>
             
             <h2
-              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight mb-4"
+              className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4 max-w-lg"
               data-distort="text"
-              style={{ lineHeight: '0.99' }}
             >
               Let’s build <br />
               <span className="text-csl-blue">something great</span> <br />

@@ -284,15 +284,13 @@ export function InternshipsPage() {
           ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Mobile Order 1: Title & Eyebrow */}
           <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                INTERNSHIPS
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>INTERNSHIPS</span>
+              <div></div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-extrabold text-csl-text leading-[1.05] tracking-tight mb-2">
@@ -343,15 +341,13 @@ export function InternshipsPage() {
         {/* ==================================================
             2. INTERNSHIP TRACKS SECTION
            ================================================== */}
-        <section id="tracks" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="tracks" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                Career-Ready Experience
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>Career-Ready Experience</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Internship <span className="text-csl-blue">Tracks</span>
@@ -455,15 +451,13 @@ export function InternshipsPage() {
             3. WHY JOIN US? SECTION
            ================================================== */}
         <section className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center flex flex-col items-center">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  Proven Experience
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>Proven Experience</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Why Join <span className="text-csl-blue">Us?</span>
@@ -516,17 +510,15 @@ export function InternshipsPage() {
         {/* ==================================================
             4. INTERNSHIP ENQUIRY FORM SECTION
            ================================================== */}
-        <section id="apply-form" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="apply-form" className="relative w-full py-16 md:py-24 section-container">
           
           <div className="max-w-3xl mx-auto flex flex-col items-center">
             
             {/* Header */}
             <div className="text-center mb-10">
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  Availability Enquiry
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>Availability Enquiry</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Looking for an <span className="text-csl-blue">Internship?</span>

@@ -4,21 +4,19 @@ export function AboutCopy() {
   return (
     <div className="flex flex-col">
       {/* Eyebrow */}
-      <div className="flex items-center gap-4 mb-6">
-        <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
-          Who We Are
-        </span>
-        <div className="h-[1px] w-12 bg-csl-gold/50"></div>
+      <div className="section-eyebrow">
+        <span>Who We Are</span>
+        <div></div>
       </div>
 
       {/* Heading */}
-      <h2 className="text-4xl md:text-6xl font-extrabold text-csl-text section-heading tracking-tight mb-8 leading-tight">
+      <h2 className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4 sm:mb-6 leading-tight max-w-xl">
         About <br />
         <span className="text-csl-gold">Creator Space Lab</span>
       </h2>
 
       {/* Paragraph */}
-      <p className="text-base text-csl-muted section-subheading mb-10 max-w-lg">
+      <p className="text-sm sm:text-base text-csl-muted section-subheading mb-8 sm:mb-10 max-w-lg">
         We are a modern EdTech & Software Solutions company dedicated to transforming careers and accelerating business innovation. Through hands-on training, real-world project experience, and end-to-end software development services, we empower learners and organizations to grow with confidence in a rapidly evolving digital world.
       </p>
 

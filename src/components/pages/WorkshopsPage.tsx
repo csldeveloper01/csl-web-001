@@ -204,15 +204,13 @@ export function WorkshopsPage() {
           ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Mobile Order 1: Title & Eyebrow & Formula Pill */}
           <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                CreatorSpaceLab
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>CreatorSpaceLab</span>
+              <div></div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold text-csl-text leading-[1.08] tracking-tight mb-4">
@@ -289,15 +287,13 @@ export function WorkshopsPage() {
         {/* ==================================================
             3. SPECIALIZATION TRACKS (Connected Radial Composition)
            ================================================== */}
-        <section id="domains" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="domains" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-14 text-center flex flex-col items-center">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                DOMAINS
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow justify-center">
+              <span>DOMAINS</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Specialization <span className="text-csl-blue">Tracks</span>
@@ -364,15 +360,13 @@ export function WorkshopsPage() {
             4. FROM CONCEPT TO CLOUD (Visual Pipeline)
            ================================================== */}
         <section id="pipeline" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <div className="mb-14 text-center flex flex-col items-center">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  PROGRESSION PIPELINE
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>PROGRESSION PIPELINE</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 From Concept to <span className="text-csl-blue">Cloud</span>
@@ -421,15 +415,13 @@ export function WorkshopsPage() {
         {/* ==================================================
             5. WHY CHOOSE OUR AI & AWS WORKSHOP (Vertical Sequence)
            ================================================== */}
-        <section id="why-choose" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="why-choose" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-12">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                EXCELLENCE
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>EXCELLENCE</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
               Why Choose Our <span className="text-csl-blue">AI & AWS Workshop?</span>

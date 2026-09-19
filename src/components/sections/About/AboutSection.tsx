@@ -21,7 +21,7 @@ export function AboutSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center gap-16 lg:gap-8 transform scale-90 origin-center">
+      <div className="relative z-10 section-container flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
         {/* Left Column - Copy */}
         <div className="w-full lg:w-[40%] flex flex-col justify-center" data-distort="text">

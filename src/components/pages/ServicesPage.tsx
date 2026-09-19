@@ -299,15 +299,13 @@ export function ServicesPage() {
           ))}
         </div>
 
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
           {/* Mobile Order 1: Title & Eyebrow */}
           <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                SERVICES
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>SERVICES</span>
+              <div></div>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-extrabold text-csl-text leading-[1.06] tracking-tight mb-2">
@@ -358,15 +356,13 @@ export function ServicesPage() {
         {/* ==================================================
             2. OUR SERVICES (Structured Vertical List)
            ================================================== */}
-        <section id="our-services" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="our-services" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                Our Offerings
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow">
+              <span>Our Offerings</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Our <span className="text-csl-blue">Services</span>
@@ -430,15 +426,13 @@ export function ServicesPage() {
             3. BUILT TO DELIVER / METRICS SECTION
            ================================================== */}
         <section id="metrics" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="section-container">
             
             {/* Header */}
             <div className="mb-12 md:mb-16 text-center flex flex-col items-center">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                  PROVEN IMPACT
-                </span>
-                <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+              <div className="section-eyebrow justify-center">
+                <span>PROVEN IMPACT</span>
+                <div></div>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
                 Built to <span className="text-csl-blue">Deliver.</span>
@@ -478,15 +472,13 @@ export function ServicesPage() {
         {/* ==================================================
             4. SELECTED WORK / CASE STUDY PRESENTATION
            ================================================== */}
-        <section id="selected-work" className="relative w-full py-16 md:py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <section id="selected-work" className="relative w-full py-16 md:py-24 section-container">
           
           {/* Header */}
           <div className="mb-10 text-center flex flex-col items-center">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
-                CASE STUDIES
-              </span>
-              <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+            <div className="section-eyebrow justify-center">
+              <span>CASE STUDIES</span>
+              <div></div>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
               Selected <span className="text-csl-blue">Work</span>

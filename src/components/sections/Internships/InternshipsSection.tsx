@@ -54,23 +54,20 @@ export function InternshipsSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
         
         {/* LEFT COLUMN: TRACK OFFERINGS & CTA */}
         <div className="flex flex-col w-full max-w-xl">
           {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
-              Internships
-            </span>
-            <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+          <div className="section-eyebrow">
+            <span>Internships</span>
+            <div></div>
           </div>
           
           {/* Header */}
           <h2 
-            className="text-3xl sm:text-4xl md:text-[3.1rem] font-extrabold text-csl-text section-heading tracking-tight mb-4"
+            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4"
             data-distort="text"
-            style={{ lineHeight: '0.99' }}
           >
             Build Beyond <br />
             The <span className="text-csl-blue">Classroom.</span>

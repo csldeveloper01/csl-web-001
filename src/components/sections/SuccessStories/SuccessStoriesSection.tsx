@@ -104,20 +104,17 @@ export function SuccessStoriesSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col items-start">
+      <div className="relative z-10 section-container flex flex-col items-start">
         
         {/* Header Block */}
         <div className="mb-8 lg:mb-10 w-full">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
-              Success Stories
-            </span>
-            <div className="h-[2px] w-8 bg-csl-gold/60"></div>
+          <div className="section-eyebrow">
+            <span>Success Stories</span>
+            <div></div>
           </div>
           <h2 
-            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4"
+            className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text tracking-tight section-heading mb-4 max-w-lg"
             data-distort="text"
-            style={{ lineHeight: '0.99' }}
           >
             Our <br />
             <span className="text-csl-blue">Success Stories</span>

@@ -36,7 +36,7 @@ export function Hero() {
 
 
       {/* Main Hero Content (Mobile: Title -> Bitmap -> Buttons) */}
-      <main className="flex-1 relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-center pt-4 sm:pt-6 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 h-full pointer-events-none">
+      <main className="flex-1 relative z-10 section-container flex flex-col lg:flex-row items-center justify-center pt-4 sm:pt-6 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 h-full pointer-events-none">
 
         {/* Left Column (Desktop) / Mobile Headline & Info (order-1) */}
         <div className="w-full lg:w-[50%] flex flex-col justify-center h-full xl:pl-6 pointer-events-auto order-1">

@@ -98,3 +98,63 @@ button {
 .intro-video::-webkit-media-controls-enclosure {
   display: none !important;
 }
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.section-eyebrow > span {
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-csl-blue);
+}
+
+.section-eyebrow > div {
+  width: 2rem;
+  height: 2px;
+  background: rgba(245, 184, 61, 0.7);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .section-eyebrow > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
