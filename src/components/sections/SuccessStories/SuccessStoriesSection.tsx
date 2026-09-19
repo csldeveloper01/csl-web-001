@@ -109,7 +109,7 @@ export function SuccessStoriesSection() {
         {/* Header Block */}
         <div className="mb-8 lg:mb-10 w-full">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
+            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
               Success Stories
             </span>
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>

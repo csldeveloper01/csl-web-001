@@ -49,6 +49,13 @@ html {
   line-height: 1.45;
 }
 
+@media (max-width: 767px) {
+  .section-heading {
+    font-size: 2.25rem;
+    line-height: 1.05;
+  }
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-csl-bg);

@@ -86,6 +86,8 @@ const courseMenuCategories: CourseMenuCategory[] = COURSE_CATEGORY_ORDER
   }))
   .filter((category) => category.courses.length > 0);
 
+const mobilePrimaryLabels = ['About Us', 'Services', 'Contact'];
+
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
@@ -346,30 +348,38 @@ export function Navbar() {
           </div>
 
           {/* Mobile Navigation Icons */}
-          <div className="hidden custom1195:flex items-center gap-2.5 sm:gap-3.5">
-            {activeNavItems.map(item => {
-              const Icon = item.icon;
-              return (
-                <button
-                  key={item.label}
-                  onClick={() => handleScrollTo(item.targetId, item.isHomeLink)}
-                  aria-label={item.label}
-                  className="p-1.5 rounded-lg transition-colors text-csl-text hover:text-csl-blue hover:bg-csl-gold/10"
-                >
-                  <Icon className="w-4 h-4" />
-                </button>
-              );
-            })}
-            {/* More icon */}
+          {/* Mobile Navigation */}
+          <div className="hidden custom1195:flex items-center justify-end gap-2.5 sm:gap-3.5 ml-auto">
+            {activeNavItems
+              .filter(item => mobilePrimaryLabels.includes(item.label))
+              .map(item => {
+                const Icon = item.icon;
+
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                      handleScrollTo(item.targetId);
+                    }}
+                    aria-label={item.label}
+                    title={item.label}
+                    className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-text hover:text-csl-blue hover:bg-csl-gold/10 transition-colors"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </button>
+                );
+              })}
+
+            {/* More */}
             <button
               onClick={() => setIsMenuOpen(true)}
               aria-label="More navigation options"
-              className="p-1.5 rounded-lg text-csl-blue bg-csl-blue/10 border border-csl-blue/20 hover:bg-csl-blue hover:text-white transition-all shadow-sm"
+              title="More"
+              className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-blue bg-csl-blue/10 border border-csl-blue/20 hover:bg-csl-blue hover:text-white transition-all shadow-sm"
             >
-              <LayoutGrid className="w-4 h-4" />
+              <LayoutGrid className="w-5 h-5" />
             </button>
           </div>
-
           {/* CTA (Desktop) */}
           <div className="hidden md:block">
             <button

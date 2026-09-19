@@ -54,13 +54,13 @@ export function InternshipsSection() {
         ))}
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
         
         {/* LEFT COLUMN: TRACK OFFERINGS & CTA */}
         <div className="flex flex-col w-full max-w-xl">
           {/* Eyebrow */}
           <div className="flex items-center gap-4 mb-4">
-            <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
+            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
               Internships
             </span>
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>
@@ -72,8 +72,8 @@ export function InternshipsSection() {
             data-distort="text"
             style={{ lineHeight: '0.99' }}
           >
-            Build beyond <br />
-            the <span className="text-csl-blue">classroom.</span>
+            Build Beyond <br />
+            The <span className="text-csl-blue">Classroom.</span>
           </h2>          
           {/* Subtitle */}
           <p className="text-csl-muted font-medium text-sm md:text-base mb-6 lg:mb-9 section-subheading max-w-lg">
@@ -82,7 +82,7 @@ export function InternshipsSection() {
 
           {/* MOBILE ONLY: 3D Artwork Image directly after Title & Description */}
           <div className="w-full flex lg:hidden items-center justify-center relative mb-8">
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px] flex items-center justify-center">
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] flex items-center justify-center">
               <img 
                 src={internshipsIllustration} 
                 alt="Internships 3D Workspace" 

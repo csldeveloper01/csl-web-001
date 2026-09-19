@@ -487,7 +487,7 @@ export function ContactSection() {
               </div>
               <div className="flex flex-col relative z-10">
                 <h3 className="text-base font-bold text-white mb-1">
-                  Contact Info
+                  Address
                 </h3>
                 <p className="text-xs font-medium text-white/85 leading-relaxed">
                   Creator Space Lab, <br />
@@ -510,11 +510,11 @@ export function ContactSection() {
                   <Phone className="w-4 h-4 stroke-[1.75]" />
                 </div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-white/80">
-                  Phone Numbers
+                  Contact Info
                 </h4>
               </div>
 
-              <div className="flex flex-col gap-1 pl-13 sm:pl-13 relative z-10">
+              <div className="flex flex-col items-start gap-1 pl-0 sm:pl-13 relative z-10">
                 <a href="tel:+918056052806" className="text-sm md:text-base font-bold text-white hover:underline">
                   +91 80560 52806
                 </a>
@@ -541,7 +541,7 @@ export function ContactSection() {
                 <Mail className="w-5 h-5 stroke-[1.75]" />
               </div>
               <span className="text-xs sm:text-sm md:text-base font-bold text-csl-text group-hover:underline relative z-10 break-all">
-                hr.info@creatorspacelab.org.in
+                hr@creatorspacelab.org.in
               </span>
             </a>
 

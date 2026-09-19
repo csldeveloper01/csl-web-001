@@ -5,14 +5,14 @@ export function AboutCopy() {
     <div className="flex flex-col">
       {/* Eyebrow */}
       <div className="flex items-center gap-4 mb-6">
-        <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
+        <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
           Who We Are
         </span>
         <div className="h-[1px] w-12 bg-csl-gold/50"></div>
       </div>
 
       {/* Heading */}
-      <h2 className="text-5xl md:text-6xl font-extrabold text-csl-text section-heading tracking-tight mb-8">
+      <h2 className="text-4xl md:text-6xl font-extrabold text-csl-text section-heading tracking-tight mb-8 leading-tight">
         About <br />
         <span className="text-csl-gold">Creator Space Lab</span>
       </h2>

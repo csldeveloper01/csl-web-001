@@ -19,6 +19,59 @@ import logoPhonepe from '../../../../Elements/TIE-UPS/phonepe.png';
 import logoIdbi from '../../../../Elements/TIE-UPS/idbi.png';
 // @ts-expect-error
 import logoTcs from '../../../../Elements/TIE-UPS/tcs.png';
+// @ts-expect-error
+import logoMav from '../../../../Elements/TIE-UPS/maveric.png';
+// @ts-expect-error
+import logoIpay from '../../../../Elements/TIE-UPS/ippopay.jpg';
+// @ts-expect-error
+import logoI2T from '../../../../Elements/TIE-UPS/ideas2it.jpg';
+// @ts-expect-error
+import logoCbee from '../../../../Elements/TIE-UPS/chargebee.png';
+// @ts-expect-error
+import logostg from '../../../../Elements/TIE-UPS/stgobain.png';
+// @ts-expect-error
+import logobsh from '../../../../Elements/TIE-UPS/bosch.png';
+// @ts-expect-error
+import logoAskL from '../../../../Elements/TIE-UPS/ashokleyland.png';
+// @ts-expect-error
+import logoRFld from '../../../../Elements/TIE-UPS/royalenfield.jpg';
+// @ts-expect-error
+import logoNssn from '../../../../Elements/TIE-UPS/nissan.png';
+// @ts-expect-error
+import logoRenl from '../../../../Elements/TIE-UPS/renault.png';
+// @ts-expect-error
+import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
+// @ts-expect-error
+import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
+// @ts-expect-error
+import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
+// @ts-expect-error
+import logoldrat from '../../../../Elements/TIE-UPS/leadrat.png';
+// @ts-expect-error
+import logoind from '../../../../Elements/TIE-UPS/indium.jpg';
+// @ts-expect-error
+import logo5p from '../../../../Elements/TIE-UPS/5paisa.png';
+// @ts-expect-error
+import logobrgst from '../../../../Elements/TIE-UPS/bridgestone.jpg';
+// @ts-expect-error
+import logosona from '../../../../Elements/TIE-UPS/sonacomstar.png';
+// @ts-expect-error
+import logoAskL from '../../../../Elements/TIE-UPS/ashokleyland.png';
+// @ts-expect-error
+import logoRFld from '../../../../Elements/TIE-UPS/royalenfield.jpg';
+// @ts-expect-error
+import logoNssn from '../../../../Elements/TIE-UPS/nissan.png';
+// @ts-expect-error
+import logoRenl from '../../../../Elements/TIE-UPS/renault.png';
+// @ts-expect-error
+import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
+// @ts-expect-error
+import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
+// @ts-expect-error
+import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
+
+
+
 
 const row1Logos = [
   { name: 'Accenture', logo: logoAccenture },
@@ -48,7 +101,7 @@ export function TieupsSection() {
 
   return (
     <section 
-      className="relative w-full py-10 md:py-16 flex flex-col items-center justify-center bg-csl-bg overflow-hidden mx-auto"
+      className="relative w-full py-6 md:py-12 flex flex-col items-center justify-center bg-csl-bg overflow-hidden mx-auto"
     >
       {/* Decorative Dotted Grid Background */}
       <div 
@@ -71,7 +124,7 @@ export function TieupsSection() {
         {/* Header */}
         <div className="mb-10 w-full">
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-csl-blue font-bold tracking-widest text-xs uppercase">
+            <span className="text-csl-blue font-bold tracking-widest text-sm uppercase">
               Tie-ups
             </span>
             <div className="h-[2px] w-8 bg-csl-gold/60"></div>
