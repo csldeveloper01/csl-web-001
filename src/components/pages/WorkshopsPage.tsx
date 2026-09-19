@@ -30,7 +30,7 @@ import iconCyber from '../../../Elements/COURSES/Cybersecurity and Ethical Hacki
 // @ts-ignore
 import iconUIUX from '../../../Elements/COURSES/UIUX Front End design.png';
 // @ts-ignore
-import cslEmblem from '../../../Elements/LOGOS/CSL -BOOK.png';
+import cslEmblem from '../../../Elements/COURSES/CSL-BOOK-WK.png';
 
 // 5 EXACT SPECIALIZATION TRACKS FROM SOURCE DOCUMENT
 const specializationTracks = [
