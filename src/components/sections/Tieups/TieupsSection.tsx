@@ -55,20 +55,20 @@ import logo5p from '../../../../Elements/TIE-UPS/5paisa.png';
 import logobrgst from '../../../../Elements/TIE-UPS/bridgestone.jpg';
 // @ts-expect-error
 import logosona from '../../../../Elements/TIE-UPS/sonacomstar.png';
-// @ts-expect-error
-import logoAskL from '../../../../Elements/TIE-UPS/ashokleyland.png';
-// @ts-expect-error
-import logoRFld from '../../../../Elements/TIE-UPS/royalenfield.jpg';
-// @ts-expect-error
-import logoNssn from '../../../../Elements/TIE-UPS/nissan.png';
-// @ts-expect-error
-import logoRenl from '../../../../Elements/TIE-UPS/renault.png';
-// @ts-expect-error
-import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
-// @ts-expect-error
-import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
-// @ts-expect-error
-import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
+// // @ts-expect-error
+// import logoAskL from '../../../../Elements/TIE-UPS/ashokleyland.png';
+// // @ts-expect-error
+// import logoRFld from '../../../../Elements/TIE-UPS/royalenfield.jpg';
+// // @ts-expect-error
+// import logoNssn from '../../../../Elements/TIE-UPS/nissan.png';
+// // @ts-expect-error
+// import logoRenl from '../../../../Elements/TIE-UPS/renault.png';
+// // @ts-expect-error
+// import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
+// // @ts-expect-error
+// import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
+// // @ts-expect-error
+// import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
 
 
 
