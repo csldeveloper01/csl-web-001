@@ -86,7 +86,7 @@ const courseMenuCategories: CourseMenuCategory[] = COURSE_CATEGORY_ORDER
   }))
   .filter((category) => category.courses.length > 0);
 
-const mobilePrimaryLabels = ['About Us', 'Services', 'Contact'];
+const mobilePrimaryLabels = ['Home', 'About Us', 'Services', 'Contact'];
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
