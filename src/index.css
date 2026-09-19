@@ -46,13 +46,12 @@ html {
 /* Section Heading — display headings inside page sections.
    Opens up line spacing so multi-line headings breathe comfortably. */
 .section-heading {
-  line-height: 1.45;
+  line-height: 1 !important;
 }
 
 @media (max-width: 767px) {
   .section-heading {
-    font-size: 2.25rem;
-    line-height: 1.05;
+    line-height: 1.05 !important;
   }
 }
 

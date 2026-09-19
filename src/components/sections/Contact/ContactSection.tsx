@@ -525,22 +525,35 @@ export function ContactSection() {
             </div>
 
             {/* Email Card */}
-            <a 
-              href="mailto:hr.info@creatorspacelab.org.in"
-              className="relative overflow-hidden bg-gradient-to-r from-csl-gold via-[#FFBA26] to-[#FFAE1A] backdrop-blur-sm border border-csl-gold/40 rounded-2xl p-5 flex items-center gap-4 shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 group cursor-pointer"
-            >
+            <div className="relative overflow-hidden bg-gradient-to-r from-csl-gold via-[#FFBA26] to-[#FFAE1A] backdrop-blur-sm border border-csl-gold/40 rounded-2xl p-5 flex items-center gap-4 shadow-md">
+
               <Mail 
-                className="absolute -right-3 -bottom-3 w-24 h-24 text-white/35 pointer-events-none group-hover:scale-105 transition-transform duration-500" 
+                className="absolute -right-3 -bottom-3 w-24 h-24 text-white/35 pointer-events-none" 
                 strokeWidth={2.5}
               />
 
-              <div className="w-11 h-11 rounded-xl bg-white/30 border border-white/40 text-csl-text flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-csl-text transition-all duration-300 relative z-10 shadow-sm">
+              <div className="w-11 h-11 rounded-xl bg-white/30 border border-white/40 text-csl-text flex items-center justify-center shrink-0 relative z-10 shadow-sm">
                 <Mail className="w-5 h-5 stroke-[1.75]" />
               </div>
-              <span className="text-xs sm:text-sm md:text-base font-bold text-csl-text group-hover:underline relative z-10 break-all">
-                hr@creatorspacelab.org.in
-              </span>
-            </a>
+
+              <div className="relative z-10 flex flex-col gap-1">
+                <a
+                  href="mailto:hr.info@creatorspacelab.org.in"
+                  className="text-xs sm:text-sm md:text-base font-bold text-csl-text hover:underline break-all"
+                >
+                  hr.info@creatorspacelab.org.in
+                </a>
+
+                <a
+                  href="mailto:hr@creatorspacelab.org.in"
+                  className="text-xs sm:text-sm md:text-base font-bold text-csl-text hover:underline break-all"
+                >
+                  hr@creatorspacelab.org.in
+                </a>
+              </div>
+
+            </div>
+            
 
             {/* Social Connect Row */}
             <div className="flex items-center gap-4 pt-1">

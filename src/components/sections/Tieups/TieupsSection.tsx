@@ -44,32 +44,37 @@ import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
 // @ts-expect-error
 import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
 // @ts-expect-error
-import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
+import logoflpay from '../../../../Elements/TIE-UPS/flippopay.png';
 // @ts-expect-error
 import logoldrat from '../../../../Elements/TIE-UPS/leadrat.png';
 // @ts-expect-error
 import logoind from '../../../../Elements/TIE-UPS/indium.jpg';
 // @ts-expect-error
-import logo5p from '../../../../Elements/TIE-UPS/5paisa.png';
+import logo5p from '../../../../Elements/TIE-UPS/5paisa.jpg';
 // @ts-expect-error
 import logobrgst from '../../../../Elements/TIE-UPS/bridgestone.jpg';
 // @ts-expect-error
-import logosona from '../../../../Elements/TIE-UPS/sonacomstar.png';
-// // @ts-expect-error
-// import logoAskL from '../../../../Elements/TIE-UPS/ashokleyland.png';
-// // @ts-expect-error
-// import logoRFld from '../../../../Elements/TIE-UPS/royalenfield.jpg';
-// // @ts-expect-error
-// import logoNssn from '../../../../Elements/TIE-UPS/nissan.png';
-// // @ts-expect-error
-// import logoRenl from '../../../../Elements/TIE-UPS/renault.png';
-// // @ts-expect-error
-// import logoNtt from '../../../../Elements/TIE-UPS/nttdata.jpg';
-// // @ts-expect-error
-// import logoAlt from '../../../../Elements/TIE-UPS/altruist.jpg';
-// // @ts-expect-error
-// import logoflpay from '../../../../Elements/TIE-UPS/plippopay.png';
-
+import logosona from '../../../../Elements/TIE-UPS/sonacomstar.jpg';
+// @ts-expect-error
+import logohyn from '../../../../Elements/TIE-UPS/hyundai.png';
+// @ts-expect-error
+import logokiss from '../../../../Elements/TIE-UPS/kissflow.jpg';
+// @ts-expect-error
+import logotell from '../../../../Elements/TIE-UPS/telliant.png';
+// @ts-expect-error
+import logoseckl from '../../../../Elements/TIE-UPS/securekloud.jpg';
+// @ts-expect-error
+import logoava from '../../../../Elements/TIE-UPS/avasoft.jpg';
+// @ts-expect-error
+import logogrid from '../../../../Elements/TIE-UPS/GridDynamics.jpg';
+// @ts-expect-error
+import logocgi from '../../../../Elements/TIE-UPS/CGI.jpg';
+// @ts-expect-error
+import logovir from '../../../../Elements/TIE-UPS/virtusa.jpg';
+// @ts-expect-error
+import logohexa from '../../../../Elements/TIE-UPS/hexaware.jpg';
+// @ts-expect-error
+import logoinfo from '../../../../Elements/TIE-UPS/infosys.jpg';
 
 
 
@@ -80,6 +85,16 @@ const row1Logos = [
   { name: 'TCS', logo: logoTcs },
   { name: 'Wipro', logo: logoWipro },
   { name: 'Capgemini', logo: logoCapgemini },
+  { name: 'Maveric', logo: logoMav },
+  { name: 'Ippopay', logo: logoIpay },
+  { name: 'Ideas2IT', logo: logoI2T },
+  { name: 'Chargebee', logo: logoCbee },
+  { name: 'Saint-Gobain', logo: logostg },
+  { name: 'Bosch', logo: logobsh },
+  { name: 'Ashok Leyland', logo: logoAskL },
+  { name: 'Royal Enfield', logo: logoRFld },
+  { name: 'Nissan', logo: logoNssn },
+  { name: 'Renault', logo: logoRenl },
 ];
 
 const row2Logos = [
@@ -89,7 +104,27 @@ const row2Logos = [
   { name: 'Wipro', logo: logoWipro },
   { name: 'TCS', logo: logoTcs },
   { name: 'Accenture', logo: logoAccenture },
+  { name: 'NTT DATA', logo: logoNtt },
+  { name: 'Altruist', logo: logoAlt },
+  { name: 'Plippopay', logo: logoflpay },
+  { name: 'Leadrat', logo: logoldrat },
+  { name: 'Indium', logo: logoind },
+  { name: '5paisa', logo: logo5p },
+  { name: 'Bridgestone', logo: logobrgst },
+  { name: 'Sona Comstar', logo: logosona },
+  { name: 'Hyundai', logo: logohyn },
+  { name: 'Kissflow', logo: logokiss },
+  { name: 'Telliant', logo: logotell },
+  { name: 'SecureKloud', logo: logoseckl },
+  { name: 'Avasoft', logo: logoava },
+  { name: 'Grid Dynamics', logo: logogrid },
+  { name: 'CGI', logo: logocgi },
+  { name: 'Virtusa', logo: logovir },
+  { name: 'Hexawave', logo: logohexa },
+  { name: 'Infosys', logo: logoinfo },
 ];
+
+
 
 export function TieupsSection() {
   const yellowBlocks = [

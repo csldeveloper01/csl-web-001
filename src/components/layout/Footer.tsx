@@ -182,6 +182,14 @@ export function Footer() {
                   <Mail className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
                   <span>hr.info@creatorspacelab.org.in</span>
                 </a>
+
+                <a 
+                  href="mailto:hr@creatorspacelab.org.in" 
+                  className="flex items-center gap-2 hover:text-csl-blue transition-colors group mt-0.5"
+                >
+                  <Mail className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
+                  <span>hr@creatorspacelab.org.in</span>
+                </a>
               </div>
             </div>
 

@@ -15,6 +15,8 @@ import imgRohit from '../../../../Elements/SUCCESS STORIES/rohit.jpg';
 import imgSupriya from '../../../../Elements/SUCCESS STORIES/supriya.png';
 // @ts-expect-error
 import imgAyeesha from '../../../../Elements/SUCCESS STORIES/Ayesha.jpg';
+// @ts-expect-error
+import imgSwetha from '../../../../Elements/SUCCESS STORIES/Swetha.jpeg';
 
 const successStories = [
   {
@@ -72,6 +74,14 @@ const successStories = [
     achievement: 'Secured top package',
     timeline: 'Placed in 5 months',
     image: imgAyeesha,
+  },
+  {
+    name: 'Swetha',
+    role: 'Web Designer',
+    package: '5 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed',
+    image: imgSwetha,
   },
 ];
 
