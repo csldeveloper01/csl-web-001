@@ -195,19 +195,20 @@ export function WorkshopsPage() {
       <motion.section 
         id="hero"
         style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
-        className="sticky top-0 z-0 w-full min-h-[85vh] lg:min-h-screen flex flex-col justify-center bg-[#FBF7F4] pt-24 pb-12 overflow-hidden"
+        className="sticky top-0 z-0 w-full min-h-[60vh] flex flex-col justify-center bg-[#FBF7F4] pt-24 pb-6 overflow-hidden"
       >
-        {/* Floating Voxel Blocks */}
+        {/* Floating Voxel Blocks */} 
         <div className="absolute inset-0 pointer-events-none z-0 2xl:max-w-[1600px] 2xl:mx-auto">
           {yellowBlocks.map((block, i) => (
             <YellowBox key={i} size={block.size} pos={block.pos} delay={block.delay} duration={block.duration} />
           ))}
         </div>
 
-        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
-          {/* Mobile Order 1: Title & Eyebrow & Formula Pill */}
-          <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
+        <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+          {/* LEFT — TITLE + DESCRIPTION + BUTTON */}
+          <div className="order-1 flex flex-col items-start max-w-xl">
+
             <div className="section-eyebrow">
               <span>CreatorSpaceLab</span>
               <div></div>
@@ -218,45 +219,49 @@ export function WorkshopsPage() {
               <span className="text-csl-blue">Industry Workshop</span>
             </h1>
 
-            {/* Formula Banner Pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-csl-gold/20 via-csl-gold/10 to-csl-blue/15 border border-csl-gold/40 px-4 py-2 rounded-xl mb-4 shadow-xs">
               <Sparkles className="w-4 h-4 text-csl-gold" />
+
               <span className="text-xs sm:text-sm font-extrabold text-csl-text font-mono">
                 AI + Cloud + AWS = Future Skills
               </span>
             </div>
-          </div>
 
-          {/* Mobile Order 2: AI + Cloud + AWS Bitmap Visual Asset */}
-          <div className="order-2 lg:order-none flex items-center justify-center relative w-full">
-            <motion.div
-              className="relative w-full max-w-[460px] sm:max-w-[520px]"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/25 via-transparent to-csl-blue/20 blur-3xl -z-10 rounded-full scale-90" />
-              <img 
-                src={iconBanner} 
-                alt="AI Cloud AWS Industry Workshop" 
-                className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,30,80,0.14)]"
-              />
-            </motion.div>
-          </div>
-
-          {/* Mobile Order 3: Description & CTA */}
-          <div className="order-3 lg:order-none flex flex-col items-start max-w-xl">
-            {/* Exact Source Description */}
             <p className="text-csl-muted font-medium text-base sm:text-lg leading-relaxed mb-8">
               Learn AI, Cloud & AWS deployment from IT industry experts. Build and deploy real-world AI-powered cloud applications with live mentorship.
             </p>
 
-            <a 
+            <a
               href="#domains"
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
             >
               Explore Domains
               <ArrowDown className="w-5 h-5" />
             </a>
+
+          </div>
+
+          {/* RIGHT — IMAGE */}
+          <div className="order-2 flex items-center justify-center relative w-full">
+
+            <motion.div
+              className="relative w-full max-w-[460px] sm:max-w-[520px]"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/25 via-transparent to-csl-blue/20 blur-3xl -z-10 rounded-full scale-90" />
+
+              <img
+                src={iconBanner}
+                alt="AI Cloud AWS Industry Workshop"
+                className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,30,80,0.14)]"
+              />
+            </motion.div>
+
           </div>
 
         </div>

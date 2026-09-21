@@ -127,11 +127,11 @@ export function Footer() {
           <div className="flex flex-col">
             
             {/* CSL Logo & Typography */}
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-3 mb-0.01">
               <img 
                 src={cslBook} 
                 alt="Creator Space Lab Book Logo" 
-                className="w-11 md:w-13 h-auto object-contain"
+                className="w-16 md:w-19 h-auto object-contain"
               />
             </div>
 

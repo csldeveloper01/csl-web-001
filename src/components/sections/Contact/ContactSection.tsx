@@ -163,9 +163,9 @@ export function ContactSection() {
               className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4 max-w-lg"
               data-distort="text"
             >
-              Let’s build <br />
-              <span className="text-csl-blue">something great</span> <br />
-              together.
+              Let’s Build <br />
+              <span className="text-csl-blue">Something Great</span> <br />
+              Together.
             </h2>
             
             <p className="text-csl-muted font-medium text-sm md:text-base section-subheading max-w-md">

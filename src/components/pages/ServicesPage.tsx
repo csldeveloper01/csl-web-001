@@ -299,52 +299,56 @@ export function ServicesPage() {
           ))}
         </div>
 
-        <div className="relative z-10 section-container flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
-          {/* Mobile Order 1: Title & Eyebrow */}
-          <div className="order-1 lg:order-none flex flex-col items-start max-w-xl">
+        <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+          {/* LEFT — COMPLETE HERO CONTENT STACK */}
+          <div className="order-1 flex flex-col items-start max-w-xl">
+
             <div className="section-eyebrow">
               <span>SERVICES</span>
               <div></div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-extrabold text-csl-text leading-[1.06] tracking-tight mb-2">
-              We build what moves <br />
-              <span className="text-csl-blue">ideas forward.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[3.8rem] font-extrabold text-csl-text leading-[1.06] tracking-tight mb-6">
+              We Build What Moves <br />
+              <span className="text-csl-blue">Ideas Forward.</span>
             </h1>
-          </div>
 
-          {/* Mobile Order 2: Hero Visual Asset */}
-          <div className="order-2 lg:order-none flex items-center justify-center relative w-full">
-            <motion.div
-              className="relative w-full max-w-[500px] sm:max-w-[580px]"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            >
-              {/* Ambient Glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/20 via-transparent to-csl-blue/15 blur-3xl -z-10 rounded-full scale-90" />
-              
-              <img 
-                src={heroServicesVisual} 
-                alt="CSL Services Standalone 3D Asset" 
-                className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,30,80,0.14)]"
-              />
-            </motion.div>
-          </div>
-
-          {/* Mobile Order 3: Description & CTA */}
-          <div className="order-3 lg:order-none flex flex-col items-start max-w-xl">
             <p className="text-csl-muted font-medium text-base sm:text-lg leading-relaxed mb-8">
               Delivering AI, research, full-stack, IoT, automation, and end-to-end engineering solutions for students, startups, and enterprises.
             </p>
 
-            <a 
-              href="#selected-work" 
+            <a
+              href="#selected-work"
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300"
             >
               Explore Our Work
               <ArrowRight className="w-5 h-5" />
             </a>
+
+          </div>
+
+          {/* RIGHT — HERO IMAGE */}
+          <div className="order-2 flex items-center justify-center relative w-full">
+
+            <motion.div
+              className="relative w-full max-w-[500px] sm:max-w-[580px]"
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/20 via-transparent to-csl-blue/15 blur-3xl -z-10 rounded-full scale-90" />
+
+              <img
+                src={heroServicesVisual}
+                alt="CSL Services Standalone 3D Asset"
+                className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,30,80,0.14)]"
+              />
+            </motion.div>
+
           </div>
 
         </div>

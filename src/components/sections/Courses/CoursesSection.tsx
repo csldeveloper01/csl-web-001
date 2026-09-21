@@ -92,8 +92,8 @@ export function CoursesSection() {
           
           {/* Header */}
           <h2 className="text-3xl sm:text-4xl md:text-[3.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-4 max-w-lg" data-distort="text">
-            Learn what <br className="hidden sm:block" />
-            moves you <span className="text-csl-blue">forward.</span>
+            Learn What <br className="hidden sm:block" />
+            Moves You <span className="text-csl-blue">forward.</span>
           </h2>
 
           <p className="text-csl-muted text-sm sm:text-base section-subheading mb-8 max-w-md">
@@ -149,8 +149,8 @@ export function CoursesSection() {
           
           {/* Subheading */}
           <h3 className="text-2xl sm:text-3xl md:text-[2.2rem] font-extrabold text-csl-text section-heading tracking-tight mb-6 sm:mb-8" data-distort="text">
-            Hands-on workshops in <br />
-            high-demand domains
+            Hands-On Workshops in <br />
+            High-Demand Domains
           </h3>
 
           {/* Workshop Items List */}

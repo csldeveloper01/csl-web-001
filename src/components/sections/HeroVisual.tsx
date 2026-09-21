@@ -124,6 +124,8 @@ export function HeroVisual() {
                     ? 'scale-110 -translate-y-4 brightness-110 drop-shadow-[0_20px_30px_rgba(245,184,61,0.2)]'
                     : isOtherHovered
                     ? 'grayscale opacity-50 scale-95'
+                    : piece.id === 'build'
+                    ? 'scale-[90%]'
                     : ''
                 }`}
               />
