@@ -17,7 +17,7 @@ import {
   Layers
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
-import { sendContactForm, EmailJSResult } from '../../services/emailService';
+import { openWhatsApp } from '../../lib/whatsapp';
 import { useDeepLinkHighlight } from '../../hooks/useDeepLinkHighlight';
 
 // @ts-ignore
