@@ -16,7 +16,7 @@ const navLinks = [
   { label: 'Tie-Ups', href: '#tie-ups' },
   { label: 'Internships', href: '/internships' },
   { label: 'Success Stories', href: '#success-stories' },
-  { label: 'Careers', href: '/careers' },
+  // { label: 'Careers', href: '/careers' },
   { label: 'Workshops', href: '/workshops' },
   { label: 'Contact', href: '#contact' },
 ];
