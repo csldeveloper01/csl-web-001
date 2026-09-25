@@ -1,4 +1,4 @@
-import { ArrowUpRight, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Instagram } from 'lucide-react';
 
 // @ts-expect-error
 import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
