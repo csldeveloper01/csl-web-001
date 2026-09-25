@@ -86,7 +86,7 @@
       setSubmitState('submitting');
       setErrorMessage('');
 
-      // Trigger EmailJS submission service via sendForm or fallback payload
+      // Build WhatsApp message and open chat
       // Build WhatsApp message and open chat
       const message = `Hello, I would like to request a callback.
   Name: ${formData.name}
@@ -398,7 +398,7 @@
                           {/* STATE 1 — NORMAL: CSL Normal Blue Gradient Layer */}
                           <div className="absolute inset-0 bg-gradient-to-r from-csl-deep-blue to-csl-blue flex items-center justify-center text-white">
                             <div className="flex items-center gap-2">
-                              <span>Send Message</span>
+                              <span>Send via WhatsApp</span>
                               <ArrowRight className="w-4 h-4" />
                             </div>
                           </div>

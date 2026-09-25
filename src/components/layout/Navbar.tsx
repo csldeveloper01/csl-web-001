@@ -29,6 +29,7 @@ const standaloneNavItems: NavItem[] = [
   { label: 'Courses', targetId: 'courses', icon: BookOpen },
   { label: 'Services', targetId: 'services', icon: Layers },
   { label: 'Internships', targetId: 'internships', icon: Briefcase },
+  { label: 'Careers', targetId: 'careers', icon: Briefcase },
   { label: 'Workshops', targetId: 'workshops', icon: Cpu },
   { label: 'Contact', targetId: 'contact', icon: Mail },
 ];

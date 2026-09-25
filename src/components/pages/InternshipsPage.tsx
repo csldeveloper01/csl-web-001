@@ -15,7 +15,20 @@
     AlertCircle
   } from 'lucide-react';
   import { YellowBox } from '../effects/YellowBox';
-  import { sendInternshipEnquiry, sendInternshipForm, InternshipEnquiryPayload, EmailJSResult } from '../../services/emailService';
+  import { openWhatsApp } from '../../lib/whatsapp';
+
+  // Local type (previously from emailService)
+  interface InternshipEnquiryPayload {
+    name: string;
+    email: string;
+    phone: string;
+    institution: string;
+    degree: string;
+    year: string;
+    domain: string;
+    duration: string;
+    message?: string;
+  }
 
   // @ts-ignore
   import heroStandaloneVisual from '../../../Elements/INTERNSHIPS/INTERNSHIPS - Standalone.png';
@@ -225,36 +238,31 @@
       setSubmitState('submitting');
       setErrorMessage('');
 
-      // Trigger EmailJS submission service via sendForm or fallback payload
-      let result: EmailJSResult;
-      if (actualFormRef.current) {
-        result = await sendInternshipForm(actualFormRef.current);
-      } else {
-        result = await sendInternshipEnquiry(formData);
-      }
+      // Build WhatsApp message and open chat
+      const message = `Hello, I would like to enquire about an internship.
+Name: ${formData.name}
+Phone: ${formData.phone}
+Track: ${formData.domain}
+Message: ${formData.message || 'N/A'}`;
+      openWhatsApp(message);
 
-      if (result.success) {
-        // STATE 3 — SUCCESS: Reveal GREEN SUCCESS GRADIENT from LEFT -> RIGHT (550ms) + Soft Reflective Light Sweep
-        setSubmitState('button-green-swipe');
+      // STATE 3 — SUCCESS: Reveal GREEN SUCCESS GRADIENT from LEFT -> RIGHT (550ms) + Soft Reflective Light Sweep
+      setSubmitState('button-green-swipe');
 
-        setTimeout(() => {
-          // Button is full CSL Green with "Submitted" text
-          setSubmitState('submitted-green');
-        }, 550);
+      setTimeout(() => {
+        // Button is full CSL Green with "Submitted" text
+        setSubmitState('submitted-green');
+      }, 550);
 
-        setTimeout(() => {
-          // Trigger soft borderless chromatic liquid light flow across form (~2.2s)
-          setSubmitState('flowing-gradient');
-        }, 1050);
+      setTimeout(() => {
+        // Trigger soft borderless chromatic liquid light flow across form (~2.2s)
+        setSubmitState('flowing-gradient');
+      }, 1050);
 
-        setTimeout(() => {
-          // Display clean success confirmation state UI ("Enquiry Sent")
-          setSubmitState('success-complete');
-        }, 3250);
-      } else {
-        setSubmitState('error');
-        setErrorMessage(result.message || 'Something went wrong. Please try again.');
-      }
+      setTimeout(() => {
+        // Display clean success confirmation state UI ("Enquiry Sent")
+        setSubmitState('success-complete');
+      }, 3250);
     };
 
     const yellowBlocks = [

@@ -1693,41 +1693,15 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
 
     setSubmitState('submitting');
 
-    let result: EmailJSResult;
-    if (formRef.current) {
-      result = await sendContactForm(formRef.current);
-    } else {
-      // Fallback if ref missing – invoke sendContactForm with form data via hidden fields
-      // Create a temporary form element to submit
-      const tempForm = document.createElement('form');
-      tempForm.style.display = 'none';
-      // Populate required fields
-      const fields = [
-        { name: 'name', value: formData.name },
-        { name: 'email', value: formData.email },
-        { name: 'phone', value: formData.phone },
-        { name: 'institution', value: formData.institution },
-        { name: 'subject', value: 'Course callback request' },
-        { name: 'message', value: formData.message },
-      ];
-      fields.forEach(f => {
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = f.name;
-        input.value = f.value;
-        tempForm.appendChild(input);
-      });
-      document.body.appendChild(tempForm);
-      result = await sendContactForm(tempForm);
-      document.body.removeChild(tempForm);
-    }
-
-    if (result.success) {
-      setSubmitState('success');
-    } else {
-      setSubmitState('idle');
-      setErrorMessage(result.message || 'Failed to submit callback request.');
-    }
+    // Build WhatsApp message and open chat
+    const message = `Hello, I would like to enquire about a course.
+Name: ${formData.name}
+Phone: ${formData.phone}
+Course: ${course.title}
+Message: ${formData.message || 'N/A'}`;
+    openWhatsApp(message);
+    // Directly show success UI
+    setSubmitState('success');
   };
 
   return (
