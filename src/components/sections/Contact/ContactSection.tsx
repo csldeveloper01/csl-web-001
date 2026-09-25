@@ -27,7 +27,8 @@
       name: '',
       email: '',
       subject: '',
-      message: ''
+      customSubject: '',
+      message: '',
     });
 
     const [errors, setErrors] = useState<Record<string, string>>({});
@@ -63,8 +64,12 @@
         newErrors.email = 'Please enter a valid email.';
       }
 
-      if (!formData.subject.trim()) {
-        newErrors.subject = 'Subject is required.';
+      if (!formData.subject) {
+        newErrors.subject = 'Please select a subject.';
+      }
+
+      if (formData.subject === 'Other' && !formData.customSubject.trim()) {
+        newErrors.customSubject = 'Please enter your subject.';
       }
 
       if (!formData.message.trim()) {
@@ -72,6 +77,7 @@
       }
 
       setErrors(newErrors);
+
       return Object.keys(newErrors).length === 0;
     };
 
@@ -87,13 +93,19 @@
       setErrorMessage('');
 
       // Build WhatsApp message and open chat
-      // Build WhatsApp message and open chat
+      const finalSubject =
+        formData.subject === 'Other'
+          ? formData.customSubject.trim()
+          : formData.subject;
+
       const message = `Hello, I would like to request a callback.
-  Name: ${formData.name}
-  Phone: N/A
-  Message: ${formData.message || 'N/A'}`;
+
+      Name: ${formData.name}
+      Subject: ${finalSubject}
+      Phone: N/A
+      Message: ${formData.message || 'N/A'}`;
+
       openWhatsApp(message);
-      // Directly show success UI
       setSubmitState('success-complete');
 
   // No further result handling needed after WhatsApp redirect
@@ -283,6 +295,7 @@
                           name: '',
                           email: '',
                           subject: '',
+                          customSubject: '',
                           message: ''
                         });
                       }}
@@ -319,16 +332,24 @@
                         <div className="flex flex-col">
                           <div className="relative flex items-center">
                             <User className="w-4 h-4 text-csl-muted absolute left-4 pointer-events-none" />
-                            <input 
-                              type="text" 
-                              name="name"
-                              placeholder="Your Name *" 
-                              value={formData.name}
-                              onChange={e => setFormData({ ...formData, name: e.target.value })}
-                              className={`w-full bg-white/90 border ${
-                                errors.name ? 'border-red-400 focus:ring-red-400' : 'border-csl-gold/25 focus:border-csl-blue focus:ring-csl-blue'
-                              } rounded-xl py-3.5 pl-11 pr-4 text-xs md:text-sm text-csl-text placeholder:text-csl-muted/70 focus:outline-none focus:ring-1 transition-all`}
-                            />
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name *"
+                            value={formData.name}
+                            onChange={(e) => {
+                              const value = e.target.value.replace(/[^a-zA-Z\s'-]/g, '');
+                              setFormData((prev) => ({
+                                ...prev,
+                                name: value,
+                              }));
+                            }}
+                            className={`w-full bg-white/90 border ${
+                              errors.name
+                                ? 'border-red-400 focus:ring-red-400'
+                                : 'border-csl-gold/25 focus:border-csl-blue focus:ring-csl-blue'
+                            } rounded-xl py-3.5 pl-11 pr-4 text-xs md:text-sm text-csl-text placeholder:text-csl-muted/70 focus:outline-none focus:ring-1 transition-all`}
+                          />
                           </div>
                           {errors.name && <span className="text-xs text-red-500 mt-1 font-semibold pl-1">{errors.name}</span>}
                         </div>
@@ -355,22 +376,86 @@
                       {/* Row 2: Subject */}
                       <div className="flex flex-col">
                         <div className="relative flex items-center">
-                          <FileText className="w-4 h-4 text-csl-muted absolute left-4 pointer-events-none" />
-                          <input 
-                            type="text" 
+                          <FileText className="w-4 h-4 text-csl-muted absolute left-4 pointer-events-none z-10" />
+
+                          <select
                             name="subject"
-                            placeholder="Subject *" 
                             value={formData.subject}
-                            onChange={e => setFormData({ ...formData, subject: e.target.value })}
+                            onChange={(e) => {
+                              const value = e.target.value;
+
+                              setFormData((prev) => ({
+                                ...prev,
+                                subject: value,
+                                customSubject: value === 'Other' ? prev.customSubject : '',
+                              }));
+
+                              setErrors((prev) => ({
+                                ...prev,
+                                subject: '',
+                                customSubject: '',
+                              }));
+                            }}
                             className={`w-full bg-white/90 border ${
-                              errors.subject ? 'border-red-400 focus:ring-red-400' : 'border-csl-gold/25 focus:border-csl-blue focus:ring-csl-blue'
-                            } rounded-xl py-3.5 pl-11 pr-4 text-xs md:text-sm text-csl-text placeholder:text-csl-muted/70 focus:outline-none focus:ring-1 transition-all`}
-                          />
+                              errors.subject
+                                ? 'border-red-400 focus:ring-red-400'
+                                : 'border-csl-gold/25 focus:border-csl-blue focus:ring-csl-blue'
+                            } rounded-xl py-3.5 pl-11 pr-4 text-xs md:text-sm text-csl-text focus:outline-none focus:ring-1 transition-all appearance-none cursor-pointer`}
+                          >
+                            <option value="">Select Subject *</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Workshop">Workshop</option>
+                            <option value="Courses">Courses</option>
+                            <option value="Other">Other</option>
+                          </select>
                         </div>
-                        {errors.subject && <span className="text-xs text-red-500 mt-1 font-semibold pl-1">{errors.subject}</span>}
+
+                        {errors.subject && (
+                          <span className="text-xs text-red-500 mt-1 font-semibold pl-1">
+                            {errors.subject}
+                          </span>
+                        )}
                       </div>
 
-                      {/* Row 3: Message Textarea */}
+                      {/* Custom Subject */}
+                      {formData.subject === 'Other' && (
+                        <div className="flex flex-col">
+                          <div className="relative flex items-center">
+                            <FileText className="w-4 h-4 text-csl-muted absolute left-4 pointer-events-none" />
+
+                            <input
+                              type="text"
+                              name="customSubject"
+                              placeholder="Enter your subject *"
+                              value={formData.customSubject}
+                              onChange={(e) => {
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  customSubject: e.target.value,
+                                }));
+
+                                setErrors((prev) => ({
+                                  ...prev,
+                                  customSubject: '',
+                                }));
+                              }}
+                              className={`w-full bg-white/90 border ${
+                                errors.customSubject
+                                  ? 'border-red-400 focus:ring-red-400'
+                                  : 'border-csl-gold/25 focus:border-csl-blue focus:ring-csl-blue'
+                              } rounded-xl py-3.5 pl-11 pr-4 text-xs md:text-sm text-csl-text placeholder:text-csl-muted/70 focus:outline-none focus:ring-1 transition-all`}
+                            />
+                          </div>
+
+                          {errors.customSubject && (
+                            <span className="text-xs text-red-500 mt-1 font-semibold pl-1">
+                              {errors.customSubject}
+                            </span>
+                          )}
+                        </div>
+                      )}
+
+                       {/* Row 3: Message Textarea */}
                       <div className="flex flex-col">
                         <div className="relative flex items-start">
                           <Edit3 className="w-4 h-4 text-csl-muted absolute left-4 top-4 pointer-events-none" />

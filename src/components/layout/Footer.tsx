@@ -145,58 +145,95 @@ export function Footer() {
             </p>
 
             {/* Contact / CTA Presence */}
-            <div className="flex flex-col gap-1.5 mb-4">
-              <div className="flex items-center gap-2 mb-0.5">
+            <div className="flex flex-col gap-3 mb-5">
+              <div className="flex items-center gap-2 mb-1">
                 <span className="text-[10px] font-bold tracking-widest text-csl-blue uppercase">
                   Let's Build Something
                 </span>
                 <div className="h-[1.5px] w-5 bg-csl-gold/60" />
               </div>
 
-              <div className="flex flex-col gap-1 text-xs md:text-sm font-semibold text-csl-text">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-                  <a
-                    href="https://wa.me/918056052806"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
-                    <span>+91 80560 52806</span>
-                  </a>
-                  <a
-                    href="https://wa.me/919500802806"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
-                  >
-                    <span>+91 95008 02806</span>
-                  </a>
-                  <a
-                    href="https://wa.me/919680100306"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
-                  >
-                    <span>+91 96801 00306</span>
-                  </a>
+              <div className="flex flex-col gap-3">
+
+                {/* Contact Info */}
+                <div className="relative overflow-hidden bg-white/35 backdrop-blur-xl border border-white/60 rounded-xl p-4 flex items-start gap-3 shadow-[0_8px_30px_rgba(20,85,184,0.08)] hover:bg-white/50 hover:border-csl-gold/40 hover:shadow-[0_12px_35px_rgba(20,85,184,0.12)] transition-all duration-300 group">
+                  
+                  {/* Glass highlight */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-csl-gold/5 pointer-events-none" />
+
+                  <div className="w-9 h-9 rounded-lg bg-white/45 backdrop-blur-md border border-white/70 text-csl-deep-blue flex items-center justify-center shrink-0 relative z-10 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Phone className="w-4 h-4" />
+                  </div>
+
+                  <div className="flex flex-col relative z-10">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-csl-blue mb-1">
+                      Contact Info
+                    </span>
+
+                    <div className="flex flex-col gap-0.5">
+                      <a
+                        href="https://wa.me/918056052806"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
+                      >
+                        +91 80560 52806
+                      </a>
+
+                      <a
+                        href="https://wa.me/919500802806"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
+                      >
+                        +91 95008 02806
+                      </a>
+
+                      <a
+                        href="https://wa.me/919680100306"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
+                      >
+                        +91 96801 00306
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
-                <a 
-                  href="mailto:hr.info@creatorspacelab.org.in" 
-                  className="flex items-center gap-2 hover:text-csl-blue transition-colors group mt-0.5"
-                >
-                  <Mail className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
-                  <span>hr.info@creatorspacelab.org.in</span>
-                </a>
+                {/* Email */}
+                <div className="relative overflow-hidden bg-white/35 backdrop-blur-xl border border-white/60 rounded-xl p-4 flex items-start gap-3 shadow-[0_8px_30px_rgba(20,85,184,0.08)] hover:bg-white/50 hover:border-csl-gold/40 hover:shadow-[0_12px_35px_rgba(20,85,184,0.12)] transition-all duration-300 group">
+                  
+                  {/* Glass highlight */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-csl-blue/5 pointer-events-none" />
 
-                <a 
-                  href="mailto:hr@creatorspacelab.org.in" 
-                  className="flex items-center gap-2 hover:text-csl-blue transition-colors group mt-0.5"
-                >
-                  <Mail className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
-                  <span>hr@creatorspacelab.org.in</span>
-                </a>
+                  <div className="w-9 h-9 rounded-lg bg-white/45 backdrop-blur-md border border-white/70 text-csl-deep-blue flex items-center justify-center shrink-0 relative z-10 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300 shadow-sm">
+                    <Mail className="w-4 h-4" />
+                  </div>
+
+                  <div className="flex flex-col min-w-0 relative z-10">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-csl-blue mb-1">
+                      Email
+                    </span>
+
+                    <div className="flex flex-col gap-0.5">
+                      <a
+                        href="mailto:hr.info@creatorspacelab.org.in"
+                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors break-all"
+                      >
+                        hr.info@creatorspacelab.org.in
+                      </a>
+
+                      <a
+                        href="mailto:hr@creatorspacelab.org.in"
+                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors break-all"
+                      >
+                        hr@creatorspacelab.org.in
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 

@@ -20,6 +20,8 @@ import { InternshipsPage } from './components/pages/InternshipsPage';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
 import { preloadPageAssets } from './lib/preloadPageAssets';
 import { LoadingIndicator } from './components/ui/LoadingIndicator';
+import { TermsPage } from './pages/TermsPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
