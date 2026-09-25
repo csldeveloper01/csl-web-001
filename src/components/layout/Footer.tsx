@@ -310,12 +310,18 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-5">
-            <a href="#hero" className="hover:text-csl-blue transition-colors">
-              Privacy Policy
+            <a
+              href="/terms"
+              className="hover:text-csl-blue transition-colors"
+            >
+              Terms & Conditions
             </a>
-            <span className="text-csl-gold/50">•</span>
-            <a href="#hero" className="hover:text-csl-blue transition-colors">
-              Terms of Service
+
+            <a
+              href="/privacy"
+              className="hover:text-csl-blue transition-colors"
+            >
+              Privacy Policy
             </a>
           </div>
         </div>

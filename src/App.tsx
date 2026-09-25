@@ -20,8 +20,8 @@ import { InternshipsPage } from './components/pages/InternshipsPage';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
 import { preloadPageAssets } from './lib/preloadPageAssets';
 import { LoadingIndicator } from './components/ui/LoadingIndicator';
-import { TermsPage } from './pages/TermsPage';
-import { PrivacyPage } from './pages/PrivacyPage';
+import TermsPage from './components/pages/TermsPage';
+import PrivacyPage from './components/pages/PrivacyPage';
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
@@ -93,19 +93,23 @@ export function App() {
 
       {/* Main Page Render Area */}
       <div className={`transition-opacity duration-300 ease-out ${isNavigating ? 'opacity-0' : 'opacity-100'}`}>
-        {displayedPath === '/workshops' ? (
-          <WorkshopsPage />
-        ) : displayedPath === '/about' ? (
-          <AboutPage />
-        ) : displayedPath === '/courses' ? (
-          <CoursesPage />
-        ) : displayedPath === '/services' ? (
-          <ServicesPage />
-        ) : displayedPath === '/internships' ? (
-          <InternshipsPage />
-        ) : displayedPath === '/student-portal' ? (
-          <ComingSoonPage />
-        ) : displayedPath === '/' ? (
+          {displayedPath === '/workshops' ? (
+            <WorkshopsPage />
+          ) : displayedPath === '/about' ? (
+            <AboutPage />
+          ) : displayedPath === '/courses' ? (
+            <CoursesPage />
+          ) : displayedPath === '/services' ? (
+            <ServicesPage />
+          ) : displayedPath === '/internships' ? (
+            <InternshipsPage />
+          ) : displayedPath === '/student-portal' ? (
+            <ComingSoonPage />
+          ) : displayedPath === '/terms' ? (
+            <TermsPage />
+          ) : displayedPath === '/privacy' ? (
+            <PrivacyPage />
+          ) : displayedPath === '/' ? (
           <div
             className={`transition-opacity duration-500 ease-out ${homeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             aria-hidden={!homeVisible}
