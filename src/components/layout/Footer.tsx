@@ -153,84 +153,61 @@ export function Footer() {
                 <div className="h-[1.5px] w-5 bg-csl-gold/60" />
               </div>
 
-              <div className="flex flex-col gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-5">
 
                 {/* Contact Info */}
-                <div className="relative overflow-hidden bg-white/35 backdrop-blur-xl border border-white/60 rounded-xl p-4 flex items-start gap-3 shadow-[0_8px_30px_rgba(20,85,184,0.08)] hover:bg-white/50 hover:border-csl-gold/40 hover:shadow-[0_12px_35px_rgba(20,85,184,0.12)] transition-all duration-300 group">
-                  
-                  {/* Glass highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-csl-gold/5 pointer-events-none" />
+                <div className="w-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
+                    Contact Info
+                  </span>
 
-                  <div className="w-9 h-9 rounded-lg bg-white/45 backdrop-blur-md border border-white/70 text-csl-deep-blue flex items-center justify-center shrink-0 relative z-10 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300 shadow-sm">
-                    <Phone className="w-4 h-4" />
-                  </div>
-
-                  <div className="flex flex-col relative z-10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-csl-blue mb-1">
-                      Contact Info
-                    </span>
-
-                    <div className="flex flex-col gap-0.5">
-                      <a
-                        href="https://wa.me/918056052806"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
-                      >
-                        +91 80560 52806
-                      </a>
-
-                      <a
-                        href="https://wa.me/919500802806"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
-                      >
-                        +91 95008 02806
-                      </a>
-
-                      <a
-                        href="https://wa.me/919680100306"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors"
-                      >
-                        +91 96801 00306
-                      </a>
-                    </div>
+                  <div className="flex flex-col gap-0.5">
+                    <a
+                      href="https://wa.me/918056052806"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                    >
+                      +91 80560 52806
+                    </a>
+                    <a
+                      href="https://wa.me/919500802806"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                    >
+                      +91 95008 02806
+                    </a>
+                    <a
+                      href="https://wa.me/919680100306"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                    >
+                      +91 96801 00306
+                    </a>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="relative overflow-hidden bg-white/35 backdrop-blur-xl border border-white/60 rounded-xl p-4 flex items-start gap-3 shadow-[0_8px_30px_rgba(20,85,184,0.08)] hover:bg-white/50 hover:border-csl-gold/40 hover:shadow-[0_12px_35px_rgba(20,85,184,0.12)] transition-all duration-300 group">
-                  
-                  {/* Glass highlight */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/35 via-transparent to-csl-blue/5 pointer-events-none" />
+                <div className="w-full min-w-0 rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
+                    Email
+                  </span>
 
-                  <div className="w-9 h-9 rounded-lg bg-white/45 backdrop-blur-md border border-white/70 text-csl-deep-blue flex items-center justify-center shrink-0 relative z-10 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300 shadow-sm">
-                    <Mail className="w-4 h-4" />
-                  </div>
-
-                  <div className="flex flex-col min-w-0 relative z-10">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-csl-blue mb-1">
-                      Email
-                    </span>
-
-                    <div className="flex flex-col gap-0.5">
-                      <a
-                        href="mailto:hr.info@creatorspacelab.org.in"
-                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors break-all"
-                      >
-                        hr.info@creatorspacelab.org.in
-                      </a>
-
-                      <a
-                        href="mailto:hr@creatorspacelab.org.in"
-                        className="text-xs md:text-sm font-semibold text-csl-text hover:text-csl-blue hover:underline transition-colors break-all"
-                      >
-                        hr@creatorspacelab.org.in
-                      </a>
-                    </div>
+                  <div className="flex flex-col gap-0.5 min-w-0">
+                    <a
+                      href="mailto:hr.info@creatorspacelab.org.in"
+                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors break-words"
+                    >
+                      hr.info@creatorspacelab.org.in
+                    </a>
+                    <a
+                      href="mailto:hr@creatorspacelab.org.in"
+                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors break-words"
+                    >
+                      hr@creatorspacelab.org.in
+                    </a>
                   </div>
                 </div>
 
@@ -310,19 +287,35 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-5">
-            <a
-              href="/terms"
+            <button
+              type="button"
+              onClick={() => {
+                if (window.location.pathname !== '/terms') {
+                  window.history.pushState({}, '', '/terms');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }
+              }}
               className="hover:text-csl-blue transition-colors"
             >
               Terms & Conditions
-            </a>
+            </button>
 
-            <a
-              href="/privacy"
+            <span className="text-csl-gold/50">•</span>
+
+            <button
+              type="button"
+              onClick={() => {
+                if (window.location.pathname !== '/privacy') {
+                  window.history.pushState({}, '', '/privacy');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo({ top: 0, behavior: 'instant' });
+                }
+              }}
               className="hover:text-csl-blue transition-colors"
             >
               Privacy Policy
-            </a>
+            </button>
           </div>
         </div>
 

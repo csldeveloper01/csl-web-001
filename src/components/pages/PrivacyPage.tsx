@@ -1,5 +1,4 @@
 import { Navbar } from '../layout/Navbar';
-import { Footer } from '../layout/Footer';
 
 export default function PrivacyPage() {
   return (
@@ -238,7 +237,6 @@ Address: [INSERT BUSINESS/REGISTERED ADDRESS]</p>
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }
