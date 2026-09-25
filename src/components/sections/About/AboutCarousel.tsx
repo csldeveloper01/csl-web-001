@@ -286,7 +286,7 @@ export function AboutCarousel() {
 
 
         {/* Thumbnails Row */}
-        <div className="flex flex-wrap sm:flex-nowrap justify-center gap-4 md:gap-6 mt-4 w-full">
+        <div className="hidden sm:flex flex-wrap sm:flex-nowrap justify-center gap-4 md:gap-6 mt-4 w-full">
           {carouselData.map((item, idx) => (
             <div 
               key={idx}

@@ -6,7 +6,6 @@ import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
 import cslC from '../../../Elements/LOGOS/CSL-C.png';
 // @ts-expect-error
 import heroBitmap from '../../../Elements/HERO/BITMAP.png';
-import { PhoneLink } from '../common/PhoneLink';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -154,11 +153,33 @@ export function Footer() {
               </div>
 
               <div className="flex flex-col gap-1 text-xs md:text-sm font-semibold text-csl-text">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 pl-13">
-  <PhoneLink number="+918056052806" />
-  <PhoneLink number="+919500802806" />
-  <PhoneLink number="+919680100306" />
-</div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                  <a
+                    href="https://wa.me/918056052806"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
+                    <span>+91 80560 52806</span>
+                  </a>
+                  <a
+                    href="https://wa.me/919500802806"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
+                  >
+                    <span>+91 95008 02806</span>
+                  </a>
+                  <a
+                    href="https://wa.me/919680100306"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
+                  >
+                    <span>+91 96801 00306</span>
+                  </a>
+                </div>
 
                 <a 
                   href="mailto:hr.info@creatorspacelab.org.in" 

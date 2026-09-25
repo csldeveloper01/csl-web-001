@@ -20,7 +20,6 @@ import { sendContactMessage, sendContactForm, ContactMessagePayload, EmailJSResu
 
 // @ts-ignore
 import contactIllustration from '../../../../Elements/CONTACT/CONTACT.png';
-import { PhoneLink } from '@/components/common/PhoneLink';
 
 export function ContactSection() {
   // Form State
@@ -495,27 +494,51 @@ export function ContactSection() {
             </div>
 
             {/* Phone Card */}
-            <div 
-              className="relative overflow-hidden bg-gradient-to-r from-csl-deep-blue to-csl-blue backdrop-blur-sm border border-csl-gold/30 rounded-2xl p-5 flex flex-col gap-2 shadow-md hover:shadow-lg transition-all duration-300 group"
+            <div
+              className="relative overflow-hidden bg-gradient-to-r from-csl-deep-blue to-csl-blue backdrop-blur-sm border border-csl-gold/30 rounded-2xl p-5 sm:p-6 flex items-start gap-4 shadow-md hover:shadow-lg transition-all duration-300 group"
             >
-              <Phone 
-                className="absolute -right-3 -bottom-3 w-24 h-24 text-white/15 pointer-events-none group-hover:scale-105 transition-transform duration-500" 
+              <Phone
+                className="absolute -right-3 -bottom-3 w-24 h-24 text-white/15 pointer-events-none group-hover:scale-105 transition-transform duration-500"
                 strokeWidth={2.5}
               />
 
-              <div className="flex items-center gap-3 relative z-10">
-                <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/25 text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Phone className="w-4 h-4 stroke-[1.75]" />
-                </div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-white/80">
-                  Contact Info
-                </h4>
+              <div className="w-11 h-11 rounded-xl bg-white/15 border border-white/25 text-white flex items-center justify-center shrink-0 relative z-10 shadow-sm group-hover:bg-white group-hover:text-csl-deep-blue transition-all duration-300">
+                <Phone className="w-5 h-5 stroke-[1.75]" />
               </div>
 
-              <div className="flex flex-col items-start gap-1 pl-13 sm:pl-13 relative z-10">
-                <PhoneLink number="+918056052806" />
-<PhoneLink number="+919500802806" />
-<PhoneLink number="+919680100306" />
+              <div className="flex flex-col relative z-10">
+                <h3 className="text-base font-bold text-white mb-1">
+                  Contact Info
+                </h3>
+
+                <div className="flex flex-col gap-0.5">
+                  <a
+                    href="https://wa.me/918056052806"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs sm:text-sm font-medium text-white/85 hover:text-white hover:underline transition-colors"
+                  >
+                    +91 80560 52806
+                  </a>
+
+                  <a
+                    href="https://wa.me/919500802806"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs sm:text-sm font-medium text-white/85 hover:text-white hover:underline transition-colors"
+                  >
+                    +91 95008 02806
+                  </a>
+
+                  <a
+                    href="https://wa.me/919680100306"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs sm:text-sm font-medium text-white/85 hover:text-white hover:underline transition-colors"
+                  >
+                    +91 96801 00306
+                  </a>
+                </div>
               </div>
             </div>
 

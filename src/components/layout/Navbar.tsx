@@ -346,46 +346,49 @@ export function Navbar() {
                 )
             ))}
           </div>
-          
+
+          {/* Mobile Navigation Icons */}
           {/* Mobile Navigation */}
           <div className="hidden custom1195:flex items-center justify-end gap-2.5 sm:gap-3.5 ml-auto">
-          {activeNavItems
-            .filter(item => mobilePrimaryLabels.includes(item.label))
-            .map(item => {
-              const Icon = item.icon;
+            {activeNavItems
+              .filter(item => mobilePrimaryLabels.includes(item.label))
+              .map(item => {
+                const Icon = item.icon;
 
-              const handleClick = () => {
-                if (item.isHomeLink) {
-                  handleScrollTo(item.targetId, true);
-                } else if (item.targetId === 'contact') {
-                  handleScrollTo('contact');
-                } else {
-                  const path = `/${item.targetId}`;
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                    if (item.isHomeLink) {
+                      handleScrollTo(item.targetId, true);
+                    } else if (item.targetId === 'contact') {
+                      handleScrollTo('contact');
+                    } else {
+                      const path = `/${item.targetId}`;
 
-                  setIsMenuOpen(false);
-                  setIsCoursesOpen(false);
-                  setIsMobileCoursesOpen(false);
+                      setIsMenuOpen(false);
+                      setIsCoursesOpen(false);
+                      setIsMobileCoursesOpen(false);
 
-                  if (window.location.pathname !== path) {
-                    window.history.pushState({}, '', path);
-                    window.dispatchEvent(new PopStateEvent('popstate'));
-                  }
+                      if (window.location.pathname !== path) {
+                        window.history.pushState({}, '', path);
+                        window.dispatchEvent(new PopStateEvent('popstate'));
+                      }
 
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              };
-              return (
-                <button
-                  key={item.label}
-                  onClick={handleClick}
-                  aria-label={item.label}
-                  title={item.label}
-                  className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-text hover:text-csl-blue hover:bg-csl-gold/10 transition-colors"
-                >
-                  <Icon className="w-5 h-5" />
-                </button>
-              );
-            })}
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth',
+                      });
+                    }
+                  }}
+                    aria-label={item.label}
+                    title={item.label}
+                    className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-text hover:text-csl-blue hover:bg-csl-gold/10 transition-colors"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </button>
+                );
+              })}
 
             {/* More */}
             <button
@@ -398,7 +401,7 @@ export function Navbar() {
             </button>
           </div>
           {/* CTA (Desktop) */}
-          <div className="hidden custom1195:block"> 
+          <div className="hidden md:block">
             <button
               onClick={() => {
                 window.history.pushState({}, '', '/student-portal');
@@ -466,7 +469,7 @@ export function Navbar() {
                     >
                       <div className="flex items-center justify-between w-full mb-0.5">
                         <span className="flex items-center gap-2 text-sm font-bold text-csl-text group-hover:text-csl-blue transition-colors">
-                          <BookOpen className="w-3.5 h-3.5 text-csl-blue" />
+                          <BookOpen className="hidden sm:block w-3.5 h-3.5 text-csl-blue" />
                           {section.label}
                         </span>
                         <span className="flex items-center gap-2">
@@ -474,7 +477,9 @@ export function Navbar() {
                             0{idx + 1}
                           </span>
                           <ChevronDown
-                            className={`w-4 h-4 text-csl-blue transition-transform duration-300 ${isMobileCoursesOpen ? 'rotate-180' : ''}`}
+                            className={`hidden sm:block w-4 h-4 text-csl-blue transition-transform duration-300 ${
+                              isMobileCoursesOpen ? 'rotate-180' : ''
+                            }`}
                           />
                         </span>
                       </div>
@@ -499,7 +504,7 @@ export function Navbar() {
                               className="flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl bg-csl-blue/10 border border-csl-blue/20 text-csl-blue font-bold text-xs hover:bg-csl-blue hover:text-white transition-all cursor-pointer"
                             >
                               Explore All Courses
-                              <ArrowUpRight className="w-3.5 h-3.5" />
+                              <ArrowUpRight className="hidden sm:block w-3.5 h-3.5" />
                             </button>
 
                             {courseMenuCategories.map((category) => (
@@ -521,7 +526,7 @@ export function Navbar() {
                                       className="flex items-center justify-between gap-2 w-full text-left px-3.5 py-2.5 rounded-xl text-[13px] font-semibold text-csl-text hover:bg-white hover:text-csl-blue active:bg-csl-blue/10 transition-colors cursor-pointer"
                                     >
                                       <span className="leading-snug">{course.title}</span>
-                                      <ChevronRight className="w-3.5 h-3.5 shrink-0 text-csl-gold" />
+                                      <ChevronRight className="hidden sm:block w-3.5 h-3.5 shrink-0 text-csl-gold" />
                                     </button>
                                   ))}
                                 </div>
@@ -535,8 +540,34 @@ export function Navbar() {
                 ) : (
                   <button
                     key={section.label}
-                    onClick={() => handleScrollTo(section.targetId, section.isHomeLink)}
-                    className="group flex flex-col text-left p-3.5 bg-white/70 backdrop-blur-md border border-csl-gold/25 hover:border-csl-gold/70 rounded-2xl hover:bg-white/95 hover:shadow-lg hover:shadow-csl-gold/10 transition-all duration-300"
+                    onClick={() => {
+                      if (section.isHomeLink) {
+                        handleScrollTo(section.targetId, true);
+                      } else if (section.targetId === 'contact') {
+                        handleScrollTo('contact');
+                      } else if (
+                        section.targetId === 'tie-ups' ||
+                        section.targetId === 'success-stories'
+                      ) {
+                        handleScrollTo(section.targetId);
+                      } else {
+                        const path = `/${section.targetId}`;
+
+                        setIsMenuOpen(false);
+                        setIsCoursesOpen(false);
+                        setIsMobileCoursesOpen(false);
+
+                        if (window.location.pathname !== path) {
+                          window.history.pushState({}, '', path);
+                          window.dispatchEvent(new PopStateEvent('popstate'));
+                        }
+
+                        window.scrollTo({
+                          top: 0,
+                          behavior: 'smooth',
+                        });
+                      }
+                    }}                    className="group flex flex-col text-left p-3.5 bg-white/70 backdrop-blur-md border border-csl-gold/25 hover:border-csl-gold/70 rounded-2xl hover:bg-white/95 hover:shadow-lg hover:shadow-csl-gold/10 transition-all duration-300"
                   >
                     <div className="flex items-center justify-between w-full mb-0.5">
                       <span className="text-sm font-bold text-csl-text group-hover:text-csl-blue transition-colors">

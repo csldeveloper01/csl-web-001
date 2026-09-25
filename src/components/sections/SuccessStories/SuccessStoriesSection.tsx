@@ -17,6 +17,8 @@ import imgSupriya from '../../../../Elements/SUCCESS STORIES/supriya.png';
 import imgAyeesha from '../../../../Elements/SUCCESS STORIES/Ayesha.jpg';
 // @ts-expect-error
 import imgSwetha from '../../../../Elements/SUCCESS STORIES/Swetha.jpeg';
+// @ts-expect-error
+import imgMuaz from '../../../../Elements/SUCCESS STORIES/MUAZ.jpeg';
 
 const successStories = [
   {
@@ -80,9 +82,17 @@ const successStories = [
     role: 'Web Designer',
     package: '5 LPA',
     achievement: 'Career growth achieved',
-    timeline: 'Placed',
+    timeline: 'Placed in 5 months',
     image: imgSwetha,
   },
+  {
+    name: 'Muaz',
+    role: 'Web Developer',
+    package: '4 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed in 6 months',
+    image: imgMuaz,
+  }
 ];
 
 export function SuccessStoriesSection() {

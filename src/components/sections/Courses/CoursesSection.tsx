@@ -139,6 +139,20 @@ export function CoursesSection() {
           </div>
         </div>
 
+        {/* MOBILE: COURSE + WORKSHOP BUTTONS */}
+        <div className="flex lg:hidden flex-col w-full gap-3">
+          <a
+            href="/courses"
+            onClick={(e) => handleNavigateToPath(e, '/courses')}
+            className="w-full inline-flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
+          >
+            Explore All Courses
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
+          
+        </div>
+
         {/* RIGHT COLUMN: WORKSHOPS & EMERGING TECH */}
         <div className="flex flex-col w-full">
           {/* Eyebrow */}
@@ -209,16 +223,19 @@ export function CoursesSection() {
           </div>
 
           {/* Mobile CTA (Explore Workshops button) */}
-          <div className="flex lg:hidden w-full">
-            <a 
-              href="/workshops" 
-              onClick={(e) => handleNavigateToPath(e, '/workshops')}
-              className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/20 active:scale-95 shadow-sm cursor-pointer"
-            >
-              Explore Workshops
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+        <div className="flex lg:hidden w-full flex-col gap-3 mt-8">
+
+
+          {/* Explore Workshops */}
+          <a
+            href="/workshops"
+            onClick={(e) => handleNavigateToPath(e, '/workshops')}
+            className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/20 active:scale-95 shadow-sm cursor-pointer"
+          >
+            Explore Workshops
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
         </div>
 
       </div>

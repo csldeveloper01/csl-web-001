@@ -20,7 +20,12 @@ export const PhoneLink: React.FC<{ number: string }> = ({ number }) => {
   }, [number]);
 
   return (
-    <a href={`tel:${number}`} className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group">
+    <a
+      href={`https://wa.me/${number.replace('+', '')}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-1.5 hover:text-csl-blue transition-colors group"
+    >
       <Phone className="w-3.5 h-3.5 text-csl-gold group-hover:scale-110 transition-transform" />
       <span>{formatted}</span>
     </a>
