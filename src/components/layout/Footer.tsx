@@ -67,19 +67,34 @@ export function Footer() {
       }
       return;
     }
+    
 
-    if (window.location.pathname === '/about' || window.location.pathname === '/courses' || window.location.pathname === '/services' || window.location.pathname === '/internships') {
+    if (
+      window.location.pathname === '/about' ||
+      window.location.pathname === '/courses' ||
+      window.location.pathname === '/services' ||
+      window.location.pathname === '/internships' ||
+      window.location.pathname === '/workshops'
+    ) {
       const targetId = href.replace('#', '');
+
       window.history.pushState({}, '', '/');
       window.dispatchEvent(new PopStateEvent('popstate'));
-      setTimeout(() => {
-        if (targetId && targetId !== 'hero') {
-          const el = document.getElementById(targetId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      const scrollToTarget = () => {
+        const el = document.getElementById(targetId);
+
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          return;
         }
-      }, 100);
+
+        // Wait until the home page has actually rendered.
+        requestAnimationFrame(scrollToTarget);
+      };
+
+      requestAnimationFrame(scrollToTarget);
+
       return;
     }
 
