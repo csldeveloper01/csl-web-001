@@ -22,6 +22,7 @@ import { preloadPageAssets } from './lib/preloadPageAssets';
 import { LoadingIndicator } from './components/ui/LoadingIndicator';
 import TermsPage from './components/pages/TermsPage';
 import PrivacyPage from './components/pages/PrivacyPage';
+import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
@@ -146,6 +147,9 @@ export function App() {
 
       {/* Universal Footer */}
       <Footer />
+      
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
 
       {/* Intro Overlay — Video Only, pure white background */}
       {showIntro && (
