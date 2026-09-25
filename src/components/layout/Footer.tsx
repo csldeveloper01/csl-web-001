@@ -1,4 +1,4 @@
-import { ArrowUpRight, Linkedin, Instagram, Youtube, Mail, Phone } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 // @ts-expect-error
 import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
@@ -238,15 +238,6 @@ export function Footer() {
                 >
                   <Instagram className="w-3.5 h-3.5" />
                 </a>
-                <a 
-                  href="https://youtube.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  aria-label="YouTube"
-                  className="w-8 h-8 rounded-lg bg-white/90 border border-csl-gold/25 text-csl-text flex items-center justify-center hover:bg-csl-blue hover:text-white hover:border-csl-blue hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
-                >
-                  <Youtube className="w-3.5 h-3.5" />
-                </a>
               </div>
             </div>
 
@@ -283,7 +274,7 @@ export function Footer() {
         {/* Bottom Divider & Legal Copyright Row */}
         <div className="border-t border-csl-gold/20 pt-5 mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] md:text-xs font-medium text-csl-muted">
           <p>
-            © 2026 CreatorSpaceLab. All rights reserved.
+            © 2026 Creator Space Lab. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5">

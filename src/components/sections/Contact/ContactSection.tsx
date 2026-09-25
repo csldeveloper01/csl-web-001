@@ -553,8 +553,9 @@
                     Address
                   </h3>
                   <p className="text-xs font-medium text-white/85 leading-relaxed">
-                    Creator Space Lab, <br />
-                    Karapakkam, Chennai.
+                    No.48A, Rajiv Gandhi Salai (OMR) <br></br>
+                    Karapakkam, <br></br>
+                    Chennai – 600097, Tamil Nadu, India
                   </p>
                 </div>
               </div>
