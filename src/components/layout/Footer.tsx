@@ -283,7 +283,7 @@ export function Footer() {
         {/* Bottom Divider & Legal Copyright Row */}
         <div className="border-t border-csl-gold/20 pt-5 mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] md:text-xs font-medium text-csl-muted">
           <p>
-            © 2025 CreatorSpaceLab. All rights reserved.
+            © 2026 CreatorSpaceLab. All rights reserved.
           </p>
 
           <div className="flex items-center gap-5">
