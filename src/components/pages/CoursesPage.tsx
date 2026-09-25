@@ -1691,6 +1691,16 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
       return;
     }
 
+    if (!/^[a-zA-Z\s'-]+$/.test(formData.name.trim())) {
+      setErrorMessage('Name can contain only letters, spaces, apostrophes, and hyphens.');
+      return;
+    }
+
+    if (!/^\d{10}$/.test(formData.phone.trim())) {
+      setErrorMessage('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
     setSubmitState('submitting');
 
     // Build WhatsApp message and open chat
@@ -1803,7 +1813,10 @@ Message: ${formData.message || 'N/A'}`;
                 name="name"
                 required
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) => {
+                  const value = e.target.value.replace(/[^a-zA-Z\s'-]/g, '');
+                  setFormData({ ...formData, name: value });
+                }}                
                 placeholder="Enter your name"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl px-4 py-2.5 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue"
               />
@@ -1819,7 +1832,12 @@ Message: ${formData.message || 'N/A'}`;
                 name="phone"
                 required
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                maxLength={10}
+                inputMode="numeric"
+                onChange={(e) => {
+                  const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                  setFormData({ ...formData, phone: value });
+                }}
                 placeholder="Enter your WhatsApp / phone number"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl px-4 py-2.5 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue"
               />

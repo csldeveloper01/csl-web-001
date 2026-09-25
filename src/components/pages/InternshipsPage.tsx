@@ -199,8 +199,8 @@
 
       if (!formData.phone.trim()) {
         newErrors.phone = 'Phone number is required.';
-      } else if (!/^[0-[#+ \d-]{9,15}$/.test(formData.phone.trim())) {
-        newErrors.phone = 'Please enter a valid phone number.';
+      } else if (!/^\d{10}$/.test(formData.phone.trim())) {
+        newErrors.phone = 'Please enter a valid 10-digit phone number.';
       }
 
       if (!formData.institution.trim()) {
@@ -649,8 +649,10 @@ Message: ${formData.message || 'N/A'}`;
                             name="name"
                             placeholder="Enter your full name"
                             value={formData.name}
-                            onChange={e => setFormData({ ...formData, name: e.target.value })}
-                            className={`w-full px-4 py-3 rounded-xl bg-white border ${
+                            onChange={e => {
+                              const value = e.target.value.replace(/[^a-zA-Z\s'-]/g, '');
+                              setFormData({ ...formData, name: value });
+                            }}                            className={`w-full px-4 py-3 rounded-xl bg-white border ${
                               errors.name ? 'border-red-400 focus:ring-red-400' : 'border-csl-gold/30 focus:border-csl-blue focus:ring-csl-blue/20'
                             } text-sm font-medium text-csl-text placeholder:text-csl-muted/60 focus:outline-none focus:ring-2 transition-all`}
                           />
@@ -686,15 +688,20 @@ Message: ${formData.message || 'N/A'}`;
                             Phone Number <span className="text-red-500">*</span>
                           </label>
                           <input
-                            type="tel"
-                            name="phone"
-                            placeholder="Enter your phone number"
-                            value={formData.phone}
-                            onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                            className={`w-full px-4 py-3 rounded-xl bg-white border ${
-                              errors.phone ? 'border-red-400 focus:ring-red-400' : 'border-csl-gold/30 focus:border-csl-blue focus:ring-csl-blue/20'
-                            } text-sm font-medium text-csl-text placeholder:text-csl-muted/60 focus:outline-none focus:ring-2 transition-all`}
-                          />
+                          type="tel"
+                          name="phone"
+                          placeholder="Enter your phone number"
+                          value={formData.phone}
+                          maxLength={10}
+                          inputMode="numeric"
+                          onChange={e => {
+                            const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                            setFormData({ ...formData, phone: value });
+                          }}
+                          className={`w-full px-4 py-3 rounded-xl bg-white border ${
+                            errors.phone ? 'border-red-400 focus:ring-red-400' : 'border-csl-gold/30 focus:border-csl-blue focus:ring-csl-blue/20'
+                          } text-sm font-medium text-csl-text placeholder:text-csl-muted/60 focus:outline-none focus:ring-2 transition-all`}
+                        />
                           {errors.phone && <span className="text-xs text-red-500 mt-1 font-semibold">{errors.phone}</span>}
                         </div>
 
