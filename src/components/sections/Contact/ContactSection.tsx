@@ -20,6 +20,7 @@ import { sendContactMessage, sendContactForm, ContactMessagePayload, EmailJSResu
 
 // @ts-ignore
 import contactIllustration from '../../../../Elements/CONTACT/CONTACT.png';
+import { PhoneLink } from '@/components/common/PhoneLink';
 
 export function ContactSection() {
   // Form State
@@ -511,16 +512,10 @@ export function ContactSection() {
                 </h4>
               </div>
 
-              <div className="flex flex-col items-start gap-1 pl-0 sm:pl-13 relative z-10">
-                <a href="tel:+918056052806" className="text-sm md:text-base font-bold text-white hover:underline">
-                  +91 80560 52806
-                </a>
-                <a href="tel:+919500802806" className="text-sm md:text-base font-bold text-white hover:underline">
-                  +91 95008 02806
-                </a>
-                <a href="tel:+919680100306" className="text-sm md:text-base font-bold text-white hover:underline">
-                  +91 96801 00306
-                </a>
+              <div className="flex flex-col items-start gap-1 pl-13 sm:pl-13 relative z-10">
+                <PhoneLink number="+918056052806" />
+<PhoneLink number="+919500802806" />
+<PhoneLink number="+919680100306" />
               </div>
             </div>
 

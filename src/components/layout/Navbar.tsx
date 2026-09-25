@@ -346,29 +346,46 @@ export function Navbar() {
                 )
             ))}
           </div>
-
-          {/* Mobile Navigation Icons */}
+          
           {/* Mobile Navigation */}
           <div className="hidden custom1195:flex items-center justify-end gap-2.5 sm:gap-3.5 ml-auto">
-            {activeNavItems
-              .filter(item => mobilePrimaryLabels.includes(item.label))
-              .map(item => {
-                const Icon = item.icon;
+          {activeNavItems
+            .filter(item => mobilePrimaryLabels.includes(item.label))
+            .map(item => {
+              const Icon = item.icon;
 
-                return (
-                  <button
-                    key={item.label}
-                    onClick={() => {
-                      handleScrollTo(item.targetId);
-                    }}
-                    aria-label={item.label}
-                    title={item.label}
-                    className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-text hover:text-csl-blue hover:bg-csl-gold/10 transition-colors"
-                  >
-                    <Icon className="w-5 h-5" />
-                  </button>
-                );
-              })}
+              const handleClick = () => {
+                if (item.isHomeLink) {
+                  handleScrollTo(item.targetId, true);
+                } else if (item.targetId === 'contact') {
+                  handleScrollTo('contact');
+                } else {
+                  const path = `/${item.targetId}`;
+
+                  setIsMenuOpen(false);
+                  setIsCoursesOpen(false);
+                  setIsMobileCoursesOpen(false);
+
+                  if (window.location.pathname !== path) {
+                    window.history.pushState({}, '', path);
+                    window.dispatchEvent(new PopStateEvent('popstate'));
+                  }
+
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              };
+              return (
+                <button
+                  key={item.label}
+                  onClick={handleClick}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="flex items-center justify-center w-9 h-9 rounded-lg text-csl-text hover:text-csl-blue hover:bg-csl-gold/10 transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </button>
+              );
+            })}
 
             {/* More */}
             <button
@@ -381,7 +398,7 @@ export function Navbar() {
             </button>
           </div>
           {/* CTA (Desktop) */}
-          <div className="hidden md:block">
+          <div className="hidden custom1195:block"> 
             <button
               onClick={() => {
                 window.history.pushState({}, '', '/student-portal');
