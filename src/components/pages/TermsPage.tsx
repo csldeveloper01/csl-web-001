@@ -239,9 +239,9 @@ export default function TermsPage() {
               <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">24. Contact</h2>
               <p className="mb-5">For questions regarding these Terms:</p>
               <p className="mb-5">Creator Space Lab
-Email: hr@creatorspacelab.com
-Address: No.48A, Rajiv Gandhi Salai (OMR)
-Karapakkam,
+Email: hr@creatorspacelab.com <br></br>
+Address: No.48A, Rajiv Gandhi Salai (OMR) <br></br>
+Karapakkam, <br></br>
 Chennai – 600097, Tamil Nadu, India</p>
             </article>
           </div>
