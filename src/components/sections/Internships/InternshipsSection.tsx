@@ -107,7 +107,6 @@ export function InternshipsSection() {
                     </span>
                   </div>
 
-                  <ArrowRight className="w-4 h-4 text-csl-blue group-hover:translate-x-1.5 transition-transform duration-300 shrink-0" />
                 </a>
               );
             })}

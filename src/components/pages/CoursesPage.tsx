@@ -782,7 +782,7 @@ export const coursesCatalog: CourseItem[] = [
     format: 'Self-paced',
     students: '3,421',
     rating: '4.9',
-    image: iconAI,
+    image: "https://images.unsplash.com/photo-1745674684539-d90293d659a9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     icon: iconAI,
     modules: [
       {
@@ -833,7 +833,7 @@ export const coursesCatalog: CourseItem[] = [
     format: 'Comprehensive',
     students: '2,187',
     rating: '4.8',
-    image: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800&h=550',
+    image: 'https://images.unsplash.com/photo-1727434032773-af3cd98375ba?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     icon: iconAI,
     modules: [
       {
