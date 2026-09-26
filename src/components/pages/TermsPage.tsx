@@ -1,7 +1,9 @@
 import { Navbar } from '../layout/Navbar';
-
+import { Footer } from '../layout/Footer';
 export default function TermsPage() {
   return (
+
+    
     <div className="min-h-screen bg-csl-bg text-csl-text">
       <Navbar />
       <main>
@@ -247,6 +249,7 @@ Chennai – 600097, Tamil Nadu, India</p>
           </div>
         </section>
       </main>
+<Footer />
     </div>
   );
 }

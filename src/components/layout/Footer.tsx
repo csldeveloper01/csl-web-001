@@ -67,6 +67,28 @@ export function Footer() {
       }
       return;
     }
+
+    if (href === '/terms' || href === '#terms') {
+      if (window.location.pathname !== '/terms') {
+        window.history.pushState({}, '', '/terms');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    if (href === '/privacy' || href === '#privacy') {
+      if (window.location.pathname !== '/privacy') {
+        window.history.pushState({}, '', '/privacy');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
     
 
     if (
@@ -74,7 +96,9 @@ export function Footer() {
       window.location.pathname === '/courses' ||
       window.location.pathname === '/services' ||
       window.location.pathname === '/internships' ||
-      window.location.pathname === '/workshops'
+      window.location.pathname === '/workshops' || 
+      window.location.pathname === '/terms' ||
+      window.location.pathname === '/privacy'
     ) {
       const targetId = href.replace('#', '');
 
