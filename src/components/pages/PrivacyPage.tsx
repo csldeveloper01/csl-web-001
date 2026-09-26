@@ -225,7 +225,7 @@ export default function PrivacyPage() {
               <p className="mb-5">Where a personal-data breach occurs, Creator Space Lab will take appropriate steps in accordance with applicable legal requirements, including applicable notification obligations.</p>
               <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">19. Grievance and Privacy Requests</h2>
               <p className="mb-5">For privacy-related questions, correction requests, deletion requests, consent withdrawal, or complaints, contact:</p>
-              <p className="mb-5">Privacy / Grievance Contact: [INSERT NAME OR DESIGNATED ROLE]
+              <p className="mb-5">Privacy / Grievance Contact: <br></br>
 Email: hr@creatorspacelab.com
 Address: No.48A, Rajiv Gandhi Salai (OMR)
 Karapakkam,
