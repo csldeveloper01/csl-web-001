@@ -22,52 +22,12 @@ import imgMuaz from '../../../../Elements/SUCCESS STORIES/MUAZ.jpeg';
 
 const successStories = [
   {
-    name: 'Arshath',
-    role: 'Software Engineer',
-    package: '3 LPA',
-    achievement: 'Career growth achieved',
-    timeline: 'Placed in 4 months',
-    image: imgArshath,
-  },
-  {
-    name: 'Ezhil Moli',
-    role: 'Content Writer',
-    package: '3 LPA',
-    achievement: 'Career growth achieved',
-    timeline: 'Placed in 1 month',
-    image: imgEzhil,
-  },
-  {
-    name: 'Afshan',
-    role: 'Python Developer',
-    package: '3 LPA',
-    achievement: 'Career transformation',
-    timeline: 'Placed in 3 months',
-    image: imgAfshan,
-  },
-  {
-    name: 'Manniyan',
-    role: 'Software Engineer',
-    package: '3 LPA',
-    achievement: 'Career growth achieved',
-    timeline: 'Placed in 5 months',
-    image: imgManniyan,
-  },
-  {
     name: 'Rohit',
     role: 'Software Engineer',
     package: '6 LPA',
     achievement: 'Secured top package',
     timeline: 'Placed in 6 months',
     image: imgRohit,
-  },
-  {
-    name: 'Supriya',
-    role: 'Designer',
-    package: '3 LPA',
-    achievement: 'Career growth achieved',
-    timeline: 'Placed in 3 months',
-    image: imgSupriya,
   },
   {
     name: 'Ayeesha',
@@ -88,11 +48,51 @@ const successStories = [
   {
     name: 'Muaz',
     role: 'Web Developer',
-    package: '4 LPA',
+    package: '5 LPA',
     achievement: 'Career growth achieved',
     timeline: 'Placed in 6 months',
     image: imgMuaz,
-  }
+  },
+  {
+    name: 'Supriya',
+    role: 'Designer',
+    package: '3 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed in 3 months',
+    image: imgSupriya,
+  },
+    {
+    name: 'Manniyan',
+    role: 'Software Engineer',
+    package: '3 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed in 5 months',
+    image: imgManniyan,
+  },
+  {
+    name: 'Afshan',
+    role: 'Python Developer',
+    package: '3 LPA',
+    achievement: 'Career transformation',
+    timeline: 'Placed in 3 months',
+    image: imgAfshan,
+  },
+    {
+    name: 'Arshath',
+    role: 'Software Engineer',
+    package: '3 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed in 4 months',
+    image: imgArshath,
+  },
+  {
+    name: 'Ezhil Moli',
+    role: 'Content Writer',
+    package: '3 LPA',
+    achievement: 'Career growth achieved',
+    timeline: 'Placed in 1 month',
+    image: imgEzhil,
+  },
 ];
 
 export function SuccessStoriesSection() {
