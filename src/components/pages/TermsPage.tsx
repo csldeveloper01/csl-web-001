@@ -235,7 +235,7 @@ export default function TermsPage() {
               <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">23. Governing Law</h2>
               <p className="mb-5">These Terms shall be governed by the laws of India.</p>
               <p className="mb-5">Subject to applicable law, disputes shall be subject to the jurisdiction of the competent courts in the jurisdiction specified by Creator Space Lab in its final legal details.</p>
-              <p className="mb-5">[INSERT FINAL JURISDICTION: SALEM / CHENNAI / OTHER APPROPRIATE JURISDICTION AFTER LEGAL REVIEW]</p>
+              <p className="mb-5">Chennai, Tamil Nadu, India</p>
               <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">24. Contact</h2>
               <p className="mb-5">For questions regarding these Terms:</p>
               <p className="mb-5">Creator Space Lab

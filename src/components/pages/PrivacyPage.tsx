@@ -233,7 +233,7 @@ Chennai – 600097, Tamil Nadu, India</p>
               <p className="mb-5">We will review and respond to requests in accordance with applicable law.</p>
               <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">20. Changes to This Privacy Policy</h2>
               <p className="mb-5">We may update this Privacy Policy periodically.</p>
-              <p className="mb-5">Changes will be published on this website with an updated “Last Updated” date.</p>
+              <p className="mb-5">Changes will be published on this website with an updated 7/09/2026 date.</p>
               <p className="mb-5">Where required, we may provide additional notice or obtain consent for material changes.</p>
             </article>
           </div>
