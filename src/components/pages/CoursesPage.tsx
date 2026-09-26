@@ -14,6 +14,7 @@ import {
   Code2, 
   Cpu,
   Users,
+  ChevronDown,
   Layers
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
@@ -781,7 +782,7 @@ export const coursesCatalog: CourseItem[] = [
     format: 'Self-paced',
     students: '3,421',
     rating: '4.9',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&q=80&w=800&h=550',
+    image: iconAI,
     icon: iconAI,
     modules: [
       {
@@ -1470,7 +1471,7 @@ export function CoursesPage() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <a
-                href="#course-discovery"
+                href="#catalogue"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 Explore All Courses
@@ -1644,6 +1645,28 @@ export function CoursesPage() {
 
 {/* CALLBACK MODAL COMPONENT */}
 function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () => void }) {
+  const [selectedCourseId, setSelectedCourseId] = useState(course.id);
+  const [isCourseOpen, setIsCourseOpen] = useState(false);
+
+  const selectedCourse =
+    coursesCatalog.find((item) => item.id === selectedCourseId) ?? course;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      if (!target.closest('[data-course-dropdown]')) {
+        setIsCourseOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -1657,12 +1680,13 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
   const [dotsIndex, setDotsIndex] = useState(1);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Lock background scroll while modal is open & add Escape key listener
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
+
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
@@ -1673,12 +1697,13 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Submitting ellipsis animation
   useEffect(() => {
     if (submitState !== 'submitting') return;
+
     const interval = setInterval(() => {
       setDotsIndex((prev) => (prev % 3) + 1);
     }, 300);
+
     return () => clearInterval(interval);
   }, [submitState]);
 
@@ -1703,21 +1728,20 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
 
     setSubmitState('submitting');
 
-    // Build WhatsApp message and open chat
     const message = `Hello, I would like to enquire about a course.
-Name: ${formData.name}
-Phone: ${formData.phone}
-Course: ${course.title}
-Message: ${formData.message || 'N/A'}`;
+    Name: ${formData.name}
+    Phone: ${formData.phone}
+    Course: ${selectedCourse.title}
+    Message: ${formData.message || 'N/A'}`;
+
     openWhatsApp(message);
-    // Directly show success UI
+
     setSubmitState('success');
   };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-      {/* Backdrop */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -1725,7 +1749,6 @@ Message: ${formData.message || 'N/A'}`;
         className="fixed inset-0 bg-csl-deep-blue/60 backdrop-blur-md z-0"
       />
 
-      {/* Modal Body */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1733,7 +1756,6 @@ Message: ${formData.message || 'N/A'}`;
         transition={{ duration: 0.3 }}
         className="relative z-10 w-full max-w-lg bg-csl-bg border border-csl-gold/30 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden my-auto"
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white border border-csl-gold/30 flex items-center justify-center text-csl-text hover:bg-csl-blue hover:text-white transition-all shadow-xs cursor-pointer"
@@ -1741,32 +1763,106 @@ Message: ${formData.message || 'N/A'}`;
           <X className="w-5 h-5" />
         </button>
 
-        {/* Modal Header */}
         <div className="mb-6">
           <span className="text-xs font-bold text-csl-blue uppercase tracking-widest block mb-1">
             Request a Callback
           </span>
+
           <h3 className="text-2xl font-extrabold text-csl-text tracking-tight mb-2">
             Callback Request Form
           </h3>
+
           <p className="text-xs text-csl-muted font-medium leading-relaxed">
             Leave your details and we'll contact you via WhatsApp or phone call to discuss the course, schedule, fees, and enrollment process.
           </p>
         </div>
 
-        {/* Read-Only Auto-Associated Course Field */}
-        <div className="bg-white/90 border border-csl-gold/30 rounded-2xl p-3.5 mb-5 flex items-center justify-between shadow-xs">
-          <div>
-            <span className="text-[10px] font-extrabold text-csl-gold uppercase tracking-wider block">
-              Selected Course
+        {/* Course Selection */}
+        <div className="mb-5">
+          <label className="text-[10px] font-extrabold text-csl-gold uppercase tracking-wider block mb-2">
+            Selected Course
+          </label>
+
+          <div className="relative" data-course-dropdown>
+            <button
+              type="button"
+              onClick={() => setIsCourseOpen((prev) => !prev)}
+              className={`relative w-full flex items-center text-left bg-white/90 backdrop-blur-md border ${
+                isCourseOpen
+                  ? 'border-csl-blue ring-1 ring-csl-blue/20'
+                  : 'border-csl-gold/30 hover:border-csl-gold/50'
+              } rounded-2xl py-3.5 pl-4 pr-11 text-sm font-bold text-csl-text shadow-sm hover:shadow-md transition-all duration-200`}
+            >
+              <span className="truncate">
+                {selectedCourse.title}
+              </span>
+
+              <ChevronDown
+                className={`w-4 h-4 absolute right-4 text-csl-blue transition-transform duration-300 ${
+                  isCourseOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+              />
+            </button>
+
+            <AnimatePresence>
+              {isCourseOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -6, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 4, scale: 1 }}
+                  exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                  transition={{
+                    duration: 0.18,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  className="absolute z-50 left-0 right-0 mt-1 overflow-hidden rounded-xl border border-white/70 bg-white/95 backdrop-blur-xl shadow-[0_15px_40px_rgba(20,85,184,0.14)]"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-csl-blue/5 via-transparent to-csl-gold/10 pointer-events-none" />
+
+                  <div className="relative p-1.5 max-h-64 overflow-y-auto">
+                    {coursesCatalog.map((item) => {
+                      const isSelected = selectedCourseId === item.id;
+
+                      return (
+                        <motion.button
+                          key={item.id}
+                          type="button"
+                          whileHover={{ x: 2 }}
+                          transition={{ duration: 0.15 }}
+                          onClick={() => {
+                            setSelectedCourseId(item.id);
+                            setIsCourseOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between rounded-lg px-4 py-2.5 text-xs md:text-sm font-medium text-left transition-all duration-200 ${
+                            isSelected
+                              ? 'bg-csl-blue text-white shadow-sm'
+                              : 'text-csl-text hover:bg-csl-gold/10 hover:text-csl-deep-blue'
+                          }`}
+                        >
+                          <span className="truncate pr-3">
+                            {item.title}
+                          </span>
+
+                          {isSelected && (
+                            <CheckCircle2 className="w-4 h-4 shrink-0" />
+                          )}
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <div className="flex items-center justify-between mt-2 px-1">
+            <span className="text-[11px] text-csl-muted font-medium">
+              Choose the course you are interested in
             </span>
-            <span className="text-sm font-bold text-csl-text">
-              {course.title}
+
+            <span className="text-[10px] font-bold text-csl-blue bg-csl-blue/10 px-2.5 py-1 rounded-lg">
+              {selectedCourse.format}
             </span>
           </div>
-          <span className="text-xs font-bold text-csl-blue bg-csl-blue/10 px-2.5 py-1 rounded-lg">
-            {course.format}
-          </span>
         </div>
 
         {errorMessage && (
@@ -1776,7 +1872,7 @@ Message: ${formData.message || 'N/A'}`;
         )}
 
         {submitState === 'success' ? (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="py-8 text-center flex flex-col items-center"
@@ -1784,12 +1880,15 @@ Message: ${formData.message || 'N/A'}`;
             <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 shadow-sm">
               <CheckCircle2 className="w-8 h-8" />
             </div>
+
             <h4 className="text-xl font-extrabold text-csl-text mb-2">
               Callback Requested ✓
             </h4>
+
             <p className="text-xs text-csl-muted font-medium leading-relaxed max-w-xs mb-6">
               Thanks! We've received your request. Our team will contact you shortly via your preferred method.
             </p>
+
             <button
               onClick={onClose}
               className="bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3 rounded-xl font-bold text-xs shadow-md cursor-pointer"
@@ -1798,16 +1897,35 @@ Message: ${formData.message || 'N/A'}`;
             </button>
           </motion.div>
         ) : (
-          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <input type="hidden" name="course" value={course.title} />
-            <input type="hidden" name="preferred_contact_method" value={formData.preferredContactMethod} />
-            <input type="hidden" name="subject" value={`Course callback request from ${formData.name}`} />
-            
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+          >
+            <input
+              type="hidden"
+              name="course"
+              value={selectedCourse.title}
+            />
+
+            <input
+              type="hidden"
+              name="preferred_contact_method"
+              value={formData.preferredContactMethod}
+            />
+
+            <input
+              type="hidden"
+              name="subject"
+              value={`Course callback request from ${formData.name}`}
+            />
+
             {/* Name */}
             <div>
               <label className="text-xs font-bold text-csl-text block mb-1">
                 Full Name *
               </label>
+
               <input
                 type="text"
                 name="name"
@@ -1816,7 +1934,7 @@ Message: ${formData.message || 'N/A'}`;
                 onChange={(e) => {
                   const value = e.target.value.replace(/[^a-zA-Z\s'-]/g, '');
                   setFormData({ ...formData, name: value });
-                }}                
+                }}
                 placeholder="Enter your name"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl px-4 py-2.5 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue"
               />
@@ -1827,6 +1945,7 @@ Message: ${formData.message || 'N/A'}`;
               <label className="text-xs font-bold text-csl-text block mb-1">
                 Phone Number *
               </label>
+
               <input
                 type="tel"
                 name="phone"
@@ -1848,12 +1967,15 @@ Message: ${formData.message || 'N/A'}`;
               <label className="text-xs font-bold text-csl-text block mb-1">
                 Email Address *
               </label>
+
               <input
                 type="email"
                 name="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 placeholder="Enter your email address"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl px-4 py-2.5 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue"
               />
@@ -1864,11 +1986,14 @@ Message: ${formData.message || 'N/A'}`;
               <label className="text-xs font-bold text-csl-text block mb-1">
                 Institution / College (Optional)
               </label>
+
               <input
                 type="text"
                 name="institution"
                 value={formData.institution}
-                onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, institution: e.target.value })
+                }
                 placeholder="Enter your institution"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl px-4 py-2.5 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue"
               />
@@ -1879,10 +2004,16 @@ Message: ${formData.message || 'N/A'}`;
               <label className="text-xs font-bold text-csl-text block mb-1.5">
                 Preferred Contact Method
               </label>
+
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
-                  onClick={() => setFormData({ ...formData, preferredContactMethod: 'WhatsApp' })}
+                  onClick={() =>
+                    setFormData({
+                      ...formData,
+                      preferredContactMethod: 'WhatsApp'
+                    })
+                  }
                   className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-xs border cursor-pointer transition-all ${
                     formData.preferredContactMethod === 'WhatsApp'
                       ? 'bg-emerald-50 border-emerald-500 text-emerald-700 shadow-xs'
@@ -1892,9 +2023,15 @@ Message: ${formData.message || 'N/A'}`;
                   <MessageSquare className="w-4 h-4 text-emerald-600" />
                   WhatsApp
                 </button>
+
                 <button
                   type="button"
-                  onClick={() => setFormData({ ...formData, preferredContactMethod: 'Phone Call' })}
+                  onClick={() =>
+                    setFormData({
+                      ...formData,
+                      preferredContactMethod: 'Phone Call'
+                    })
+                  }
                   className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-xs border cursor-pointer transition-all ${
                     formData.preferredContactMethod === 'Phone Call'
                       ? 'bg-csl-blue/10 border-csl-blue text-csl-blue shadow-xs'
@@ -1912,17 +2049,20 @@ Message: ${formData.message || 'N/A'}`;
               <label className="text-xs font-bold text-csl-text block mb-1">
                 Message (Optional)
               </label>
+
               <textarea
                 name="message"
                 rows={2}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 placeholder="Anything you'd like to ask about the course?"
                 className="w-full bg-white border border-csl-gold/30 rounded-xl p-3 text-xs text-csl-text font-medium focus:outline-none focus:border-csl-blue resize-none"
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <button
               type="submit"
               disabled={submitState === 'submitting'}
@@ -1941,7 +2081,6 @@ Message: ${formData.message || 'N/A'}`;
                 </>
               )}
             </button>
-
           </form>
         )}
       </motion.div>
