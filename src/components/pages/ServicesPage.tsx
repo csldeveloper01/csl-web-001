@@ -417,7 +417,6 @@ export function ServicesPage() {
 
                   {/* Right Arrow Indicator */}
                   <div className="hidden md:flex items-center text-csl-muted/60 group-hover:text-csl-blue transition-all duration-300 group-hover:translate-x-1.5 shrink-0 pl-4">
-                    <ArrowRight className="w-5 h-5" />
                   </div>
                 </motion.div>
               );
