@@ -45,7 +45,7 @@ export interface CourseModule {
 export interface CourseItem {
   id: string;
   title: string;
-  category: 'Development' | 'Design' | 'Data Science' | 'Data Analytics' | 'Marketing' | 'Cloud' | 'AI/ML' | 'Full Stack' | 'Cybersecurity';
+  category: 'Development' | 'Design' | 'Data Science' | 'Data Analytics' | 'Marketing' | 'Cloud' | 'AI/ML';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   description: string;
   format: 'Self-paced' | 'Intensive' | 'Comprehensive' | 'Flexible';
@@ -62,7 +62,7 @@ export const coursesCatalog: CourseItem[] = [
   {
   id: 'full-stack-ai-java',
   title: 'Full Stack Development with AI - Java',
-  category: 'Full Stack',
+  category: 'Development',
   level: 'Intermediate',
   description: 'Build enterprise-ready full stack applications with React, Java, Spring Boot, databases, and AI-powered features',
   format: 'Comprehensive',
@@ -174,7 +174,7 @@ export const coursesCatalog: CourseItem[] = [
   {
   id: 'full-stack-ai-python',
   title: 'Full Stack Development with AI - Python',
-  category: 'Full Stack',
+  category: 'Development',
   level: 'Intermediate',
   description: 'Build modern full stack web applications with React, Python, APIs, databases, and AI-powered features',
   format: 'Comprehensive',
@@ -2259,10 +2259,15 @@ function CallbackModal({ course, onClose }: { course: CourseItem; onClose: () =>
                   }
                   className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-bold text-xs border cursor-pointer transition-all ${
                     formData.preferredContactMethod === 'Phone Call'
-                      ? 'bg-csl-blue/10 border-csl-blue text-csl-blue shadow-xs'
+                      ? 'border-csl-blue text-csl-blue shadow-xs'
                       : 'bg-white border-csl-gold/30 text-csl-muted'
                   }`}
-                >
+                  style={
+                    formData.preferredContactMethod === 'Phone Call'
+                      ? { backgroundColor: 'rgba(20, 85, 184, 0.10)' }
+                      : undefined
+                  }
+                  >
                   <Phone className="w-4 h-4 text-csl-blue" />
                   Phone Call
                 </button>
