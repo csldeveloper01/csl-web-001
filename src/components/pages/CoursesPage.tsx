@@ -45,7 +45,7 @@ export interface CourseModule {
 export interface CourseItem {
   id: string;
   title: string;
-  category: 'Development' | 'Design' | 'Data Science' | 'Data Analytics' | 'Marketing' | 'Cloud' | 'AI/ML';
+  category: 'Development' | 'Design' | 'Data Science' | 'Data Analytics' | 'Marketing' | 'Cloud' | 'AI/ML' | 'Full Stack' | 'Cybersecurity';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   description: string;
   format: 'Self-paced' | 'Intensive' | 'Comprehensive' | 'Flexible';
@@ -59,6 +59,230 @@ export interface CourseItem {
 
 // 2. AUTHORITATIVE CANONICAL COURSES DATASET (16 COURSES FROM SOURCE DOCUMENT)
 export const coursesCatalog: CourseItem[] = [
+  {
+  id: 'full-stack-ai-java',
+  title: 'Full Stack Development with AI - Java',
+  category: 'Full Stack',
+  level: 'Intermediate',
+  description: 'Build enterprise-ready full stack applications with React, Java, Spring Boot, databases, and AI-powered features',
+  format: 'Comprehensive',
+  students: '2,634',
+  rating: '4.9',
+  image: 'https://images.unsplash.com/photo-1607706189992-eae578626c86?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  icon: iconFullStack,
+  modules: [
+    {
+      moduleNumber: 'Module 1',
+      title: 'Web Development Foundations',
+      duration: '16 hours',
+      topics: [
+        'HTML5 & Semantic HTML',
+        'CSS3 & Responsive Design',
+        'JavaScript Fundamentals',
+        'Git & GitHub'
+      ]
+    },
+    {
+      moduleNumber: 'Module 2',
+      title: 'Frontend Development with React',
+      duration: '22 hours',
+      topics: [
+        'React Fundamentals',
+        'Components & Props',
+        'State & Hooks',
+        'Routing & API Integration'
+      ]
+    },
+    {
+      moduleNumber: 'Module 3',
+      title: 'Java Backend Development',
+      duration: '24 hours',
+      topics: [
+        'Core Java & OOP',
+        'Spring Boot',
+        'REST API Development',
+        'Dependency Injection & Spring Architecture'
+      ]
+    },
+    {
+      moduleNumber: 'Module 4',
+      title: 'Database & Data Management',
+      duration: '18 hours',
+      topics: [
+        'SQL & PostgreSQL',
+        'Database Design',
+        'JPA & Hibernate',
+        'Transactions & Data Integrity'
+      ]
+    },
+    {
+      moduleNumber: 'Module 5',
+      title: 'AI-Powered Application Development',
+      duration: '22 hours',
+      topics: [
+        'AI & LLM Fundamentals',
+        'Prompt Engineering',
+        'AI API Integration',
+        'RAG & AI Assistants'
+      ]
+    },
+    {
+      moduleNumber: 'Module 6',
+      title: 'Full Stack Integration',
+      duration: '18 hours',
+      topics: [
+        'Frontend & Backend Integration',
+        'JWT Authentication',
+        'Spring Security',
+        'Application Security'
+      ]
+    },
+    {
+      moduleNumber: 'Module 7',
+      title: 'Deployment & DevOps',
+      duration: '16 hours',
+      topics: [
+        'Linux Fundamentals',
+        'Docker',
+        'CI/CD Fundamentals',
+        'Cloud Deployment'
+      ]
+    },
+    {
+      moduleNumber: 'Module 8',
+      title: 'Capstone Project',
+      duration: '24 hours',
+      topics: [
+        'Enterprise Application Architecture',
+        'AI Feature Integration',
+        'Production Deployment',
+        'Real-World Full Stack Application'
+      ]
+    }
+  ],
+  learningOutcomes: [
+    'Build responsive full stack web applications using React and Java',
+    'Develop production-ready REST APIs using Spring Boot',
+    'Design and manage relational databases using PostgreSQL',
+    'Implement authentication and authorization using Spring Security',
+    'Integrate AI and LLM capabilities into Java applications',
+    'Build AI-powered assistants and intelligent application features',
+    'Containerize and deploy full stack applications using Docker and cloud platforms',
+    'Develop and deploy a complete AI-powered full stack capstone project'
+  ]
+},
+  {
+  id: 'full-stack-ai-python',
+  title: 'Full Stack Development with AI - Python',
+  category: 'Full Stack',
+  level: 'Intermediate',
+  description: 'Build modern full stack web applications with React, Python, APIs, databases, and AI-powered features',
+  format: 'Comprehensive',
+  students: '2,856',
+  rating: '4.9',
+  image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop',
+  icon: iconFullStack,
+  modules: [
+    {
+      moduleNumber: 'Module 1',
+      title: 'Web Development Foundations',
+      duration: '16 hours',
+      topics: [
+        'HTML5 & Semantic HTML',
+        'CSS3 & Responsive Design',
+        'JavaScript Fundamentals',
+        'Git & GitHub'
+      ]
+    },
+    {
+      moduleNumber: 'Module 2',
+      title: 'Frontend Development with React',
+      duration: '22 hours',
+      topics: [
+        'React Fundamentals',
+        'Components & Props',
+        'State & Hooks',
+        'Routing & API Integration'
+      ]
+    },
+    {
+      moduleNumber: 'Module 3',
+      title: 'Python Backend Development',
+      duration: '24 hours',
+      topics: [
+        'Python Programming',
+        'FastAPI / Flask',
+        'REST API Development',
+        'Authentication & Authorization'
+      ]
+    },
+    {
+      moduleNumber: 'Module 4',
+      title: 'Database & Data Management',
+      duration: '18 hours',
+      topics: [
+        'SQL & PostgreSQL',
+        'Database Design',
+        'SQLAlchemy ORM',
+        'Transactions & Data Integrity'
+      ]
+    },
+    {
+      moduleNumber: 'Module 5',
+      title: 'AI-Powered Application Development',
+      duration: '22 hours',
+      topics: [
+        'AI & LLM Fundamentals',
+        'Prompt Engineering',
+        'AI API Integration',
+        'RAG & AI Assistants'
+      ]
+    },
+    {
+      moduleNumber: 'Module 6',
+      title: 'Full Stack Integration',
+      duration: '18 hours',
+      topics: [
+        'Frontend & Backend Integration',
+        'JWT Authentication',
+        'File Uploads & APIs',
+        'Application Security'
+      ]
+    },
+    {
+      moduleNumber: 'Module 7',
+      title: 'Deployment & DevOps',
+      duration: '16 hours',
+      topics: [
+        'Linux Fundamentals',
+        'Docker',
+        'CI/CD Fundamentals',
+        'Cloud Deployment'
+      ]
+    },
+    {
+      moduleNumber: 'Module 8',
+      title: 'Capstone Project',
+      duration: '24 hours',
+      topics: [
+        'Project Architecture',
+        'AI Feature Integration',
+        'Production Deployment',
+        'Real-World Full Stack Application'
+      ]
+    }
+  ],
+  learningOutcomes: [
+    'Build responsive full stack web applications using React and Python',
+    'Develop REST APIs using FastAPI or Flask',
+    'Design and manage relational databases using PostgreSQL',
+    'Implement authentication and secure API workflows',
+    'Integrate AI and LLM capabilities into web applications',
+    'Build AI-powered assistants and intelligent application features',
+    'Containerize and deploy full stack applications using Docker and cloud platforms',
+    'Develop and deploy a complete AI-powered full stack capstone project'
+  ]
+},
   {
     id: 'python-programming',
     title: 'Python Programming',
@@ -110,6 +334,7 @@ export const coursesCatalog: CourseItem[] = [
       'Debug and test Python programs effectively'
     ]
   },
+
   {
     id: 'advanced-python',
     title: 'Advanced Python',
@@ -912,7 +1137,7 @@ export function CoursesPage() {
     return matchCategory && matchLevel;
   });
 
-  const featuredCourse = coursesCatalog[0]; // Python Programming
+  const featuredCourse = coursesCatalog[1]; // Python Programming
 
   const yellowBlocks = [
     { size: 'w-12 h-12', pos: 'top-[14%] left-[6%]', delay: 0.4, duration: 7 },

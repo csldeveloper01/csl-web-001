@@ -17,24 +17,24 @@ import iconBanner from '../../../../Elements/COURSES/AI + Cloud + AWS = Future S
 const coursesData = [
   {
     id: '01',
-    deepLinkId: 'full-stack-python',
-    title: 'Full Stack Web Development',
-    description: 'Master frontend & backend with hands-on projects.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=400'
+    deepLinkId: 'full-stack-ai-python',
+    title: 'Full Stack Development with AI - Python',
+    description: 'Build modern full stack applications with React, Python, APIs, databases, and AI-powered features.',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=600&h=400'
   },
   {
     id: '02',
-    deepLinkId: 'ui-ux-design-mastery',
-    title: 'UI/UX Design',
-    description: 'Learn design thinking, wireframing, and interactive prototyping.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600&h=400'
+    deepLinkId: 'full-stack-ai-java',
+    title: 'Full Stack Development with AI - Java',
+    description: 'Build enterprise-ready full stack applications with React, Java, Spring Boot, databases, and AI-powered features.',
+    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
-    id: '03',
-    deepLinkId: 'data-science-analytics',
-    title: 'Data Science & AI',
-    description: 'From Python to Machine Learning — become job-ready.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=400'
+      id: '03',
+      deepLinkId: 'python-programming',
+      title: 'Python Programming',
+      description: 'Learn Python programming from fundamentals to practical application development.',
+      image: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=600&h=400'
   }
 ];
 
@@ -137,6 +137,16 @@ export function CoursesSection() {
               </a>
             ))}
           </div>
+          <div className="hidden lg:flex mt-8">
+            <a
+              href="/courses"
+              onClick={(e) => handleNavigateToPath(e, '/courses')}
+              className="inline-flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
+            >
+              Explore All Courses
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
 
         {/* MOBILE: COURSE + WORKSHOP BUTTONS */}
@@ -202,18 +212,10 @@ export function CoursesSection() {
             </div>
           </div>
 
-          {/* Desktop CTAs (Both buttons) */}
-          <div className="hidden lg:flex self-start flex-wrap items-center gap-4">
-            <a 
-              href="/courses" 
-              onClick={(e) => handleNavigateToPath(e, '/courses')}
-              className="inline-flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
-            >
-              Explore All Courses
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a 
-              href="/workshops" 
+          {/* Desktop CTA (Explore Workshops) */}
+          <div className="hidden lg:flex mt-">
+            <a
+              href="/workshops"
               onClick={(e) => handleNavigateToPath(e, '/workshops')}
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/20 active:scale-95 shadow-sm cursor-pointer"
             >

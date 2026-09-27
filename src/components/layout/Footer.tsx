@@ -186,16 +186,15 @@ export function Footer() {
             {/* Contact / CTA Presence */}
             <div className="flex flex-col gap-3 mb-5">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] font-bold tracking-widest text-csl-blue uppercase">
+                <span className="text-[15px] font-bold text-csl-blue uppercase tracking-wider">
                   Let's Build Something
                 </span>
                 <div className="h-[1.5px] w-5 bg-csl-gold/60" />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-5">
-
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 items-stretch">
                 {/* Contact Info */}
-                <div className="w-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
                   <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
                     Contact Info
                   </span>
@@ -209,6 +208,7 @@ export function Footer() {
                     >
                       +91 80560 52806
                     </a>
+
                     <a
                       href="https://wa.me/919500802806"
                       target="_blank"
@@ -217,6 +217,7 @@ export function Footer() {
                     >
                       +91 95008 02806
                     </a>
+
                     <a
                       href="https://wa.me/919680100306"
                       target="_blank"
@@ -229,7 +230,7 @@ export function Footer() {
                 </div>
 
                 {/* Email */}
-                <div className="w-full min-w-0 rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
                   <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
                     Email
                   </span>
@@ -241,6 +242,7 @@ export function Footer() {
                     >
                       hr.info@creatorspacelab.org.in
                     </a>
+
                     <a
                       href="mailto:hr@creatorspacelab.org.in"
                       className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors break-words"
@@ -249,7 +251,6 @@ export function Footer() {
                     </a>
                   </div>
                 </div>
-
               </div>
             </div>
 
