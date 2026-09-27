@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { preloadHomeAssets, waitForHomeAssets } from '../../lib/preloadHomeAssets';
+import { preloadHomeAssets } from '../../lib/preloadHomeAssets';
 
 interface IntroOverlayProps {
   onFadeStart: () => void;
@@ -19,20 +19,22 @@ export function IntroOverlay({ onFadeStart, onComplete }: IntroOverlayProps) {
   }, [onFadeStart]);
 
   useEffect(() => {
+    // Preload homepage assets in the background.
+    // Do not wait for them before finishing the intro.
     preloadHomeAssets();
 
     const video = videoRef.current;
     if (!video) return;
 
     const handleEnded = () => {
-      waitForHomeAssets().then(beginFadeOut);
+      beginFadeOut();
     };
 
     video.addEventListener('ended', handleEnded);
 
     const playVideo = () => {
       video.play().catch(() => {
-        waitForHomeAssets().then(beginFadeOut);
+        beginFadeOut();
       });
     };
 
@@ -47,7 +49,9 @@ export function IntroOverlay({ onFadeStart, onComplete }: IntroOverlayProps) {
     };
   }, [beginFadeOut]);
 
-  const handleTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+  const handleTransitionEnd = (
+    event: React.TransitionEvent<HTMLDivElement>
+  ) => {
     if (isFading && event.propertyName === 'opacity') {
       onComplete();
     }
@@ -55,7 +59,9 @@ export function IntroOverlay({ onFadeStart, onComplete }: IntroOverlayProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500 ease-out ${isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500 ease-out ${
+        isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}
       onTransitionEnd={handleTransitionEnd}
     >
       <video

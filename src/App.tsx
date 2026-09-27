@@ -40,12 +40,7 @@ export function App() {
     return sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
   });
   const [introFading, setIntroFading] = useState(false);
-  const [homeAssetsReady, setHomeAssetsReady] = useState(false);
-
-  useEffect(() => {
-    preloadHomeAssets().then(() => setHomeAssetsReady(true));
-  }, []);
-
+  
   useEffect(() => {
     const handleLocationChange = () => {
       const targetPath = window.location.pathname;
@@ -83,7 +78,7 @@ export function App() {
 
   const isHomePage = currentPath === '/';
   const showIntro = isHomePage && !introComplete;
-  const homeVisible = isHomePage && homeAssetsReady && (introComplete || introFading);
+  const homeVisible = isHomePage && (introComplete || introFading);
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">

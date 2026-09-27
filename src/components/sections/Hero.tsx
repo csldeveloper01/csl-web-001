@@ -59,10 +59,14 @@
               Driving Innovation<br />Through Partnership
             </h2>
             
-            <p className="text-xs sm:text-sm md:text-base text-csl-muted max-w-[360px] leading-relaxed mb-6 sm:mb-8">
-              From your first line of code to your<br className="hidden md:block"/>
-              first job offer — we're with you<br className="hidden md:block"/>
-              at every step.
+            <p
+              className="text-xs sm:text-sm md:text-base text-csl-muted max-w-[430px] leading-[1.85] md:leading-[1.95] mb-6 sm:mb-8"
+              style={{
+                wordSpacing: '0.14em',
+                letterSpacing: '0.015em',
+              }}
+            >
+              From your first line of code to your first job offer — we're with you at every step.
             </p>
             
             {/* Desktop CTAs */}

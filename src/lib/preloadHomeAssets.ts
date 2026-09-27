@@ -21,7 +21,6 @@ const CRITICAL_HOME_ASSETS = [
   state3,
   state4,
   cslTypography,
-  '/assets/c-loading-animation.gif',
   '/thumbnail.png',
 ];
 
