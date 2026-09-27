@@ -98,7 +98,8 @@ export function Footer() {
       window.location.pathname === '/internships' ||
       window.location.pathname === '/workshops' || 
       window.location.pathname === '/terms' ||
-      window.location.pathname === '/privacy'
+      window.location.pathname === '/privacy' ||
+      window.location.pathname === '/student-portal'
     ) {
       const targetId = href.replace('#', '');
 

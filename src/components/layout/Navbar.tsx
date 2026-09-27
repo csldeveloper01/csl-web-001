@@ -235,8 +235,11 @@ export function Navbar() {
                     onMouseEnter={openCoursesMenu}
                     aria-expanded={isCoursesOpen}
                     aria-haspopup="true"
-                    className={`group flex items-center gap-2.5 font-bold text-sm lg:text-[15px] transition-colors cursor-pointer ${isCoursesOpen ? 'text-csl-blue' : 'text-csl-text hover:text-csl-blue'}`}
-                  >
+                    className={`group flex items-center gap-2.5 font-bold text-sm lg:text-[15px] transition-colors cursor-pointer ${
+                      currentPath === '/courses' || isCoursesOpen
+                        ? 'text-csl-blue'
+                        : 'text-csl-text hover:text-csl-blue'
+                    }`}>
                     {item.label}
                     <span className="w-1.5 h-1.5 rounded-[1px] bg-csl-gold transition-all shadow-xs opacity-80 group-hover:opacity-100 group-hover:scale-125" />
                     <ChevronDown
@@ -339,7 +342,17 @@ export function Navbar() {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }
                     }}
-                    className="group flex items-center gap-2.5 font-bold text-sm lg:text-[15px] transition-colors cursor-pointer text-csl-text hover:text-csl-blue"
+                    className={`group flex items-center gap-2.5 font-bold text-sm lg:text-[15px] transition-colors cursor-pointer ${
+                      (
+                        (item.targetId === 'about' && currentPath === '/about') ||
+                        (item.targetId === 'courses' && currentPath === '/courses') ||
+                        (item.targetId === 'services' && currentPath === '/services') ||
+                        (item.targetId === 'internships' && currentPath === '/internships') ||
+                        (item.targetId === 'workshops' && currentPath === '/workshops')
+                      )
+                        ? 'text-csl-blue'
+                        : 'text-csl-text hover:text-csl-blue'
+                    }`} 
                   >
                     {item.label}
                     <span className="w-1.5 h-1.5 rounded-[1px] bg-csl-gold transition-all shadow-xs opacity-80 group-hover:opacity-100 group-hover:scale-125" />
@@ -407,6 +420,11 @@ export function Navbar() {
               onClick={() => {
                 window.history.pushState({}, '', '/student-portal');
                 window.dispatchEvent(new PopStateEvent('popstate'));
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'instant',
+                });
               }}
               className="group flex items-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-5 py-2.5 rounded-lg font-semibold text-xs md:text-sm hover:shadow-lg hover:shadow-csl-blue/20 transition-all duration-300 cursor-pointer"
             >
@@ -592,6 +610,11 @@ export function Navbar() {
                 onClick={() => {
                   window.history.pushState({}, '', '/student-portal');
                   window.dispatchEvent(new PopStateEvent('popstate'));
+
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'instant',
+                  });
                 }}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white py-3 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all"
               >

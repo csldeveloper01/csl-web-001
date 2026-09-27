@@ -10,10 +10,10 @@ const copies = [
     src: path.join(root, 'Elements/VIDEO ASSETS/Intro 2.mp4'),
     dest: path.join(root, 'public/intro/logo_intro_animation.mp4'),
   },
-  {
-    src: path.join(root, 'Elements/VIDEO ASSETS/C_Loading_Animation.gif'),
-    dest: path.join(root, 'public/assets/c-loading-animation.gif'),
-  },
+  // {
+  //   src: path.join(root, 'Elements/VIDEO ASSETS/C_Loading_Animation.gif'),
+  //   dest: path.join(root, 'public/assets/c-loading-animation.gif'),
+  // },
   {
     src: path.join(root, 'Elements/PUBLIC/thumbnail.png'),
     dest: path.join(root, 'public/thumbnail.png'),
