@@ -239,7 +239,6 @@ Chennai – 600097, Tamil Nadu, India</p>
           </div>
         </section>
       </main>
-<Footer />
     </div>
   );
 }
