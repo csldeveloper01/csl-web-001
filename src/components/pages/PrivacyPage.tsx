@@ -1,5 +1,4 @@
 import { Navbar } from '../layout/Navbar';
-import { Footer } from '../layout/Footer';
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-csl-bg text-csl-text">
