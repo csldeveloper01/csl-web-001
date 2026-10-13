@@ -1,7 +1,7 @@
 // @ts-expect-error — Vite asset import
 import cslBook from '../../Elements/LOGOS/CSL -BOOK.png';
 // @ts-expect-error — Vite asset import
-import cslC from '../../Elements/LOGOS/CSL-C.svg';
+import cslC from '../../Elements/LOGOS/CSL-C.png';
 // @ts-expect-error — Vite asset import
 import state1 from '../../Elements/HERO/STATE 1.png';
 // @ts-expect-error — Vite asset import

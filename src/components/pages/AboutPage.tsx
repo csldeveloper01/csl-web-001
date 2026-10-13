@@ -8,19 +8,19 @@ import {
   Target, 
   Clock, 
   HeartHandshake,
-  GraduationCap,
   Briefcase,
-  Languages,
-  Palette,
-  Compass,
-  Rocket
+  Code2,
+  Brain,
+  BarChart3,
+  Cloud,
+  ShieldCheck
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
 
 // @ts-ignore
 import heroAboutVisual from '../../../Elements/ABOUT/AI INNOVATION.png';
 // @ts-ignore
-import cslEmblem from '../../../Elements/LOGOS/CSL-C.png';
+import cslEmblem from '../../../Elements/LOGOS/CSL -BOOK.png';
 
 // ==================================================
 // COUNT-UP ANIMATION COMPONENT FOR METRICS
@@ -285,43 +285,43 @@ export function AboutPage() {
     }
   ];
 
-  // 6 Exact Ecosystem Areas from Source
+  // 6 Technology & Career Ecosystem Pillars
   const ecosystemAreas = [
     {
-      id: 'k12',
-      title: 'K-12 Academic Excellence',
-      description: 'Complete educational foundation covering core academics, STEM programs, arts integration, critical thinking, digital literacy, and life skills development for holistic growth.',
-      icon: GraduationCap,
+      id: 'fullstack',
+      title: 'Full Stack Web & Mobile Engineering',
+      description: 'End-to-end software architecture covering modern frontend frameworks, backend microservices, scalable REST APIs, and database engineering.',
+      icon: Code2,
     },
     {
-      id: 'tech',
-      title: 'Technology & Innovation',
-      description: 'Coding, AI/ML, data science, robotics, and emerging technologies with hands-on projects and industry applications.',
-      icon: Rocket,
+      id: 'aiml',
+      title: 'AI, Machine Learning & Automation',
+      description: 'Applied machine learning pipelines, deep learning neural models, generative AI architectures, and intelligent autonomous agent workflows.',
+      icon: Brain,
     },
     {
-      id: 'prof',
-      title: 'Professional Skills Development',
-      description: 'Build essential workplace skills including communication, leadership, project management, and digital literacy for career advancement.',
-      icon: Compass,
+      id: 'data',
+      title: 'Data Science & Advanced Analytics',
+      description: 'Data transformation, statistical analysis, predictive modeling, and business intelligence dashboards converting raw data into strategic insights.',
+      icon: BarChart3,
     },
     {
-      id: 'interview',
-      title: 'Interview Preparation & Placement',
-      description: 'Comprehensive interview preparation for Tier 1 companies to startups including technical rounds, HR interviews, mock sessions, resume building, and guaranteed placement support.',
+      id: 'cloud',
+      title: 'Cloud Architecture & DevOps Engineering',
+      description: 'Automated CI/CD pipelines, container orchestration with Docker and Kubernetes, and production infrastructure deployment across AWS and cloud systems.',
+      icon: Cloud,
+    },
+    {
+      id: 'testing',
+      title: 'Cybersecurity & Software QA Testing',
+      description: 'Vulnerability assessment, network security defense, automated functional test suites, and end-to-end software verification lifecycles.',
+      icon: ShieldCheck,
+    },
+    {
+      id: 'career',
+      title: 'Career Acceleration & Placement Support',
+      description: 'Comprehensive technical interview preparation, system design drills, industry portfolio reviews, resume optimization, and placement facilitation.',
       icon: Briefcase,
-    },
-    {
-      id: 'lang',
-      title: 'Language Learning',
-      description: 'Master new languages through immersive experiences, native speaker interactions, and cultural context learning.',
-      icon: Languages,
-    },
-    {
-      id: 'arts',
-      title: 'Creative Arts & Design',
-      description: 'Explore creativity through digital art, music production, creative writing, and multimedia design courses.',
-      icon: Palette,
     }
   ];
 
@@ -518,17 +518,17 @@ export function AboutPage() {
                   />
                 </div>
 
-                <div className="mb-8 pr-6">
-                  <span className="text-xs font-mono font-bold text-csl-gold block mb-3">
+                <div className="mb-6 pr-6">
+                  <span className="text-xs font-mono font-bold text-csl-gold block mb-2.5">
                     PILLAR 0{idx + 1}
                   </span>
-                  <div className="text-2xl sm:text-3xl font-black text-csl-text tracking-tight leading-[1.1] font-mono group-hover:text-csl-blue transition-colors">
+                  <div className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight leading-tight font-sans group-hover:text-csl-blue transition-colors">
                     <div>{pillar.line1}</div>
                     <div className="text-csl-blue">{pillar.line2}</div>
                     <div>{pillar.line3}</div>
                   </div>
                 </div>
-                <span className="text-xs font-semibold text-csl-muted pt-4 border-t border-csl-gold/20">
+                <span className="text-xs font-semibold text-csl-muted pt-3 border-t border-csl-gold/20">
                   {pillar.desc}
                 </span>
               </motion.div>

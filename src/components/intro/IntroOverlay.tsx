@@ -16,13 +16,12 @@ export function IntroOverlay({ onFadeStart, onComplete }: IntroOverlayProps) {
     completedRef.current = true;
     onFadeStart();
     setIsFading(true);
+    // Secondary home assets now start loading once intro animation completes/fades out
+    preloadHomeAssets();
   }, [onFadeStart]);
 
   useEffect(() => {
-    // Preload homepage assets in the background.
-    // Do not wait for them before finishing the intro.
-    preloadHomeAssets();
-
+    // The intro video plays without competing for bandwidth with secondary assets.
     const video = videoRef.current;
     if (!video) return;
 

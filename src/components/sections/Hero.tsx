@@ -5,7 +5,7 @@
   // @ts-expect-error
   import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
   // @ts-expect-error
-  import cslC from '../../../Elements/LOGOS/CSL-C.svg';
+  import cslC from '../../../Elements/LOGOS/CSL-C.png';
 
   const navigateToStudentPortal = () => {
     window.history.pushState({}, '', '/student-portal');
@@ -35,32 +35,32 @@
 
 
 
-        {/* Main Hero Content (Mobile: Title -> Bitmap -> Buttons) */}
-        <main className="flex-1 relative z-10 section-container flex flex-col lg:flex-row items-center justify-center pt-4 sm:pt-6 lg:pt-0 pb-4 sm:pb-6 lg:pb-0 h-full pointer-events-none">
+        {/* Main Hero Content (Responsive: Left Text + Right Visual on md+, Mobile: Stacked) */}
+        <main className="flex-1 relative z-10 section-container flex flex-col md:flex-row items-center justify-center pt-2 sm:pt-4 md:pt-2 lg:pt-0 pb-4 sm:pb-6 md:pb-4 lg:pb-0 h-full pointer-events-none gap-6 md:gap-4 lg:gap-8">
 
-          {/* Left Column (Desktop) / Mobile Headline & Info (order-1) */}
-          <div className="w-full lg:w-[50%] flex flex-col justify-center h-full xl:pl-6 pointer-events-auto order-1">
-            <div className="mb-3" data-distort="text">
+          {/* Left Column (Desktop & Tablet text column) / Mobile Headline & Info (order-1) */}
+          <div className="w-full md:w-[52%] lg:w-[50%] flex flex-col justify-center h-full md:pr-2 lg:pr-0 xl:pl-6 pointer-events-auto order-1">
+            <div className="mb-2 sm:mb-3" data-distort="text">
               <img 
                 src={cslBook} 
                 alt="CSL Logo" 
-                className="w-14 sm:w-16 h-auto md:w-20 lg:w-24 object-contain" 
+                className="w-12 sm:w-14 md:w-16 lg:w-24 h-auto object-contain" 
               />
             </div>
 
             <h1 
               data-distort="text"
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-extrabold text-csl-text leading-[1.05] tracking-tight mb-3 sm:mb-4 inline-block"
+              className="text-4xl sm:text-5xl md:text-[2.75rem] lg:text-[4rem] font-extrabold text-csl-text leading-[1.08] md:leading-[1.05] tracking-tight mb-2.5 sm:mb-3 md:mb-4 inline-block"
             >
               Creator<br />Space Lab
             </h1>
             
-            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl italic font-semibold text-csl-text mb-4 sm:mb-5 tracking-wide">
+            <h2 className="text-base sm:text-lg md:text-lg lg:text-2xl italic font-semibold text-csl-text mb-3 sm:mb-4 md:mb-4 tracking-wide leading-snug">
               Driving Innovation<br />Through Partnership
             </h2>
             
             <p
-              className="text-xs sm:text-sm md:text-base text-csl-muted max-w-[430px] leading-[1.85] md:leading-[1.95] mb-6 sm:mb-8"
+              className="text-xs sm:text-sm md:text-sm lg:text-base text-csl-muted max-w-[430px] leading-[1.8] md:leading-[1.85] mb-5 sm:mb-6 md:mb-7"
               style={{
                 wordSpacing: '0.14em',
                 letterSpacing: '0.015em',
@@ -69,16 +69,16 @@
               From your first line of code to your first job offer — we're with you at every step.
             </p>
             
-            {/* Desktop CTAs */}
-            <div className="hidden lg:flex flex-row items-center gap-4">
-              <a href="#courses" className="flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm">
+            {/* Desktop & Tablet CTAs */}
+            <div className="hidden md:flex flex-row items-center gap-3 lg:gap-4 flex-wrap">
+              <a href="#courses" className="flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-5 lg:px-6 py-2.5 lg:py-3 rounded-lg font-bold text-xs lg:text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm shrink-0">
                 Start Learning
                 <ArrowRight className="w-4 h-4" />
               </a>
               <button
                 type="button"
                 onClick={navigateToStudentPortal}
-                className="flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm"
+                className="flex items-center justify-center gap-2 bg-csl-deep-blue text-white px-5 lg:px-6 py-2.5 lg:py-3 rounded-lg font-bold text-xs lg:text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm shrink-0"
               >
                 Go to Student Portal
                 <ArrowRight className="w-4 h-4" />
@@ -86,13 +86,13 @@
             </div>
           </div>
 
-          {/* Right Column (Desktop) / Mobile Bitmap (order-2) */}
-          <div className="w-full lg:w-[50%] flex items-center justify-center mt-6 lg:mt-0 relative pointer-events-auto order-2" data-distort="text">
+          {/* Right Column (Desktop & Tablet Visual) / Mobile Bitmap (order-2) */}
+          <div className="w-full md:w-[48%] lg:w-[50%] flex items-center justify-center mt-2 md:mt-0 relative pointer-events-auto order-2" data-distort="text">
             <HeroVisual />
           </div>
 
-          {/* Mobile CTAs (order-3, directly below bitmap) */}
-          <div className="flex lg:hidden flex-col sm:flex-row items-center gap-3 w-full mt-6 pointer-events-auto order-3">
+          {/* Mobile-Only CTAs (hidden on md+) */}
+          <div className="flex md:hidden flex-col sm:flex-row items-center gap-3 w-full mt-4 pointer-events-auto order-3">
             <a href="#courses" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-csl-gold text-csl-text px-6 py-3 rounded-lg font-bold text-sm transition-transform hover:scale-105 active:scale-95 shadow-sm">
               Start Learning
               <ArrowRight className="w-4 h-4" />

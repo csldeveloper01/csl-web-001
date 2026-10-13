@@ -197,6 +197,8 @@ export function TieupsSection() {
                   <img 
                     src={item.logo} 
                     alt={item.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-11 md:max-h-12 w-auto max-w-[85%] object-contain opacity-95 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-300" 
                   />
                 </div>
@@ -223,6 +225,8 @@ export function TieupsSection() {
                   <img 
                     src={item.logo} 
                     alt={item.name} 
+                    loading="lazy"
+                    decoding="async"
                     className="max-h-11 md:max-h-12 w-auto max-w-[85%] object-contain opacity-95 group-hover/card:opacity-100 group-hover/card:scale-105 transition-all duration-300" 
                   />
                 </div>

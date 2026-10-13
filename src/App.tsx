@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Hero } from './components/sections/Hero';
 import { AboutSection } from './components/sections/About/AboutSection';
 import { CoursesSection } from './components/sections/Courses/CoursesSection';
@@ -9,20 +9,23 @@ import { SuccessStoriesSection } from './components/sections/SuccessStories/Succ
 import { ContactSection } from './components/sections/Contact/ContactSection';
 import { Footer } from './components/layout/Footer';
 import { Navbar } from './components/layout/Navbar';
-import { WorkshopsPage } from './components/pages/WorkshopsPage';
-import { ComingSoonPage } from './components/pages/ComingSoonPage';
-import { NotFoundPage } from './components/pages/NotFoundPage';
 import { IntroOverlay } from './components/intro/IntroOverlay';
-import { AboutPage } from './components/pages/AboutPage';
-import { CoursesPage } from './components/pages/CoursesPage';
-import { ServicesPage } from './components/pages/ServicesPage';
-import { InternshipsPage } from './components/pages/InternshipsPage';
 import { preloadHomeAssets } from './lib/preloadHomeAssets';
 import { preloadPageAssets } from './lib/preloadPageAssets';
 import { LoadingIndicator } from './components/ui/LoadingIndicator';
-import TermsPage from './components/pages/TermsPage';
-import PrivacyPage from './components/pages/PrivacyPage';
 import { FloatingWhatsApp } from './components/ui/FloatingWhatsApp';
+
+// Code-split standalone secondary pages so they do NOT bloat the initial Home bundle
+const WorkshopsPage = lazy(() => import('./components/pages/WorkshopsPage').then(m => ({ default: m.WorkshopsPage })));
+const ComingSoonPage = lazy(() => import('./components/pages/ComingSoonPage').then(m => ({ default: m.ComingSoonPage })));
+const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
+const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const CoursesPage = lazy(() => import('./components/pages/CoursesPage').then(m => ({ default: m.CoursesPage })));
+const ServicesPage = lazy(() => import('./components/pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const InternshipsPage = lazy(() => import('./components/pages/InternshipsPage').then(m => ({ default: m.InternshipsPage })));
+const CareersPage = lazy(() => import('./components/pages/CareersPage').then(m => ({ default: m.CareersPage })));
+const TermsPage = lazy(() => import('./components/pages/TermsPage'));
+const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage'));
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
@@ -54,6 +57,9 @@ export function App() {
 
       assetLoader.then(() => {
         setDisplayedPath(targetPath);
+        if (!window.location.hash) {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+        }
         setTimeout(() => {
           setIsNavigating(false);
         }, 150);
@@ -89,6 +95,13 @@ export function App() {
 
       {/* Main Page Render Area */}
       <div className={`transition-opacity duration-300 ease-out ${isNavigating ? 'opacity-0' : 'opacity-100'}`}>
+        <Suspense
+          fallback={
+            <div className="min-h-[60vh] flex items-center justify-center">
+              <LoadingIndicator />
+            </div>
+          }
+        >
           {displayedPath === '/workshops' ? (
             <WorkshopsPage />
           ) : displayedPath === '/about' ? (
@@ -99,6 +112,8 @@ export function App() {
             <ServicesPage />
           ) : displayedPath === '/internships' ? (
             <InternshipsPage />
+          ) : displayedPath === '/careers' ? (
+            <CareersPage />
           ) : displayedPath === '/student-portal' ? (
             <ComingSoonPage />
           ) : displayedPath === '/terms' ? (
@@ -138,6 +153,7 @@ export function App() {
         ) : (
           <NotFoundPage />
         )}
+        </Suspense>
       </div>
 
       {/* Universal Footer */}

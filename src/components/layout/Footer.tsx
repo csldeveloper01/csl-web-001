@@ -1,4 +1,4 @@
-import { ArrowUpRight, Linkedin, Instagram } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 // @ts-expect-error
 import cslBook from '../../../Elements/LOGOS/CSL -BOOK.png';
@@ -16,7 +16,7 @@ const navLinks = [
   { label: 'Tie-Ups', href: '#tie-ups' },
   { label: 'Internships', href: '/internships' },
   { label: 'Success Stories', href: '#success-stories' },
-  // { label: 'Careers', href: '/careers' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Workshops', href: '/workshops' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -68,6 +68,17 @@ export function Footer() {
       return;
     }
 
+    if (href === '/careers' || href === '#careers') {
+      if (window.location.pathname !== '/careers') {
+        window.history.pushState({}, '', '/careers');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
     if (href === '/terms' || href === '#terms') {
       if (window.location.pathname !== '/terms') {
         window.history.pushState({}, '', '/terms');
@@ -96,6 +107,7 @@ export function Footer() {
       window.location.pathname === '/courses' ||
       window.location.pathname === '/services' ||
       window.location.pathname === '/internships' ||
+      window.location.pathname === '/careers' ||
       window.location.pathname === '/workshops' || 
       window.location.pathname === '/terms' ||
       window.location.pathname === '/privacy' ||
@@ -123,8 +135,9 @@ export function Footer() {
       return;
     }
 
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
+    const rawTargetId = href.replace('#', '');
+    const targetId = rawTargetId === 'contact' ? 'contact-form' : rawTargetId;
+    const element = document.getElementById(targetId) || document.getElementById(rawTargetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else if (href === '#hero' || href === '/') {
@@ -162,7 +175,7 @@ export function Footer() {
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* Upper Asymmetrical Row: Branding + Navigation + Contact */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] gap-8 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_1.05fr] xl:grid-cols-[1.25fr_1.15fr] gap-8 lg:gap-10 xl:gap-14 items-start">
           
           {/* Left Column: CSL Branding + Contact & Socials */}
           <div className="flex flex-col">
@@ -195,17 +208,17 @@ export function Footer() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 items-stretch">
                 {/* Contact Info */}
-                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-3.5 sm:px-4 py-3.5 flex flex-col box-border">
                   <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
                     Contact Info
                   </span>
 
-                  <div className="flex flex-col gap-0.5">
+                  <div className="flex flex-col gap-1 min-w-0">
                     <a
                       href="https://wa.me/918056052806"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                      className="text-xs sm:text-[13px] md:text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
                     >
                       +91 80560 52806
                     </a>
@@ -214,7 +227,7 @@ export function Footer() {
                       href="https://wa.me/919500802806"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                      className="text-xs sm:text-[13px] md:text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
                     >
                       +91 95008 02806
                     </a>
@@ -223,7 +236,7 @@ export function Footer() {
                       href="https://wa.me/919680100306"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
+                      className="text-xs sm:text-[13px] md:text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors"
                     >
                       +91 96801 00306
                     </a>
@@ -231,22 +244,22 @@ export function Footer() {
                 </div>
 
                 {/* Email */}
-                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-4 py-3.5">
+                <div className="w-full min-w-0 h-full rounded-xl border border-csl-blue/10 bg-white/45 px-3.5 sm:px-4 py-3.5 flex flex-col box-border">
                   <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-csl-blue mb-2">
                     Email
                   </span>
 
-                  <div className="flex flex-col gap-0.5 min-w-0">
+                  <div className="flex flex-col gap-1.5 min-w-0">
                     <a
                       href="mailto:hr.info@creatorspacelab.org.in"
-                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors break-words"
+                      className="text-xs sm:text-[12.5px] lg:text-[11.5px] xl:text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors [overflow-wrap:anywhere] leading-snug"
                     >
                       hr.info@creatorspacelab.org.in
                     </a>
 
                     <a
                       href="mailto:hr@creatorspacelab.org.in"
-                      className="text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors break-words"
+                      className="text-xs sm:text-[12.5px] lg:text-[11.5px] xl:text-sm font-semibold text-csl-text hover:text-csl-blue transition-colors [overflow-wrap:anywhere] leading-snug"
                     >
                       hr@creatorspacelab.org.in
                     </a>
@@ -261,6 +274,15 @@ export function Footer() {
                 Follow Us
               </span>
               <div className="flex items-center gap-2">
+                <a 
+                  href="https://www.facebook.com/creatorspacelab" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg bg-white/90 border border-csl-gold/25 text-csl-text flex items-center justify-center hover:bg-csl-blue hover:text-white hover:border-csl-blue hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                </a>
                 <a 
                   href="https://www.linkedin.com/company/creatorspacelab/" 
                   target="_blank" 

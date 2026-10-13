@@ -21,3 +21,6 @@ export type VoxelAssetKey =
   | 'speed-optimization'
   | 'growth-analytics'
   | 'people-collaboration';
+
+export * from '../data/coursesData';
+

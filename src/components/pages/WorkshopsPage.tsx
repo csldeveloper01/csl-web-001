@@ -1,163 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
-  ArrowRight, 
   ArrowDown, 
   ChevronRight, 
   Sparkles, 
-  Cpu, 
-  Cloud, 
-  Server, 
-  Code, 
-  Award, 
-  Users, 
-  Zap, 
-  Layers
+  CheckCircle2,
+  MessageCircle
 } from 'lucide-react';
 import { YellowBox } from '../effects/YellowBox';
-import { useDeepLinkHighlight } from '../../hooks/useDeepLinkHighlight';
+import { WorkshopExplorer } from '../sections/Workshops/WorkshopExplorer';
+import { WorkshopVideos } from '../sections/Workshops/WorkshopVideos';
+import { ContactModal } from '../sections/Contact/ContactModal';
 
-// @ts-ignore
-import iconBanner from '../../../Elements/COURSES/AI + Cloud + AWS = Future Skills.png';
-// @ts-ignore
-import iconAI from '../../../Elements/COURSES/AI and Machine Learning.png';
-// @ts-ignore
-import iconCloud from '../../../Elements/COURSES/Cloud and AWS Development.png';
-// @ts-ignore
-import iconFullStack from '../../../Elements/COURSES/Full Stack Development.png';
-// @ts-ignore
-import iconCyber from '../../../Elements/COURSES/Cybersecurity and Ethical Hacking.png';
-// @ts-ignore
-import iconUIUX from '../../../Elements/COURSES/UIUX Front End design.png';
 // @ts-ignore
 import cslEmblem from '../../../Elements/COURSES/CSL-BOOK-WK.png';
 
-// 5 EXACT SPECIALIZATION TRACKS FROM SOURCE DOCUMENT
-const specializationTracks = [
-  {
-    id: 'ai-ml',
-    title: 'AI / Machine Learning',
-    icon: iconAI,
-    posDesktop: 'top-0 left-1/2 -translate-x-1/2',
-    desc: 'Machine learning models, neural networks, and AI integration'
-  },
-  {
-    id: 'cloud-aws',
-    title: 'Cloud & AWS Deployment',
-    icon: iconCloud,
-    posDesktop: 'top-[16%] right-0',
-    desc: 'AWS infrastructure, serverless architecture, and cloud deployment'
-  },
-  {
-    id: 'full-stack',
-    title: 'Full Stack Development',
-    icon: iconFullStack,
-    posDesktop: 'bottom-[16%] right-0',
-    desc: 'End-to-end web applications with modern frontend & backend'
-  },
-  {
-    id: 'cybersecurity',
-    title: 'Cybersecurity & Ethical Hacking',
-    icon: iconCyber,
-    posDesktop: 'bottom-[16%] left-0',
-    desc: 'Defensive security, vulnerability analysis, and ethical hacking'
-  },
-  {
-    id: 'ui-ux',
-    title: 'UI/UX & Frontend Design',
-    icon: iconUIUX,
-    posDesktop: 'top-[16%] left-0',
-    desc: 'User interface design, interactive prototyping, and modern frontend'
-  }
-];
-
-// 5 EXACT WHY CHOOSE ITEMS FROM SOURCE DOCUMENT
-const whyChooseItems = [
-  {
-    num: '01',
-    title: 'Most Requested Program',
-    description: 'One of the most requested programs across colleges',
-    icon: Zap
-  },
-  {
-    num: '02',
-    title: 'AI & AWS Focus',
-    description: 'Special sessions on AI applications and AWS Cloud deployment',
-    icon: Cpu
-  },
-  {
-    num: '03',
-    title: 'Real Projects',
-    description: 'Includes industry-level AI & Cloud-based projects',
-    icon: Layers
-  },
-  {
-    num: '04',
-    title: 'Certification',
-    description: 'Certificate of Participation for all attendees',
-    icon: Award
-  },
-  {
-    num: '05',
-    title: 'Industry Mentors',
-    description: 'Networking with IT professionals from top companies',
-    icon: Users
-  }
-];
-
-// ANIMATED SPECIALIZATION CARD (SEPARATES POSITION FROM ANIMATION + DEEP LINK HIGHLIGHT)
-function SpecializationCard({ track, idx, isHighlighted }: { track: any; idx: number; isHighlighted?: boolean }) {
-  return (
-    <motion.div
-      id={track.id}
-      data-deep-link-id={track.id}
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className={`group relative bg-white/95 backdrop-blur-md rounded-2xl p-6 transition-all duration-500 w-full h-full flex flex-col justify-between ${
-        isHighlighted
-          ? 'border-2 border-csl-gold ring-4 ring-csl-gold/50 shadow-2xl scale-[1.04] z-30 animate-pulse'
-          : 'border border-csl-gold/30 hover:border-csl-gold/80 shadow-md hover:shadow-xl hover:shadow-csl-gold/15'
-      }`}
-    >
-      <motion.div
-        animate={{ y: [0, -3, 0] }}
-        transition={{ 
-          duration: 5.5 + (idx % 3), 
-          repeat: Infinity, 
-          ease: 'easeInOut',
-          delay: idx * 0.4 
-        }}
-        className="flex flex-col h-full justify-between"
-      >
-        <div className="flex items-center gap-4 mb-3">
-          <div className="w-14 h-14 rounded-xl bg-csl-blue/10 border border-csl-blue/20 p-2 shrink-0 group-hover:bg-csl-blue group-hover:border-csl-blue transition-all duration-300 flex items-center justify-center">
-            <img src={track.icon} alt={track.title} className="w-full h-full object-contain group-hover:brightness-200 transition-all duration-300" />
-          </div>
-          <div>
-            <span className="text-[10px] font-mono font-bold text-csl-gold uppercase tracking-wider block mb-0.5">
-              TRACK 0{idx + 1}
-            </span>
-            <h4 className="text-base font-extrabold text-csl-text group-hover:text-csl-blue transition-colors leading-tight">
-              {track.title}
-            </h4>
-          </div>
-        </div>
-
-        <p className="text-xs text-csl-muted font-medium leading-relaxed group-hover:text-csl-text transition-colors">
-          {track.desc}
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-
 export function WorkshopsPage() {
-  const [activeWhyChooseIndex, setActiveWhyChooseIndex] = useState<number>(0);
-  const highlightedId = useDeepLinkHighlight();
+  const [selectedDomainId, setSelectedDomainId] = useState<string>('all');
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
+  // Handle direct hash navigation if specified
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && hash !== 'domains' && hash !== 'workshop-explorer' && hash !== 'hero' && hash !== 'workshop-cta') {
+      setSelectedDomainId(hash);
+    }
+  }, []);
 
   // Reclining Hero Scroll Effect
   const { scrollY } = useScroll();
@@ -165,18 +33,12 @@ export function WorkshopsPage() {
   const heroOpacity = useTransform(scrollY, [0, 500], [1, 0.35]);
   const heroY = useTransform(scrollY, [0, 600], [0, -35]);
 
-  const handleNavigateToContact = () => {
-    if (window.location.pathname !== '/') {
-      window.history.pushState({}, '', '/');
-      window.dispatchEvent(new PopStateEvent('popstate'));
-      setTimeout(() => {
-        const el = document.getElementById('contact');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById('contact');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleOpenContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+
+  const handleDomainSelect = (domainId: string) => {
+    setSelectedDomainId(domainId);
   };
 
   const yellowBlocks = [
@@ -190,78 +52,139 @@ export function WorkshopsPage() {
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
       
       {/* ==================================================
-          1. WORKSHOP HERO SECTION
+          1. WORKSHOP HERO SECTION (RESTORED PREVIOUS HERO)
          ================================================== */}
       <motion.section 
         id="hero"
         style={{ scale: heroScale, opacity: heroOpacity, y: heroY }}
-        className="sticky top-0 z-0 w-full min-h-[60vh] flex flex-col justify-center bg-[#FBF7F4] pt-24 pb-6 overflow-hidden"
+        className="sticky top-0 z-0 w-full min-h-[65vh] flex flex-col justify-center bg-[#FBF7F4] pt-28 pb-12 overflow-hidden"
       >
-        {/* Floating Voxel Blocks */} 
+        {/* Floating Voxel Blocks */}
         <div className="absolute inset-0 pointer-events-none z-0 2xl:max-w-[1600px] 2xl:mx-auto">
           {yellowBlocks.map((block, i) => (
             <YellowBox key={i} size={block.size} pos={block.pos} delay={block.delay} duration={block.duration} />
           ))}
         </div>
 
-        <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* LEFT — TITLE + DESCRIPTION + BUTTON */}
-          <div className="order-1 flex flex-col items-start max-w-xl">
+          {/* LEFT — TITLE + DESCRIPTION + STATS + CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-start max-w-2xl">
 
             <div className="section-eyebrow">
-              <span>CreatorSpaceLab</span>
+              <span>CREATOR SPACE LAB</span>
               <div></div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-extrabold text-csl-text leading-[1.08] tracking-tight mb-4">
-              AI & Cloud AWS <br />
-              <span className="text-csl-blue">Industry Workshop</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.3rem] font-extrabold text-csl-text leading-[1.08] tracking-tight mb-3">
+              <span className="text-csl-blue">Workshops</span>
             </h1>
 
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-csl-text mb-3 tracking-tight">
+              Hands-On Learning. Real Skills. Practical Outcomes.
+            </p>
+
+            {/* Feature Tag Pill */}
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-csl-gold/20 via-csl-gold/10 to-csl-blue/15 border border-csl-gold/40 px-4 py-2 rounded-xl mb-4 shadow-xs">
               <Sparkles className="w-4 h-4 text-csl-gold" />
-
               <span className="text-xs sm:text-sm font-extrabold text-csl-text font-mono">
-                AI + Cloud + AWS = Future Skills
+                12 Domains • Guided Hands-On Learning • Beginner to Advanced
               </span>
             </div>
 
-            <p className="text-csl-muted font-medium text-base sm:text-lg leading-relaxed mb-8">
-              Learn AI, Cloud & AWS deployment from IT industry experts. Build and deploy real-world AI-powered cloud applications with live mentorship.
+            <p className="text-csl-muted font-medium text-base sm:text-lg leading-relaxed mb-6">
+              Explore practical workshops designed to help students build real-world skills through guided, hands-on learning across key technical domains.
             </p>
 
-            <a
-              href="#domains"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-            >
-              Explore Domains
-              <ArrowDown className="w-5 h-5" />
-            </a>
+            {/* Micro Stats Pills */}
+            <div className="grid grid-cols-3 gap-3 w-full max-w-lg mb-8">
+              <div className="p-3 bg-white/80 rounded-xl border border-csl-gold/30 shadow-2xs">
+                <span className="text-lg sm:text-xl font-mono font-extrabold text-csl-blue block">12</span>
+                <span className="text-[11px] font-semibold text-csl-muted uppercase tracking-wider">Tech Domains</span>
+              </div>
+              <div className="p-3 bg-white/80 rounded-xl border border-csl-gold/30 shadow-2xs">
+                <span className="text-lg sm:text-xl font-mono font-extrabold text-csl-gold block">72+</span>
+                <span className="text-[11px] font-semibold text-csl-muted uppercase tracking-wider">Workshops</span>
+              </div>
+              <div className="p-3 bg-white/80 rounded-xl border border-csl-gold/30 shadow-2xs">
+                <span className="text-lg sm:text-xl font-mono font-extrabold text-emerald-600 block">100%</span>
+                <span className="text-[11px] font-semibold text-csl-muted uppercase tracking-wider">Project-Based</span>
+              </div>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+              <a
+                href="#workshop-explorer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('workshop-explorer');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                <span>Explore Workshops</span>
+                <ArrowDown className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={handleOpenContactModal}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/90 border border-csl-gold/40 text-csl-text hover:text-csl-blue px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-xs hover:shadow-md hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                <span>Host at Your College</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
 
           </div>
 
-          {/* RIGHT — IMAGE */}
-          <div className="order-2 flex items-center justify-center relative w-full">
-
+          {/* RIGHT — VISUAL EMBLEM & COMPOSITE BADGES */}
+          <div className="lg:col-span-5 flex items-center justify-center relative w-full mt-6 lg:mt-0">
             <motion.div
-              className="relative w-full max-w-[460px] sm:max-w-[520px]"
-              animate={{ y: [0, -12, 0] }}
+              className="relative w-full max-w-[420px]"
+              animate={{ y: [0, -10, 0] }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 ease: 'easeInOut'
               }}
             >
+              {/* Subtle Glowing Backdrop */}
               <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/25 via-transparent to-csl-blue/20 blur-3xl -z-10 rounded-full scale-90" />
 
-              <img
-                src={iconBanner}
-                alt="AI Cloud AWS Industry Workshop"
-                className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,30,80,0.14)]"
-              />
-            </motion.div>
+              {/* Main Badge Card */}
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-6 border border-csl-gold/40 shadow-2xl relative">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-csl-blue/10 via-white to-csl-gold/20 border border-csl-gold/30 p-3 flex items-center justify-center shadow-md">
+                    <img src={cslEmblem} alt="CSL Emblem" className="w-full h-full object-contain" />
+                  </div>
+                </div>
 
+                <div className="text-center mb-4">
+                  <h3 className="text-base font-extrabold text-csl-text font-mono uppercase tracking-wider mb-1">
+                    Industry-Grade Pedagogy
+                  </h3>
+                  <p className="text-xs text-csl-muted font-medium">
+                    Curriculum co-designed with senior software engineers & corporate trainers.
+                  </p>
+                </div>
+
+                <div className="space-y-2 pt-3 border-t border-csl-gold/20 text-xs font-semibold text-csl-text">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Live coding in university computer labs</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Real-world capstones & GitHub commits</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Verifiable credentials for student portfolios</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
         </div>
@@ -271,275 +194,126 @@ export function WorkshopsPage() {
       <div className="relative z-10 bg-csl-bg shadow-[0_-25px_60px_rgba(0,0,0,0.06)] border-t border-csl-gold/20">
 
         {/* ==================================================
-            2. WORKSHOP FORMULA IDENTITY BAR
+            2. PRIMARY SECTION: EXPLORE WORKSHOPS
+               (11 Domains, CustomDropdown Filters, Progression Pill, 6 Workshops per Domain)
            ================================================== */}
-        <section className="relative w-full py-12 bg-white/40 border-b border-csl-gold/20">
-          <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 font-mono text-xl sm:text-3xl font-black text-csl-text tracking-tight text-center">
-              <span className="px-4 py-2 rounded-xl bg-csl-blue/10 text-csl-blue border border-csl-blue/20">AI</span>
-              <span className="text-csl-gold">+</span>
-              <span className="px-4 py-2 rounded-xl bg-csl-gold/15 text-csl-text border border-csl-gold/30">Cloud</span>
-              <span className="text-csl-gold">+</span>
-              <span className="px-4 py-2 rounded-xl bg-csl-blue/10 text-csl-blue border border-csl-blue/20">AWS</span>
-              <span className="text-csl-gold">=</span>
-              <span className="px-5 py-2 rounded-xl bg-gradient-to-r from-csl-gold to-csl-blue text-white shadow-md">
-                Future Skills
-              </span>
-            </div>
-          </div>
-        </section>
+        <WorkshopExplorer 
+          selectedDomainId={selectedDomainId}
+          onSelectDomain={handleDomainSelect}
+          onNavigateToContact={handleOpenContactModal}
+        />
 
         {/* ==================================================
-            3. SPECIALIZATION TRACKS (Connected Radial Composition)
+            3. WORKSHOP VIDEOS & EXPERIENCES
+               (Landscape Community Video + 4 Portrait Reel Showcases)
            ================================================== */}
-        <section id="domains" className="relative w-full py-16 md:py-24 section-container">
-          
-          {/* Header */}
-          <div className="mb-14 text-center flex flex-col items-center">
-            <div className="section-eyebrow justify-center">
-              <span>DOMAINS</span>
-              <div></div>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
-              Specialization <span className="text-csl-blue">Tracks</span>
-            </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
-              Focus on AI, Cloud & AWS with expert guidance
-            </p>
-          </div>
-
-          {/* DESKTOP FIXED RADIAL COMPOSITION */}
-          <div className="hidden lg:block relative w-full max-w-5xl mx-auto h-[600px]">
-            
-            {/* Central CSL Emblem Anchor */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-              <motion.div 
-                animate={{ scale: [1, 1.04, 1] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative w-44 h-44 flex items-center justify-center bg-white/95 border border-csl-gold/40 rounded-full shadow-2xl pointer-events-auto"
-              >
-                <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/25 via-transparent to-csl-blue/20 blur-2xl rounded-full scale-125 -z-10" />
-                <img src={cslEmblem} alt="CSL Emblem" className="w-22 h-22 object-contain drop-shadow-md" />
-              </motion.div>
-            </div>
-
-            {/* Position 1: Top Center */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-36 z-20">
-              <SpecializationCard track={specializationTracks[0]} idx={0} isHighlighted={highlightedId === specializationTracks[0].id} />
-            </div>
-
-            {/* Position 2: Top Right */}
-            <div className="absolute top-[20%] right-0 w-80 h-36 z-20">
-              <SpecializationCard track={specializationTracks[1]} idx={1} isHighlighted={highlightedId === specializationTracks[1].id} />
-            </div>
-
-            {/* Position 3: Bottom Right */}
-            <div className="absolute bottom-[8%] right-[8%] w-80 h-36 z-20">
-              <SpecializationCard track={specializationTracks[2]} idx={2} isHighlighted={highlightedId === specializationTracks[2].id} />
-            </div>
-
-            {/* Position 4: Bottom Left */}
-            <div className="absolute bottom-[8%] left-[8%] w-80 h-36 z-20">
-              <SpecializationCard track={specializationTracks[3]} idx={3} isHighlighted={highlightedId === specializationTracks[3].id} />
-            </div>
-
-            {/* Position 5: Top Left */}
-            <div className="absolute top-[20%] left-0 w-80 h-36 z-20">
-              <SpecializationCard track={specializationTracks[4]} idx={4} isHighlighted={highlightedId === specializationTracks[4].id} />
-            </div>
-
-          </div>
-
-          {/* MOBILE VERTICAL SEQUENCE */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6 w-full">
-            {specializationTracks.map((track, idx) => (
-              <div key={track.id} className="w-full">
-                <SpecializationCard track={track} idx={idx} isHighlighted={highlightedId === track.id} />
-              </div>
-            ))}
-          </div>
-
-        </section>
+        <WorkshopVideos />
 
         {/* ==================================================
-            4. FROM CONCEPT TO CLOUD (Visual Pipeline)
+            4. COMPACT WHY CSL & CLOSING CTA
+               (3 Concise Benefits + Talk to CSL Action)
            ================================================== */}
-        <section id="pipeline" className="relative w-full py-16 md:py-24 bg-white/40 border-y border-csl-gold/20">
-          <div className="section-container">
+        <section id="workshop-cta" className="relative w-full py-14 md:py-20 bg-gradient-to-b from-[#FAF7F3] via-white to-csl-bg border-t border-csl-gold/25">
+          <div className="section-container max-w-5xl mx-auto">
             
-            {/* Header */}
-            <div className="mb-14 text-center flex flex-col items-center">
+            {/* 3 Concise Benefit Points */}
+            <div className="mb-12 text-center">
               <div className="section-eyebrow justify-center">
-                <span>PROGRESSION PIPELINE</span>
+                <span>WHY CSL WORKSHOPS</span>
                 <div></div>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
-                From Concept to <span className="text-csl-blue">Cloud</span>
-              </h2>
-              <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
-                Learn AI, Cloud & AWS deployment from IT industry experts. Build and deploy real-world AI-powered cloud applications with live mentorship.
-              </p>
-            </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-csl-text mb-8">
+                Practical Learning Engineered for Real Growth
+              </h3>
 
-            {/* 5-Stage Pipeline */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 w-full">
-              {[
-                { stage: '01', title: 'AI', icon: Cpu },
-                { stage: '02', title: 'APPLICATION', icon: Code },
-                { stage: '03', title: 'CLOUD', icon: Cloud },
-                { stage: '04', title: 'AWS', icon: Server },
-                { stage: '05', title: 'DEPLOYMENT', icon: Zap }
-              ].map((step, idx) => {
-                const StepIcon = step.icon;
-                return (
-                  <motion.div
-                    key={step.stage}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="relative bg-white/90 backdrop-blur-md border border-csl-gold/30 rounded-2xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md hover:border-csl-gold/70 transition-all"
-                  >
-                    <span className="text-xs font-mono font-bold text-csl-gold mb-3">
-                      STAGE {step.stage}
-                    </span>
-                    <div className="w-12 h-12 rounded-xl bg-csl-blue/10 border border-csl-blue/20 text-csl-blue flex items-center justify-center mb-3">
-                      <StepIcon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-sm font-black text-csl-text tracking-wider font-mono uppercase">
-                      {step.title}
-                    </h3>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-          </div>
-        </section>
-
-        {/* ==================================================
-            5. WHY CHOOSE OUR AI & AWS WORKSHOP (Vertical Sequence)
-           ================================================== */}
-        <section id="why-choose" className="relative w-full py-16 md:py-24 section-container">
-          
-          {/* Header */}
-          <div className="mb-12">
-            <div className="section-eyebrow">
-              <span>EXCELLENCE</span>
-              <div></div>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-3">
-              Why Choose Our <span className="text-csl-blue">AI & AWS Workshop?</span>
-            </h2>
-            <p className="text-csl-muted font-medium text-sm md:text-base max-w-xl section-subheading">
-              Industry-grade training with real results
-            </p>
-          </div>
-
-          {/* 5 Vertical Timeline Items */}
-          <div className="flex flex-col gap-4 w-full">
-            {whyChooseItems.map((item, idx) => {
-              const ItemIcon = item.icon;
-              const isActive = activeWhyChooseIndex === idx;
-
-              return (
-                <motion.div
-                  key={item.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  onMouseEnter={() => setActiveWhyChooseIndex(idx)}
-                  className={`group relative rounded-2xl p-6 sm:p-7 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 cursor-default border ${
-                    isActive 
-                      ? 'bg-white/95 border-csl-gold/70 shadow-lg shadow-csl-gold/10' 
-                      : 'bg-white/60 border-csl-gold/25 hover:bg-white/80'
-                  }`}
-                >
-                  {/* Left Golden Accent Line */}
-                  <div className={`absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl bg-gradient-to-b from-csl-gold to-csl-blue transition-opacity duration-300 ${
-                    isActive ? 'opacity-100' : 'opacity-0'
-                  }`} />
-
-                  {/* Left Content */}
-                  <div className="flex items-start gap-4 sm:gap-6 flex-1">
-                    <span className={`text-xl sm:text-2xl font-extrabold font-mono transition-colors shrink-0 ${
-                      isActive ? 'text-csl-gold' : 'text-csl-gold/70'
-                    }`}>
-                      {item.num}
-                    </span>
-
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
-                      isActive 
-                        ? 'bg-csl-blue text-white shadow-xs scale-105' 
-                        : 'bg-csl-blue/10 border border-csl-blue/20 text-csl-blue'
-                    }`}>
-                      <ItemIcon className="w-6 h-6" />
-                    </div>
-
-                    <div className="flex flex-col">
-                      <h3 className={`text-lg sm:text-xl font-bold transition-colors ${
-                        isActive ? 'text-csl-blue' : 'text-csl-text'
-                      }`}>
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-csl-muted font-medium leading-relaxed mt-1">
-                        {item.description}
-                      </p>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 text-left">
+                <div className="p-5 bg-white/90 rounded-2xl border border-csl-gold/30 shadow-xs hover:border-csl-gold transition-all">
+                  <div className="w-9 h-9 rounded-xl bg-csl-blue/10 text-csl-blue flex items-center justify-center font-mono font-extrabold text-xs mb-3">
+                    01
                   </div>
+                  <h4 className="text-sm sm:text-base font-extrabold text-csl-text mb-1.5">
+                    Hands-On Learning
+                  </h4>
+                  <p className="text-xs text-csl-muted leading-relaxed font-medium">
+                    Zero passive lecturing. Every workshop requires participants to write live code, configure environments, and build functioning modules in university computer labs.
+                  </p>
+                </div>
 
-                </motion.div>
-              );
-            })}
-          </div>
+                <div className="p-5 bg-white/90 rounded-2xl border border-csl-gold/30 shadow-xs hover:border-csl-gold transition-all">
+                  <div className="w-9 h-9 rounded-xl bg-csl-gold/15 text-csl-gold flex items-center justify-center font-mono font-extrabold text-xs mb-3">
+                    02
+                  </div>
+                  <h4 className="text-sm sm:text-base font-extrabold text-csl-text mb-1.5">
+                    Industry-Relevant Tools
+                  </h4>
+                  <p className="text-xs text-csl-muted leading-relaxed font-medium">
+                    Learn production tech stacks, modern AI integrations, and enterprise frameworks co-designed with industry software engineers.
+                  </p>
+                </div>
 
-        </section>
-
-        {/* ==================================================
-            6. PARTICIPATION / CLOSING CTA SECTION
-           ================================================== */}
-        <section id="participation-cta" className="relative w-full py-20 md:py-28 bg-gradient-to-b from-csl-bg via-[#FBF7F4] to-white border-t border-csl-gold/20">
-          <div className="max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
-            
-            {/* Banner Formula Pill */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-csl-gold/20 via-csl-gold/10 to-csl-blue/15 border border-csl-gold/40 px-5 py-2.5 rounded-xl mb-6 shadow-xs">
-              <Sparkles className="w-5 h-5 text-csl-gold" />
-              <span className="text-sm sm:text-base font-extrabold text-csl-text font-mono">
-                AI + Cloud + AWS = Future Skills
-              </span>
+                <div className="p-5 bg-white/90 rounded-2xl border border-csl-gold/30 shadow-xs hover:border-csl-gold transition-all">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-mono font-extrabold text-xs mb-3">
+                    03
+                  </div>
+                  <h4 className="text-sm sm:text-base font-extrabold text-csl-text mb-1.5">
+                    Guided Practical Projects
+                  </h4>
+                  <p className="text-xs text-csl-muted leading-relaxed font-medium">
+                    Participants build tangible capstone deliverables with clean GitHub repositories and verifiable completion credentials for job interviews.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-csl-text section-heading tracking-tight mb-4">
-              Learn AI, Cloud & AWS deployment from <span className="text-csl-blue">IT industry experts.</span>
-            </h2>
+            {/* Closing CTA */}
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-csl-gold/40 shadow-xl text-center flex flex-col items-center">
+              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-extrabold text-csl-gold uppercase mb-2">
+                <Sparkles className="w-4 h-4 text-csl-gold" />
+                <span>Get Started with CSL</span>
+              </div>
 
-            <p className="text-csl-muted font-medium text-base sm:text-lg section-subheading mb-10 max-w-2xl">
-              Build and deploy real-world AI-powered cloud applications with live mentorship.
-            </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-csl-text mb-3 leading-tight">
+                Ready to Build Something <span className="text-csl-blue">Real?</span>
+              </h2>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <a
-                href="#domains"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-lg hover:shadow-csl-blue/25 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-              >
-                Explore Domains
-                <ArrowRight className="w-5 h-5" />
-              </a>
+              <p className="text-xs sm:text-base text-csl-muted font-medium mb-8 max-w-lg leading-relaxed">
+                Collaborate with Creator Space Lab to bring high-impact technical workshops to your college, department, or student community.
+              </p>
 
-              <button
-                onClick={handleNavigateToContact}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/90 border border-csl-gold/40 text-csl-text hover:text-csl-blue px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-sm hover:shadow-md hover:bg-white hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-              >
-                Contact Us
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
+                <a
+                  href="https://wa.me/919940166299?text=Hi%20Creator%20Space%20Lab!%20We%20would%20like%20to%20discuss%20hosting%20a%20workshop%20at%20our%20institution."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-md hover:shadow-emerald-600/25 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Talk to CSL on WhatsApp</span>
+                </a>
+
+                <button
+                  onClick={handleOpenContactModal}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white border border-csl-gold/50 text-csl-text hover:text-csl-blue px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-xs hover:shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                >
+                  <span>Host at Your College</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
           </div>
         </section>
 
       </div>
+
+      {/* Workshop Enquiry / Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        initialSubject="Workshop"
+        title="Host a Workshop at Your Institution"
+        subtitle="Share your requirements and our academic partnership team will coordinate with your institution for schedules, curriculum, and hands-on lab setups."
+      />
     </div>
   );
 }

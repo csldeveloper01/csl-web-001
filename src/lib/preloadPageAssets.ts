@@ -7,6 +7,8 @@ import heroServicesVisual from '../../Elements/SERVICES/SERVICES.png';
 // @ts-expect-error — Vite asset import
 import heroStandaloneVisual from '../../Elements/INTERNSHIPS/INTERNSHIPS - Standalone.png';
 // @ts-expect-error — Vite asset import
+import heroCareersVisual from '../../Elements/ABOUT/PEOPLE & COLLABORATION.png';
+// @ts-expect-error — Vite asset import
 import comingSoonImage from '../../Elements/STUDENT PORTAL/Coming Soon.png';
 // @ts-expect-error — Vite asset import
 import notFoundImage from '../../Elements/404/404.png';
@@ -17,6 +19,7 @@ const PAGE_CRITICAL_ASSETS: Record<string, string[]> = {
   '/workshops': [iconBanner],
   '/services': [heroServicesVisual],
   '/internships': [heroStandaloneVisual],
+  '/careers': [heroCareersVisual],
   '/student-portal': [comingSoonImage],
   '404': [notFoundImage],
 };

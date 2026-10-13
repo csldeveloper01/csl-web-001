@@ -1,30 +1,66 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, Cloud, PenTool, Database } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Brain, 
+  Sparkles, 
+  Bot, 
+  Code2, 
+  Cloud, 
+  BarChart3, 
+  Clock, 
+  Globe, 
+  CheckCircle2 
+} from 'lucide-react';
 import { YellowBox } from '../../effects/YellowBox';
+import { InternshipModal } from './InternshipModal';
 
 // @ts-expect-error
 import internshipsIllustration from '../../../../Elements/INTERNSHIPS/INTERNSHIPS.png';
 
-const internshipTracks = [
+const hotInternshipDomains = [
   {
-    icon: BarChart3,
-    title: 'Data Science & Analytics',
+    id: '01',
+    icon: Brain,
+    title: 'AI & Machine Learning Engineering',
+    description: 'Deep neural networks, statistical predictive models, and enterprise AI systems.',
   },
   {
+    id: '02',
+    icon: Sparkles,
+    title: 'Generative AI & Prompt Engineering',
+    description: 'LLM application development, multi-modal workflows, and prompt engineering frameworks.',
+  },
+  {
+    id: '03',
+    icon: Bot,
+    title: 'Agentic AI & Intelligent Automation',
+    description: 'Autonomous reasoning agents, automated tool execution, and intelligent process workflows.',
+  },
+  {
+    id: '04',
+    icon: Code2,
+    title: 'Full Stack Web & Mobile App Development',
+    description: 'End-to-end production web apps, cross-platform mobile frameworks, and scalable cloud APIs.',
+  },
+  {
+    id: '05',
     icon: Cloud,
-    title: 'Full-Stack Cloud Development',
+    title: 'DevOps & Cloud Engineering',
+    description: 'Cloud architecture, Docker containerization, Kubernetes orchestration, and CI/CD pipelines.',
   },
   {
-    icon: PenTool,
-    title: 'UI/UX & Frontend Engineering',
-  },
-  {
-    icon: Database,
-    title: 'Cloud Data Engineering',
+    id: '06',
+    icon: BarChart3,
+    title: 'Data Analytics & Business Intelligence',
+    description: 'Data transformation, predictive SQL querying, business dashboards, and data visualization.',
   },
 ];
 
 export function InternshipsSection() {
+  const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const [selectedDomain, setSelectedDomain] = useState('');
+
   const yellowBlocks = [
     { size: 'w-14 h-14', pos: 'top-[12%] left-[48%]', delay: 0.3, duration: 7 },
     { size: 'w-8 h-8', pos: 'top-[22%] left-[6%]', delay: 1.1, duration: 6 },
@@ -34,9 +70,21 @@ export function InternshipsSection() {
     { size: 'w-12 h-12', pos: 'bottom-[14%] right-[8%]', delay: 0.5, duration: 6.5 },
   ];
 
+  const handleNavigateToInternships = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.history.pushState({}, '', '/internships');
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const handleOpenApplyModal = (domainTitle: string) => {
+    setSelectedDomain(domainTitle);
+    setIsApplyModalOpen(true);
+  };
+
   return (
     <section 
-      className="relative w-full py-10 md:py-16 flex items-center justify-center bg-csl-bg overflow-hidden mx-auto"
+      className="relative w-full py-12 md:py-20 flex items-center justify-center bg-csl-bg overflow-hidden mx-auto"
     >
       {/* Decorative Dotted Grid Background */}
       <div 
@@ -54,10 +102,10 @@ export function InternshipsSection() {
         ))}
       </div>
 
-      <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 section-container grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        {/* LEFT COLUMN: TRACK OFFERINGS & CTA */}
-        <div className="flex flex-col w-full max-w-xl">
+        {/* LEFT COLUMN: HEADLINE, BADGES, 3D ILLUSTRATION & CTA */}
+        <div className="lg:col-span-5 flex flex-col items-start w-full">
           {/* Eyebrow */}
           <div className="section-eyebrow">
             <span>Internships</span>
@@ -72,57 +120,58 @@ export function InternshipsSection() {
             Build Beyond <br />
             The <span className="text-csl-blue">Classroom.</span>
           </h2>          
+          
           {/* Subtitle */}
-          <p className="text-csl-muted font-medium text-sm md:text-base mb-6 lg:mb-9 section-subheading max-w-lg">
-            Work on real-world problems, build with modern technologies, and turn your skills into experience.
+          <p className="text-csl-muted font-medium text-sm md:text-base mb-6 section-subheading max-w-lg">
+            Work on real-world engineering problems, build with modern production technologies, and turn your technical skills into verified industry experience.
           </p>
 
-          {/* MOBILE ONLY: 3D Artwork Image directly after Title & Description */}
-          <div className="w-full flex lg:hidden items-center justify-center relative mb-8">
-            <div className="relative w-full max-w-[300px] sm:max-w-[400px] flex items-center justify-center">
+          {/* Key Program Badges */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-csl-blue/[0.08] border border-csl-blue/20 text-xs font-bold text-csl-blue">
+              <Clock className="w-3.5 h-3.5" />
+              15 Days / 30 Days
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-csl-gold/15 border border-csl-gold/30 text-xs font-bold text-csl-text">
+              <Globe className="w-3.5 h-3.5 text-csl-gold" />
+              Online / Offline
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-bold text-emerald-700">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              Industry Certified
+            </span>
+          </div>
+
+          {/* 3D Artwork Illustration Card */}
+          <div className="w-full flex items-center justify-center my-2 lg:my-4">
+            <motion.div
+              className="relative w-full max-w-[280px] sm:max-w-[340px] flex items-center justify-center"
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {/* Ambient gold voxel glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/20 via-transparent to-csl-blue/15 blur-2xl -z-10 rounded-full scale-95 pointer-events-none" />
+              
               <img 
                 src={internshipsIllustration} 
                 alt="Internships 3D Workspace" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,30,80,0.12)]"
               />
-            </div>
+            </motion.div>
           </div>
 
-          {/* Internship Tracks List without week duration */}
-          <div className="flex flex-col gap-3.5 w-full mb-8 lg:mb-9">
-            {internshipTracks.map((track, idx) => {
-              const IconComponent = track.icon;
-              return (
-                <a
-                  key={idx}
-                  href="#internships"
-                  className="group flex items-center justify-between px-5 sm:px-6 py-4 bg-white/70 backdrop-blur-sm border border-csl-gold/25 rounded-2xl hover:border-csl-gold/60 hover:bg-white/95 hover:shadow-lg hover:shadow-csl-gold/10 transition-all duration-300 cursor-pointer"
-                >
-                  <div className="flex items-center gap-3.5 sm:gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-csl-blue/[0.06] border border-csl-blue/15 flex items-center justify-center text-csl-blue group-hover:scale-105 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300">
-                      <IconComponent className="w-5 h-5 stroke-[1.75]" />
-                    </div>
-                    <span className="text-sm sm:text-[15px] font-bold text-csl-text group-hover:text-csl-blue transition-colors">
-                      {track.title}
-                    </span>
-                  </div>
-
-                </a>
-              );
-            })}
-          </div>
-
-          {/* CTA Button */}
-          <div>
+          {/* Primary CTA Button */}
+          <div className="w-full pt-2">
             <a 
               href="/internships" 
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/internships');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-                window.scrollTo({ top: 0, behavior: 'instant' });
-              }}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/25 active:scale-95 shadow-sm"
+              onClick={handleNavigateToInternships}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-csl-deep-blue to-csl-blue text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-transform hover:scale-105 hover:shadow-lg hover:shadow-csl-blue/25 active:scale-95 shadow-sm cursor-pointer"
             >
               Explore Internships
               <ArrowRight className="w-4 h-4" />
@@ -130,66 +179,68 @@ export function InternshipsSection() {
           </div>
         </div>
 
-        {/* DESKTOP ONLY: RIGHT COLUMN 3D ISOMETRIC ARTWORK */}
-        <div className="hidden lg:flex w-full items-center justify-center relative mt-6 lg:mt-0">
-          <motion.div
-            className="relative w-full max-w-[620px] flex items-center justify-center"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1,
-              y: [0, -12, 0]
-            }}
-            transition={{
-              opacity: { duration: 0.8 },
-              scale: { duration: 0.8 },
-              y: {
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }
-            }}
-            whileHover={{ scale: 1.03 }}
-          >
-            {/* Ambient gold voxel glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-csl-gold/15 via-transparent to-csl-blue/10 blur-3xl -z-10 rounded-full scale-90 pointer-events-none"></div>
+        {/* RIGHT COLUMN: 6 FEATURED HOT INTERNSHIP DOMAINS */}
+        <div className="lg:col-span-7 flex flex-col w-full">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-xs font-mono font-extrabold uppercase text-csl-gold tracking-wider">
+              HOT INTERNSHIP DOMAINS
+            </span>
+            <span className="text-xs font-medium text-csl-muted">
+              6 Practical Tracks
+            </span>
+          </div>
 
-            {/* Drifting decorative voxel particles */}
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2.5 h-2.5 bg-csl-gold/50 border border-csl-gold/70 backdrop-blur-sm"
-                  animate={{
-                    y: [0, -20, 0],
-                    x: [0, (i % 2 === 0 ? 10 : -10), 0],
-                    opacity: [0.3, 0.8, 0.3],
-                    scale: [0.8, 1.1, 0.8]
-                  }}
-                  transition={{
-                    duration: 3.5 + i * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.4
-                  }}
-                  style={{
-                    left: `${20 + (i * 12)}%`,
-                    top: `${15 + ((i * 14) % 70)}%`
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Main 3D Artwork Image */}
-            <img 
-              src={internshipsIllustration} 
-              alt="Internships 3D Workspace" 
-              className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,30,80,0.12)]"
-            />
-          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full">
+            {hotInternshipDomains.map((track) => {
+              const IconComponent = track.icon;
+              return (
+                <div
+                  key={track.id}
+                  className="group relative flex flex-col justify-between p-4 sm:p-5 bg-white/75 backdrop-blur-sm border border-csl-gold/25 rounded-2xl hover:border-csl-gold/60 hover:bg-white/95 hover:shadow-lg hover:shadow-csl-gold/10 transition-all duration-300"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-csl-blue/[0.07] border border-csl-blue/15 flex items-center justify-center text-csl-blue group-hover:scale-105 group-hover:bg-csl-blue group-hover:text-white transition-all duration-300">
+                        <IconComponent className="w-5 h-5 stroke-[1.8]" />
+                      </div>
+                      <span className="text-[11px] font-mono font-bold text-csl-muted group-hover:text-csl-gold transition-colors">
+                        {track.id}
+                      </span>
+                    </div>
+                    <h3 className="text-sm sm:text-[15px] font-bold text-csl-text group-hover:text-csl-blue transition-colors leading-snug mb-1.5">
+                      {track.title}
+                    </h3>
+                    <p className="text-xs text-csl-muted line-clamp-2 leading-relaxed font-medium">
+                      {track.description}
+                    </p>
+                  </div>
+                  <div className="mt-3.5 pt-2.5 border-t border-csl-gold/15">
+                    <button
+                      type="button"
+                      onClick={() => handleOpenApplyModal(track.title)}
+                      className="w-full flex items-center justify-between py-1 px-1.5 rounded-lg text-xs font-bold text-csl-text hover:text-csl-blue hover:bg-csl-blue/[0.04] transition-colors cursor-pointer text-left"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-csl-gold" />
+                        Apply
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform text-csl-blue" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>
+
+      {/* Internship Application Modal */}
+      <InternshipModal
+        isOpen={isApplyModalOpen}
+        onClose={() => setIsApplyModalOpen(false)}
+        initialDomain={selectedDomain}
+      />
     </section>
   );
 }

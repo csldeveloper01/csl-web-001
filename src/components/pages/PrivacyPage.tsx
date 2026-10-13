@@ -1,239 +1,234 @@
-import { Navbar } from '../layout/Navbar';
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-csl-bg text-csl-text">
-      <Navbar />
       <main>
         <section className="relative overflow-hidden pt-28 sm:pt-32 pb-12 sm:pb-16">
           <div className="absolute inset-0 bg-gradient-to-br from-csl-gold/10 via-transparent to-csl-blue/10 pointer-events-none" />
           <div className="relative z-10 section-container">
-            <div className="section-eyebrow"><span>LEGAL</span><div></div></div>
+            <div className="section-eyebrow">
+              <span>LEGAL</span>
+              <div></div>
+            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-csl-text leading-[1.05] tracking-tight">
               Privacy Policy
             </h1>
             <p className="mt-4 text-sm sm:text-base text-csl-muted font-medium">Last Updated: 7 September 2026</p>
           </div>
         </section>
+
         <section className="pb-20 sm:pb-28">
           <div className="section-container">
-            <article className="max-w-4xl mx-auto bg-white/65 backdrop-blur-xl border border-csl-gold/20 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_12px_40px_rgba(20,85,184,0.06)] text-sm sm:text-base leading-7 text-csl-muted">
-              <p className="text-sm font-semibold text-csl-blue mb-8">Last Updated: 7 September 2026</p>
-              <p className="mb-5">Creator Space Lab (“Creator Space Lab”, “we”, “us”, or “our”) respects your privacy and is committed to handling personal information responsibly.</p>
-              <p className="mb-5">This Privacy Policy explains how we collect, use, store, disclose, and protect personal information when you use our website, register for our courses or internships, participate in workshops, contact us, or use our Services.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">1. Information We Collect</h2>
-              <p className="mb-5">Depending on how you interact with us, we may collect:</p>
-              <p className="mb-5">Personal Information</p>
-              <p className="mb-5">Name</p>
-              <p className="mb-5">Email address</p>
-              <p className="mb-5">Phone/mobile number</p>
-              <p className="mb-5">Date of birth or age information where necessary</p>
-              <p className="mb-5">College/institution name</p>
-              <p className="mb-5">Course/academic information</p>
-              <p className="mb-5">Professional information</p>
-              <p className="mb-5">Location information voluntarily provided</p>
-              <p className="mb-5">Resume/CV information</p>
-              <p className="mb-5">Profile information</p>
-              <p className="mb-5">Enrollment Information</p>
-              <p className="mb-5">Course selected</p>
-              <p className="mb-5">Internship details</p>
-              <p className="mb-5">Batch details</p>
-              <p className="mb-5">Attendance</p>
-              <p className="mb-5">Assignment/project information</p>
-              <p className="mb-5">Certificate information</p>
-              <p className="mb-5">Payment status</p>
-              <p className="mb-5">Communication Information</p>
-              <p className="mb-5">We may collect information you provide through:</p>
-              <p className="mb-5">Website forms</p>
-              <p className="mb-5">Email</p>
-              <p className="mb-5">WhatsApp</p>
-              <p className="mb-5">Phone calls</p>
-              <p className="mb-5">Social media</p>
-              <p className="mb-5">Customer-support conversations</p>
-              <p className="mb-5">Registration forms</p>
-              <p className="mb-5">Technical Information</p>
-              <p className="mb-5">When you visit our website, certain information may be automatically collected, such as:</p>
-              <p className="mb-5">IP address</p>
-              <p className="mb-5">Browser type</p>
-              <p className="mb-5">Device information</p>
-              <p className="mb-5">Operating system</p>
-              <p className="mb-5">Website usage information</p>
-              <p className="mb-5">Pages visited</p>
-              <p className="mb-5">Referring pages</p>
-              <p className="mb-5">Approximate location information</p>
-              <p className="mb-5">Cookies and similar technologies</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">2. How We Collect Information</h2>
-              <p className="mb-5">We may collect information through:</p>
-              <p className="mb-5">Website registration forms</p>
-              <p className="mb-5">Course enrollment forms</p>
-              <p className="mb-5">Internship registration forms</p>
-              <p className="mb-5">Workshop registration</p>
-              <p className="mb-5">Payment processes</p>
-              <p className="mb-5">Contact forms</p>
-              <p className="mb-5">WhatsApp communication</p>
-              <p className="mb-5">Email communication</p>
-              <p className="mb-5">Social media campaigns</p>
-              <p className="mb-5">Customer-support interactions</p>
-              <p className="mb-5">Cookies and analytics tools</p>
-              <p className="mb-5">Other lawful business interactions</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">3. Why We Use Personal Information</h2>
-              <p className="mb-5">We may process personal information for purposes including:</p>
-              <p className="mb-5">Service Delivery</p>
-              <p className="mb-5">Registering users</p>
-              <p className="mb-5">Providing courses</p>
-              <p className="mb-5">Delivering training</p>
-              <p className="mb-5">Managing internships</p>
-              <p className="mb-5">Providing workshops</p>
-              <p className="mb-5">Managing student accounts</p>
-              <p className="mb-5">Providing learning materials</p>
-              <p className="mb-5">Administration</p>
-              <p className="mb-5">Processing payments</p>
-              <p className="mb-5">Maintaining enrollment records</p>
-              <p className="mb-5">Managing attendance</p>
-              <p className="mb-5">Issuing certificates</p>
-              <p className="mb-5">Communicating schedule changes</p>
-              <p className="mb-5">Providing customer support</p>
-              <p className="mb-5">Career Services</p>
-              <p className="mb-5">Where applicable, information may be used for:</p>
-              <p className="mb-5">Placement assistance</p>
-              <p className="mb-5">Job-related communication</p>
-              <p className="mb-5">Resume support</p>
-              <p className="mb-5">Sharing relevant opportunities</p>
-              <p className="mb-5">Connecting eligible candidates with hiring partners</p>
-              <p className="mb-5">Any sharing for recruitment purposes should be handled in accordance with applicable privacy requirements and appropriate permissions.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">4. Marketing Communications</h2>
-              <p className="mb-5">With appropriate permission or where otherwise permitted by applicable law, we may send:</p>
-              <p className="mb-5">Course updates</p>
-              <p className="mb-5">Workshop announcements</p>
-              <p className="mb-5">Internship announcements</p>
-              <p className="mb-5">Promotional offers</p>
-              <p className="mb-5">Educational content</p>
-              <p className="mb-5">Email communications</p>
-              <p className="mb-5">WhatsApp communications</p>
-              <p className="mb-5">SMS communications</p>
-              <p className="mb-5">Other relevant marketing communications</p>
-              <p className="mb-5">You may request to stop promotional communications through the available unsubscribe or opt-out mechanism or by contacting us.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">5. Legal Basis / Lawful Processing</h2>
-              <p className="mb-5">Creator Space Lab will process personal data only for lawful purposes and in accordance with applicable law.</p>
-              <p className="mb-5">Depending on the processing activity, processing may be based on:</p>
-              <p className="mb-5">Consent</p>
-              <p className="mb-5">Provision of requested services</p>
-              <p className="mb-5">Contractual or pre-contractual necessity</p>
-              <p className="mb-5">Compliance with legal obligations</p>
-              <p className="mb-5">Other lawful grounds recognized by applicable Indian law</p>
-              <p className="mb-5">India's DPDP framework requires clear and understandable notices describing personal data collected and purposes of processing, with mechanisms for consent withdrawal and rights/complaint handling as applicable. The 2025 Rules also establish a phased commencement framework.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">6. Payment Information</h2>
-              <p className="mb-5">Payments may be processed through third-party payment providers.</p>
-              <p className="mb-5">Depending on the payment method, these providers may process:</p>
-              <p className="mb-5">Payment transaction details</p>
-              <p className="mb-5">Transaction identifiers</p>
-              <p className="mb-5">Billing information</p>
-              <p className="mb-5">Payment status</p>
-              <p className="mb-5">Other information required to complete the transaction</p>
-              <p className="mb-5">Where possible, Creator Space Lab does not need to directly store complete payment-card credentials.</p>
-              <p className="mb-5">Payment providers may have their own privacy policies and security practices.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">7. Third-Party Service Providers</h2>
-              <p className="mb-5">We may use third-party providers for:</p>
-              <p className="mb-5">Payment processing</p>
-              <p className="mb-5">Website hosting</p>
-              <p className="mb-5">CRM</p>
-              <p className="mb-5">Analytics</p>
-              <p className="mb-5">Email</p>
-              <p className="mb-5">WhatsApp communication</p>
-              <p className="mb-5">Marketing automation</p>
-              <p className="mb-5">Cloud services</p>
-              <p className="mb-5">Video/conferencing</p>
-              <p className="mb-5">Customer support</p>
-              <p className="mb-5">Recruitment/placement services</p>
-              <p className="mb-5">Examples may include services such as Razorpay, Stripe, Google Analytics, Zoho, WhatsApp Business services, and other providers actually used by Creator Space Lab.</p>
-              <p className="mb-5">Important: The final published Privacy Policy should list only services that Creator Space Lab actually uses.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">8. Information Sharing</h2>
-              <p className="mb-5">We may share personal information with third parties where reasonably necessary for legitimate business purposes, including:</p>
-              <p className="mb-5">Payment processors</p>
-              <p className="mb-5">Technology/service providers</p>
-              <p className="mb-5">CRM providers</p>
-              <p className="mb-5">Communication providers</p>
-              <p className="mb-5">Analytics providers</p>
-              <p className="mb-5">Trainers or authorized personnel</p>
-              <p className="mb-5">Hiring/placement partners</p>
-              <p className="mb-5">Professional advisers</p>
-              <p className="mb-5">Government authorities where legally required</p>
-              <p className="mb-5">We do not intend to sell personal information to third parties for unrelated commercial purposes.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">9. Placement Partners</h2>
-              <p className="mb-5">Where a student voluntarily participates in placement or hiring assistance, relevant information may be shared with hiring partners where necessary for the relevant opportunity.</p>
-              <p className="mb-5">The information shared should be limited to what is reasonably required for that recruitment purpose.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">10. Cookies</h2>
-              <p className="mb-5">Our website may use cookies and similar technologies.</p>
-              <p className="mb-5">Cookies may help us:</p>
-              <p className="mb-5">Keep the website functioning</p>
-              <p className="mb-5">Remember preferences</p>
-              <p className="mb-5">Understand website usage</p>
-              <p className="mb-5">Measure campaign performance</p>
-              <p className="mb-5">Improve website experience</p>
-              <p className="mb-5">Analyze traffic</p>
-              <p className="mb-5">Users may be able to manage cookies through browser settings.</p>
-              <p className="mb-5">Disabling certain cookies may affect some website functionality.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">11. Analytics</h2>
-              <p className="mb-5">We may use analytics services to understand website traffic and user behavior.</p>
-              <p className="mb-5">Analytics information may be used to:</p>
-              <p className="mb-5">Measure website performance</p>
-              <p className="mb-5">Understand visitor behavior</p>
-              <p className="mb-5">Improve website content</p>
-              <p className="mb-5">Evaluate marketing campaigns</p>
-              <p className="mb-5">Improve user experience</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">12. Data Security</h2>
-              <p className="mb-5">Creator Space Lab will take reasonable technical and organizational measures appropriate to the nature of the information to protect personal information from:</p>
-              <p className="mb-5">Unauthorized access</p>
-              <p className="mb-5">Unauthorized disclosure</p>
-              <p className="mb-5">Loss</p>
-              <p className="mb-5">Misuse</p>
-              <p className="mb-5">Alteration</p>
-              <p className="mb-5">Destruction</p>
-              <p className="mb-5">However, no online system can be guaranteed to be completely secure.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">13. Data Retention</h2>
-              <p className="mb-5">We retain personal information only for as long as reasonably necessary for:</p>
-              <p className="mb-5">Providing Services</p>
-              <p className="mb-5">Maintaining business records</p>
-              <p className="mb-5">Issuing certificates</p>
-              <p className="mb-5">Accounting</p>
-              <p className="mb-5">Legal compliance</p>
-              <p className="mb-5">Resolving disputes</p>
-              <p className="mb-5">Preventing fraud</p>
-              <p className="mb-5">Maintaining legitimate business records</p>
-              <p className="mb-5">When information is no longer reasonably required, it may be deleted, anonymized, or securely disposed of, subject to applicable legal requirements.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">14. Your Privacy Rights</h2>
-              <p className="mb-5">Subject to applicable law, you may have rights relating to your personal information, including the ability to:</p>
-              <p className="mb-5">Request access to information</p>
-              <p className="mb-5">Request correction of inaccurate information</p>
-              <p className="mb-5">Request deletion where applicable</p>
-              <p className="mb-5">Withdraw consent where processing is based on consent</p>
-              <p className="mb-5">Request information regarding processing</p>
-              <p className="mb-5">Raise a privacy-related complaint</p>
-              <p className="mb-5">The exact scope and availability of rights will depend on the applicable provisions of Indian data-protection law and their effective dates.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">15. Withdrawal of Consent</h2>
-              <p className="mb-5">Where processing is based on consent, you may withdraw consent using the method provided by Creator Space Lab.</p>
-              <p className="mb-5">Withdrawal of consent may not affect processing that occurred lawfully before withdrawal.</p>
-              <p className="mb-5">It may also affect our ability to provide certain Services where the relevant information is necessary for providing those Services.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">16. Children's Privacy</h2>
-              <p className="mb-5">Our Services may be available to students below 18 in certain circumstances.</p>
-              <p className="mb-5">Where applicable, appropriate parental or guardian consent and safeguards will be implemented in accordance with applicable law.</p>
-              <p className="mb-5">We do not knowingly seek unnecessary personal information from children.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">17. International Data Processing</h2>
-              <p className="mb-5">Some third-party technology providers may process information outside India.</p>
-              <p className="mb-5">Where this occurs, Creator Space Lab will take steps required by applicable law and contractual arrangements with relevant service providers.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">18. Data Breaches</h2>
-              <p className="mb-5">Where a personal-data breach occurs, Creator Space Lab will take appropriate steps in accordance with applicable legal requirements, including applicable notification obligations.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">19. Grievance and Privacy Requests</h2>
-              <p className="mb-5">For privacy-related questions, correction requests, deletion requests, consent withdrawal, or complaints, contact:</p>
-              <p className="mb-5">Privacy / Grievance Contact: <br></br>
-Email: hr@creatorspacelab.com <br></br>
-Address: No.48A, Rajiv Gandhi Salai (OMR) <br></br>
-Karapakkam, <br></br>
-Chennai – 600097, Tamil Nadu, India</p>
-              <p className="mb-5">We will review and respond to requests in accordance with applicable law.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">20. Changes to This Privacy Policy</h2>
-              <p className="mb-5">We may update this Privacy Policy periodically.</p>
-              <p className="mb-5">Changes will be published on this website with an updated 7/09/2026 date.</p>
-              <p className="mb-5">Where required, we may provide additional notice or obtain consent for material changes.</p>
+            <article className="max-w-4xl mx-auto bg-white/75 backdrop-blur-xl border border-csl-gold/25 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_12px_40px_rgba(20,85,184,0.06)] text-sm sm:text-base leading-relaxed text-csl-muted space-y-8">
+              
+              <div className="border-b border-csl-gold/20 pb-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-csl-blue/10 text-csl-blue font-bold text-xs font-mono mb-4">
+                  Effective Date: 7 September 2026
+                </span>
+                <p className="text-csl-text font-medium leading-relaxed mb-4">
+                  Creator Space Lab (“Creator Space Lab”, “we”, “us”, or “our”) respects your privacy and is committed to handling personal information responsibly.
+                </p>
+                <p className="leading-relaxed">
+                  This Privacy Policy explains how we collect, use, store, disclose, and protect personal information when you use our website, register for our courses or internships, participate in workshops, contact us, or use our Services.
+                </p>
+              </div>
+
+              {/* 1. Information We Collect */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">1.</span> Information We Collect
+                </h2>
+                <p>Depending on how you interact with us, we may collect:</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl space-y-2">
+                    <h3 className="font-bold text-csl-text text-sm flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-csl-blue"></span> Personal Information
+                    </h3>
+                    <ul className="text-xs space-y-1 pl-4 list-disc text-csl-muted">
+                      <li>Name, email address, phone/mobile number</li>
+                      <li>Date of birth or age details</li>
+                      <li>College/institution name and academic background</li>
+                      <li>Professional profile, resume/CV, and portfolio</li>
+                      <li>Location details voluntarily provided</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl space-y-2">
+                    <h3 className="font-bold text-csl-text text-sm flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-csl-gold"></span> Enrollment Information
+                    </h3>
+                    <ul className="text-xs space-y-1 pl-4 list-disc text-csl-muted">
+                      <li>Course or workshop selected</li>
+                      <li>Internship track &amp; duration preferences</li>
+                      <li>Batch dates &amp; session attendance records</li>
+                      <li>Assignment, assessment, and project submissions</li>
+                      <li>Certificate verification &amp; payment status</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl space-y-2">
+                    <h3 className="font-bold text-csl-text text-sm flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600"></span> Communication Information
+                    </h3>
+                    <ul className="text-xs space-y-1 pl-4 list-disc text-csl-muted">
+                      <li>Website contact and enquiry forms</li>
+                      <li>Email, WhatsApp, and phone communications</li>
+                      <li>Customer support queries and student feedback</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl space-y-2">
+                    <h3 className="font-bold text-csl-text text-sm flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-purple-600"></span> Technical Information
+                    </h3>
+                    <ul className="text-xs space-y-1 pl-4 list-disc text-csl-muted">
+                      <li>IP address, browser type, and operating system</li>
+                      <li>Device information and screen specifications</li>
+                      <li>Website pages visited, referral sources, and cookies</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* 2. How We Collect Information */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">2.</span> How We Collect Information
+                </h2>
+                <p>We may collect information through:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2 text-csl-text font-medium text-sm">
+                  {[
+                    'Website registration forms',
+                    'Course & internship enrollment forms',
+                    'Workshop registration portals',
+                    'Secure payment gateways',
+                    'WhatsApp & direct email inquiries',
+                    'Support interactions & academic counseling',
+                    'Cookies & website performance analytics'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-csl-gold shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* 3. Why We Use Personal Information */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">3.</span> Why We Use Personal Information
+                </h2>
+                <div className="space-y-3 pl-2">
+                  <div className="p-3.5 bg-white/60 border border-csl-gold/20 rounded-xl">
+                    <h3 className="font-bold text-csl-text text-sm mb-1">Service Delivery</h3>
+                    <p className="text-xs">Registering learners, providing structured courses, delivering workshops, coordinating internships, managing learner accounts, and delivering educational material.</p>
+                  </div>
+                  <div className="p-3.5 bg-white/60 border border-csl-gold/20 rounded-xl">
+                    <h3 className="font-bold text-csl-text text-sm mb-1">Administration</h3>
+                    <p className="text-xs">Processing enrollment payments, issuing authentic completion certificates, scheduling batches, and providing student support.</p>
+                  </div>
+                  <div className="p-3.5 bg-white/60 border border-csl-gold/20 rounded-xl">
+                    <h3 className="font-bold text-csl-text text-sm mb-1">Career Services</h3>
+                    <p className="text-xs">Placement assistance, resume optimization, mock technical interview preparation, and connecting eligible candidates with authorized hiring partners.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* 4. Marketing Communications */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">4.</span> Marketing Communications
+                </h2>
+                <p>With appropriate permission or where permitted by law, we may send program announcements, upcoming workshops, curriculum additions, and educational resources via email, SMS, or WhatsApp.</p>
+                <p className="text-xs italic">You may opt out of promotional communications at any time by contacting us or using the unsubscribe link.</p>
+              </section>
+
+              {/* 5. Legal Basis / Lawful Processing */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">5.</span> Legal Basis / Lawful Processing
+                </h2>
+                <p>Creator Space Lab processes personal data for lawful purposes in compliance with applicable Indian data protection frameworks, including the Digital Personal Data Protection (DPDP) Act and rules.</p>
+              </section>
+
+              {/* 6. Payment Information */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">6.</span> Payment Information
+                </h2>
+                <p>Payments are processed securely through certified third-party payment gateways. Creator Space Lab does not directly store sensitive credit card numbers or banking passwords.</p>
+              </section>
+
+              {/* 7. Third-Party Service Providers */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">7.</span> Third-Party Service Providers
+                </h2>
+                <p>We work with trusted service providers for cloud hosting, communication (e.g. WhatsApp, Email), CRM, and analytics. All providers operate under strict confidentiality agreements.</p>
+              </section>
+
+              {/* 8. Information Sharing */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">8.</span> Information Sharing
+                </h2>
+                <p>We do not sell personal information to third parties. Information is only shared with authorized partners, instructors, placement entities, or regulatory authorities where legally mandated.</p>
+              </section>
+
+              {/* 9. Placement Partners */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">9.</span> Placement Partners
+                </h2>
+                <p>For learners participating in placement drives, relevant resumes and project profiles are shared with hiring partners only with the student's consent for designated recruitment drives.</p>
+              </section>
+
+              {/* 10. Cookies & Analytics */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">10.</span> Cookies &amp; Analytics
+                </h2>
+                <p>Our website uses functional cookies to remember preferences and measure website performance. You can control cookie preferences through your individual browser settings.</p>
+              </section>
+
+              {/* 11. Data Security & Retention */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">11.</span> Data Security &amp; Retention
+                </h2>
+                <p>We implement technical and organizational security controls to safeguard data against unauthorized access, loss, or disclosure. Personal data is retained only as long as necessary for academic certification, legal compliance, and program administration.</p>
+              </section>
+
+              {/* 12. Your Privacy Rights */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">12.</span> Your Privacy Rights
+                </h2>
+                <p>Subject to applicable law, you may request access to, correction of, or deletion of your personal information, or withdraw previously granted consent, by contacting our grievance team.</p>
+              </section>
+
+              {/* 13. Children's Privacy */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">13.</span> Children's Privacy
+                </h2>
+                <p>Where programs are accessed by learners under 18 years of age, parental or guardian consent is obtained in compliance with applicable regulatory standards.</p>
+              </section>
+
+              {/* 14. Grievance & Contact */}
+              <section className="space-y-4 pt-4 border-t border-csl-gold/20">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">14.</span> Grievance &amp; Privacy Contact
+                </h2>
+                <p>For privacy inquiries, correction requests, or grievance redressal, please contact:</p>
+                <div className="bg-white/80 border border-csl-gold/30 rounded-2xl p-5 text-sm space-y-1.5 text-csl-text">
+                  <div className="font-extrabold text-base text-csl-blue mb-1">Creator Space Lab — Privacy Officer</div>
+                  <div><span className="font-bold text-csl-muted">Email:</span> hr@creatorspacelab.com</div>
+                  <div><span className="font-bold text-csl-muted">Address:</span> No.48A, Rajiv Gandhi Salai (OMR), Karapakkam, Chennai – 600097, Tamil Nadu, India</div>
+                </div>
+              </section>
+
             </article>
           </div>
         </section>

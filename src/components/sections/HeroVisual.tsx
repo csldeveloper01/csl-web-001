@@ -89,10 +89,10 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div className="relative isolate w-full h-[480px] sm:h-[520px] lg:h-[660px] flex flex-col items-center justify-center pt-4 sm:pt-10 lg:pt-0">
+    <div className="relative isolate w-full h-[420px] sm:h-[480px] md:h-[520px] lg:h-[660px] flex flex-col items-center justify-center pt-2 sm:pt-6 md:pt-0">
       
       {/* Voxel Bitmap Pieces Container with Original Hover & Float Behavior */}
-      <div className="relative flex flex-col items-center justify-center w-full max-w-[320px] sm:max-w-[340px] lg:max-w-[380px]">
+      <div className="relative flex flex-col items-center justify-center w-full max-w-[280px] sm:max-w-[320px] md:max-w-[320px] lg:max-w-[380px]">
         {pieces.map((piece, index) => {
           const isHovered = hoveredId === piece.id;
           const isOtherHovered = hoveredId !== null && hoveredId !== piece.id;
@@ -100,8 +100,8 @@ export function HeroVisual() {
           return (
             <motion.div
               key={piece.id}
-              className={`relative flex items-center justify-center w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[320px] ${piece.offset} ${
-                index !== 0 ? '-mt-12 lg:-mt-20' : ''
+              className={`relative flex items-center justify-center w-full max-w-[230px] sm:max-w-[260px] md:max-w-[270px] lg:max-w-[320px] ${piece.offset} ${
+                index !== 0 ? '-mt-10 sm:-mt-12 md:-mt-14 lg:-mt-20' : ''
               }`}
               style={{ zIndex: (index + 1) * 10 }}
               onMouseEnter={() => setHoveredId(piece.id)}

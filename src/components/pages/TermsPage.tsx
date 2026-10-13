@@ -1,249 +1,404 @@
-import { Navbar } from '../layout/Navbar';
 export default function TermsPage() {
   return (
-
-    
     <div className="min-h-screen bg-csl-bg text-csl-text">
-      <Navbar />
       <main>
         <section className="relative overflow-hidden pt-28 sm:pt-32 pb-12 sm:pb-16">
           <div className="absolute inset-0 bg-gradient-to-br from-csl-gold/10 via-transparent to-csl-blue/10 pointer-events-none" />
           <div className="relative z-10 section-container">
-            <div className="section-eyebrow"><span>LEGAL</span><div></div></div>
+            <div className="section-eyebrow">
+              <span>LEGAL</span>
+              <div></div>
+            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-csl-text leading-[1.05] tracking-tight">
               Website Terms &amp; Conditions
             </h1>
             <p className="mt-4 text-sm sm:text-base text-csl-muted font-medium">Last Updated: 7 September 2026</p>
           </div>
         </section>
+
         <section className="pb-20 sm:pb-28">
           <div className="section-container">
-            <article className="max-w-4xl mx-auto bg-white/65 backdrop-blur-xl border border-csl-gold/20 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_12px_40px_rgba(20,85,184,0.06)] text-sm sm:text-base leading-7 text-csl-muted">
-              <p className="text-sm font-semibold text-csl-blue mb-8">Last Updated: 7 September 2026</p>
-              <p className="mb-5">Welcome to Creator Space Lab. These Terms & Conditions (“Terms”) govern your access to and use of the Creator Space Lab website, courses, training programs, internships, workshops, career-support services, software products, technology services, and related services (“Services”).</p>
-              <p className="mb-5">By accessing our website, creating an account, registering for a program, making a payment, or using our Services, you acknowledge that you have read, understood, and agreed to these Terms.</p>
-              <p className="mb-5">If you do not agree with these Terms, please do not use the website or enroll in our Services.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">1. About Creator Space Lab</h2>
-              <p className="mb-5">Creator Space Lab provides educational, professional, technology, and career-oriented services, which may include:</p>
-              <p className="mb-5">Professional training programs</p>
-              <p className="mb-5">Technical courses</p>
-              <p className="mb-5">Internship programs</p>
-              <p className="mb-5">Workshops and seminars</p>
-              <p className="mb-5">Project-based learning</p>
-              <p className="mb-5">Career and placement assistance</p>
-              <p className="mb-5">Industry-oriented training</p>
-              <p className="mb-5">Software and technology solutions</p>
-              <p className="mb-5">Corporate training</p>
-              <p className="mb-5">Other educational or technology-related services</p>
-              <p className="mb-5">The specific features, duration, curriculum, schedule, pricing, and deliverables may vary between programs.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">2. Eligibility</h2>
-              <p className="mb-5">You must provide accurate information when registering for our Services.</p>
-              <p className="mb-5">2.1 Adults</p>
-              <p className="mb-5">Individuals aged 18 years or above may register and enroll independently.</p>
-              <p className="mb-5">2.2 Users Below 18</p>
-              <p className="mb-5">Where a program is available to individuals below 18 years of age, enrollment may require the consent of a parent or legal guardian.</p>
-              <p className="mb-5">The parent or legal guardian may be responsible for ensuring that the minor complies with these Terms.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">3. Website Usage</h2>
-              <p className="mb-5">You agree to use the website only for lawful purposes.</p>
-              <p className="mb-5">You must not:</p>
-              <p className="mb-5">Use the website for fraudulent purposes</p>
-              <p className="mb-5">Attempt unauthorized access to our systems</p>
-              <p className="mb-5">Interfere with website operations</p>
-              <p className="mb-5">Upload malicious software or harmful code</p>
-              <p className="mb-5">Copy or misuse website content</p>
-              <p className="mb-5">Impersonate another person</p>
-              <p className="mb-5">Use another person's account without authorization</p>
-              <p className="mb-5">Attempt to obtain confidential information belonging to another user</p>
-              <p className="mb-5">Use our Services for activities prohibited by applicable law</p>
-              <p className="mb-5">Creator Space Lab may restrict or terminate access where misuse is identified.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">4. Account Registration</h2>
-              <p className="mb-5">Certain Services may require you to create an account or submit registration information.</p>
-              <p className="mb-5">You agree to:</p>
-              <p className="mb-5">Provide accurate and complete information</p>
-              <p className="mb-5">Keep your information updated</p>
-              <p className="mb-5">Maintain the confidentiality of your login credentials</p>
-              <p className="mb-5">Not share your account with another person</p>
-              <p className="mb-5">Notify us if you suspect unauthorized access</p>
-              <p className="mb-5">You are responsible for activities conducted through your account, subject to applicable law.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">5. Course and Program Enrollment</h2>
-              <p className="mb-5">Enrollment becomes effective after the applicable registration requirements and payment requirements have been completed.</p>
-              <p className="mb-5">Program information may include:</p>
-              <p className="mb-5">Program name</p>
-              <p className="mb-5">Duration</p>
-              <p className="mb-5">Batch dates</p>
-              <p className="mb-5">Training schedule</p>
-              <p className="mb-5">Course fee</p>
-              <p className="mb-5">Curriculum</p>
-              <p className="mb-5">Mode of delivery</p>
-              <p className="mb-5">Project requirements</p>
-              <p className="mb-5">Certificate requirements</p>
-              <p className="mb-5">Access period</p>
-              <p className="mb-5">Creator Space Lab reserves the right to reasonably modify schedules, trainers, session timings, curriculum components, or delivery methods when necessary.</p>
-              <p className="mb-5">Where material changes significantly affect a program, reasonable communication will be provided.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">6. Course Access</h2>
-              <p className="mb-5">Course access may include live sessions, recordings, learning materials, assignments, projects, software/tools, community groups, or other resources depending on the selected program.</p>
-              <p className="mb-5">Access may be limited to the duration specified for the particular program.</p>
-              <p className="mb-5">Unless expressly stated otherwise:</p>
-              <p className="mb-5">Course access is personal to the enrolled learner.</p>
-              <p className="mb-5">Login credentials must not be shared.</p>
-              <p className="mb-5">Paid recordings and learning materials must not be redistributed.</p>
-              <p className="mb-5">Course materials must not be uploaded to public platforms.</p>
-              <p className="mb-5">Course materials must not be sold or commercially redistributed.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">7. Batch Changes and Rescheduling</h2>
-              <p className="mb-5">Batch transfer or rescheduling may be permitted at the sole discretion of Creator Space Lab and subject to availability.</p>
-              <p className="mb-5">Requests should be submitted through the official communication channel within the applicable notice period.</p>
-              <p className="mb-5">Creator Space Lab may impose reasonable conditions or charges for repeated or late batch-transfer requests.</p>
-              <p className="mb-5">The specific batch-transfer terms applicable to a program will be communicated at enrollment where applicable.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">8. Attendance and Participation</h2>
-              <p className="mb-5">Students are expected to attend scheduled training sessions and actively participate in the program.</p>
-              <p className="mb-5">Attendance requirements may apply to:</p>
-              <p className="mb-5">Internship completion</p>
-              <p className="mb-5">Course completion</p>
-              <p className="mb-5">Project completion</p>
-              <p className="mb-5">Certificate eligibility</p>
-              <p className="mb-5">Assessment eligibility</p>
-              <p className="mb-5">Failure to attend required sessions may affect eligibility for a certificate or completion status.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">9. Assignments and Projects</h2>
-              <p className="mb-5">Students may be required to complete assignments, assessments, projects, or other activities.</p>
-              <p className="mb-5">Students are responsible for:</p>
-              <p className="mb-5">Completing their own work</p>
-              <p className="mb-5">Meeting submission deadlines</p>
-              <p className="mb-5">Following project guidelines</p>
-              <p className="mb-5">Avoiding plagiarism</p>
-              <p className="mb-5">Using third-party content lawfully</p>
-              <p className="mb-5">Maintaining academic and professional integrity</p>
-              <p className="mb-5">Creator Space Lab may reject copied, plagiarized, fraudulent, or substantially unauthorized work.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">10. Certificates</h2>
-              <p className="mb-5">Where a certificate is offered, it may be issued only after the applicable completion requirements have been satisfied.</p>
-              <p className="mb-5">Requirements may include:</p>
-              <p className="mb-5">Minimum attendance</p>
-              <p className="mb-5">Completion of required assignments</p>
-              <p className="mb-5">Project completion</p>
-              <p className="mb-5">Assessment completion</p>
-              <p className="mb-5">Program completion</p>
-              <p className="mb-5">Payment of applicable fees</p>
-              <p className="mb-5">Registration or payment alone does not automatically guarantee issuance of a certificate.</p>
-              <p className="mb-5">Creator Space Lab may verify completion before issuing a certificate.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">11. Intellectual Property</h2>
-              <p className="mb-5">All intellectual property associated with Creator Space Lab's Services, including where applicable:</p>
-              <p className="mb-5">Course materials</p>
-              <p className="mb-5">Videos</p>
-              <p className="mb-5">Training presentations</p>
-              <p className="mb-5">Documents</p>
-              <p className="mb-5">Notes</p>
-              <p className="mb-5">Graphics</p>
-              <p className="mb-5">Logos</p>
-              <p className="mb-5">Website content</p>
-              <p className="mb-5">Branding</p>
-              <p className="mb-5">Software</p>
-              <p className="mb-5">Source code</p>
-              <p className="mb-5">Templates</p>
-              <p className="mb-5">Training frameworks</p>
-              <p className="mb-5">Recorded sessions</p>
-              <p className="mb-5">Other proprietary materials</p>
-              <p className="mb-5">belongs to Creator Space Lab or the relevant third-party rights holder, unless otherwise stated.</p>
-              <p className="mb-5">Enrollment grants the student a limited, personal, non-exclusive, non-transferable right to use the applicable educational materials for personal learning purposes.</p>
-              <p className="mb-5">It does not transfer ownership of the intellectual property to the student.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">12. Prohibited Use of Course Materials</h2>
-              <p className="mb-5">Students must not, without prior written permission:</p>
-              <p className="mb-5">Record live sessions for redistribution</p>
-              <p className="mb-5">Share paid recordings</p>
-              <p className="mb-5">Upload course materials publicly</p>
-              <p className="mb-5">Sell course materials</p>
-              <p className="mb-5">Distribute login credentials</p>
-              <p className="mb-5">Reproduce proprietary training content</p>
-              <p className="mb-5">Create competing commercial content using proprietary materials</p>
-              <p className="mb-5">Reverse-engineer proprietary software</p>
-              <p className="mb-5">Remove copyright or ownership notices</p>
-              <p className="mb-5">Creator Space Lab may take appropriate action for unauthorized use.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">13. Student-Submitted Content</h2>
-              <p className="mb-5">Students may submit:</p>
-              <p className="mb-5">Assignments</p>
-              <p className="mb-5">Projects</p>
-              <p className="mb-5">Code</p>
-              <p className="mb-5">Designs</p>
-              <p className="mb-5">Presentations</p>
-              <p className="mb-5">Feedback</p>
-              <p className="mb-5">Reviews</p>
-              <p className="mb-5">Testimonials</p>
-              <p className="mb-5">Other content</p>
-              <p className="mb-5">Students remain responsible for ensuring that submitted content does not infringe the rights of another person.</p>
-              <p className="mb-5">By submitting content for assessment or program administration, the student permits Creator Space Lab to access, review, store, and use that content for legitimate program-related purposes.</p>
-              <p className="mb-5">Any public use of a student's testimonial, photograph, project, or identifiable personal information for promotional purposes should be handled in accordance with applicable consent and privacy requirements.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">14. Payments</h2>
-              <p className="mb-5">Program fees must be paid according to the pricing and payment schedule displayed or communicated during enrollment.</p>
-              <p className="mb-5">Applicable taxes, including GST where applicable, may be charged in accordance with applicable law.</p>
-              <p className="mb-5">Where installment or EMI options are offered, additional terms may apply.</p>
-              <p className="mb-5">Failure to complete required payments may result in:</p>
-              <p className="mb-5">Suspension of access</p>
-              <p className="mb-5">Withholding of certificates</p>
-              <p className="mb-5">Restriction from further sessions</p>
-              <p className="mb-5">Cancellation of enrollment</p>
-              <p className="mb-5">Other lawful recovery or administrative action</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">15. Promotional Offers</h2>
-              <p className="mb-5">Promotional discounts, coupons, early-bird offers, scholarships, referral benefits, or special pricing may be subject to specific conditions.</p>
-              <p className="mb-5">Unless expressly stated otherwise:</p>
-              <p className="mb-5">Offers may have limited validity.</p>
-              <p className="mb-5">Offers may not be combined.</p>
-              <p className="mb-5">Offers may not be transferred.</p>
-              <p className="mb-5">Promotional pricing does not automatically create a refund entitlement beyond the applicable Refund & Cancellation Policy.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">16. Placement and Career Assistance</h2>
-              <p className="mb-5">Creator Space Lab may provide placement assistance, career guidance, interview preparation, resume assistance, industry connections, or hiring-related support.</p>
-              <p className="mb-5">However, placement assistance does not constitute a guarantee of employment.</p>
-              <p className="mb-5">Creator Space Lab does not guarantee:</p>
-              <p className="mb-5">A job offer</p>
-              <p className="mb-5">A specific salary</p>
-              <p className="mb-5">A particular employer</p>
-              <p className="mb-5">A specific job role</p>
-              <p className="mb-5">A specific number of interviews</p>
-              <p className="mb-5">Selection by a hiring company</p>
-              <p className="mb-5">Employment within a particular period</p>
-              <p className="mb-5">Hiring decisions are made by individual employers based on their own requirements and selection processes.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">17. Third-Party Services</h2>
-              <p className="mb-5">Our Services may use or link to third-party platforms, including payment providers, communication platforms, analytics services, software platforms, hosting providers, recruitment platforms, or other external services.</p>
-              <p className="mb-5">Third-party services may have their own terms and privacy policies.</p>
-              <p className="mb-5">Creator Space Lab is not responsible for independent third-party policies or services outside its reasonable control.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">18. Disclaimer of Warranties</h2>
-              <p className="mb-5">We aim to provide accurate and useful educational and professional Services.</p>
-              <p className="mb-5">However, we do not guarantee that:</p>
-              <p className="mb-5">The website will always be available without interruption.</p>
-              <p className="mb-5">All information will always be error-free.</p>
-              <p className="mb-5">A particular learning outcome will be achieved.</p>
-              <p className="mb-5">A student will obtain a particular job or salary.</p>
-              <p className="mb-5">Third-party platforms will always remain available.</p>
-              <p className="mb-5">Every course or program will produce the same result for every learner.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">19. Limitation of Liability</h2>
-              <p className="mb-5">To the maximum extent permitted by applicable law, Creator Space Lab will not be liable for indirect, incidental, special, consequential, or loss-of-opportunity damages arising from the use of the website or Services.</p>
-              <p className="mb-5">Nothing in these Terms excludes or limits liability that cannot lawfully be excluded or limited under applicable law.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">20. Suspension or Termination</h2>
-              <p className="mb-5">Creator Space Lab may suspend or terminate access where reasonably necessary due to:</p>
-              <p className="mb-5">Violation of these Terms</p>
-              <p className="mb-5">Fraudulent activity</p>
-              <p className="mb-5">Non-payment</p>
-              <p className="mb-5">Unauthorized distribution of content</p>
-              <p className="mb-5">Abuse or harassment</p>
-              <p className="mb-5">Security violations</p>
-              <p className="mb-5">Unlawful activity</p>
-              <p className="mb-5">Misuse of the Services</p>
-              <p className="mb-5">Termination does not automatically remove obligations that are intended to continue after termination, including intellectual-property obligations and payment obligations.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">21. Changes to Services</h2>
-              <p className="mb-5">We may modify, discontinue, replace, or update parts of our Services when reasonably necessary.</p>
-              <p className="mb-5">Where appropriate, we may provide notice of significant changes.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">22. Changes to These Terms</h2>
-              <p className="mb-5">Creator Space Lab may update these Terms from time to time.</p>
-              <p className="mb-5">The updated version will be published on this website with a revised “Last Updated” date.</p>
-              <p className="mb-5">Continued use of the Services after applicable changes may constitute acceptance of the updated Terms, subject to applicable law.</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">23. Governing Law</h2>
-              <p className="mb-5">These Terms shall be governed by the laws of India.</p>
-              <p className="mb-5">Subject to applicable law, disputes shall be subject to the jurisdiction of the competent courts in the jurisdiction specified by Creator Space Lab in its final legal details.</p>
-              <p className="mb-5">Chennai, Tamil Nadu, India</p>
-              <h2 className="text-xl sm:text-2xl font-bold text-csl-text mt-10 mb-4">24. Contact</h2>
-              <p className="mb-5">For questions regarding these Terms:</p>
-              <p className="mb-5">Creator Space Lab
-Email: hr@creatorspacelab.com <br></br>
-Address: No.48A, Rajiv Gandhi Salai (OMR) <br></br>
-Karapakkam, <br></br>
-Chennai – 600097, Tamil Nadu, India</p>
+            <article className="max-w-4xl mx-auto bg-white/75 backdrop-blur-xl border border-csl-gold/25 rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_12px_40px_rgba(20,85,184,0.06)] text-sm sm:text-base leading-relaxed text-csl-muted space-y-8">
+              
+              <div className="border-b border-csl-gold/20 pb-6">
+                <span className="inline-block px-3 py-1 rounded-full bg-csl-blue/10 text-csl-blue font-bold text-xs font-mono mb-4">
+                  Effective Date: 7 September 2026
+                </span>
+                <p className="text-csl-text font-medium leading-relaxed mb-4">
+                  Welcome to Creator Space Lab. These Terms &amp; Conditions (“Terms”) govern your access to and use of the Creator Space Lab website, courses, training programs, internships, workshops, career-support services, software products, technology services, and related services (“Services”).
+                </p>
+                <p className="leading-relaxed mb-3">
+                  By accessing our website, creating an account, registering for a program, making a payment, or using our Services, you acknowledge that you have read, understood, and agreed to these Terms.
+                </p>
+                <p className="text-red-600/90 font-medium">
+                  If you do not agree with these Terms, please do not use the website or enroll in our Services.
+                </p>
+              </div>
+
+              {/* 1. About Creator Space Lab */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">1.</span> About Creator Space Lab
+                </h2>
+                <p>Creator Space Lab provides educational, professional, technology, and career-oriented services, which may include:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pl-2">
+                  {[
+                    'Professional training programs',
+                    'Technical courses',
+                    'Internship programs',
+                    'Workshops and seminars',
+                    'Project-based learning',
+                    'Career and placement assistance',
+                    'Industry-oriented training',
+                    'Software and technology solutions',
+                    'Corporate training',
+                    'Other educational or technology-related services'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-csl-text font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-csl-gold shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-csl-muted pt-2 italic">
+                  The specific features, duration, curriculum, schedule, pricing, and deliverables may vary between programs.
+                </p>
+              </section>
+
+              {/* 2. Eligibility */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">2.</span> Eligibility
+                </h2>
+                <p>You must provide accurate information when registering for our Services.</p>
+                <div className="space-y-3 pl-2">
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl">
+                    <h3 className="font-bold text-csl-text mb-1">2.1 Adults</h3>
+                    <p className="text-sm">Individuals aged 18 years or above may register and enroll independently.</p>
+                  </div>
+                  <div className="bg-white/60 border border-csl-gold/20 p-4 rounded-xl">
+                    <h3 className="font-bold text-csl-text mb-1">2.2 Users Below 18</h3>
+                    <p className="text-sm mb-1">Where a program is available to individuals below 18 years of age, enrollment may require the consent of a parent or legal guardian.</p>
+                    <p className="text-sm">The parent or legal guardian may be responsible for ensuring that the minor complies with these Terms.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* 3. Website Usage */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">3.</span> Website Usage
+                </h2>
+                <p>You agree to use the website only for lawful purposes. You must not:</p>
+                <ul className="space-y-2 pl-2">
+                  {[
+                    'Use the website for fraudulent purposes',
+                    'Attempt unauthorized access to our systems',
+                    'Interfere with website operations',
+                    'Upload malicious software or harmful code',
+                    'Copy or misuse website content',
+                    'Impersonate another person',
+                    'Use another person\'s account without authorization',
+                    'Attempt to obtain confidential information belonging to another user',
+                    'Use our Services for activities prohibited by applicable law'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="text-red-500 font-bold mt-0.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-csl-text font-medium text-xs bg-csl-gold/10 p-3 rounded-lg border border-csl-gold/25">
+                  Creator Space Lab may restrict or terminate access where misuse is identified.
+                </p>
+              </section>
+
+              {/* 4. Account Registration */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">4.</span> Account Registration
+                </h2>
+                <p>Certain Services may require you to create an account or submit registration information. You agree to:</p>
+                <ul className="space-y-2 pl-2">
+                  {[
+                    'Provide accurate and complete information',
+                    'Keep your information updated',
+                    'Maintain the confidentiality of your login credentials',
+                    'Not share your account with another person',
+                    'Notify us if you suspect unauthorized access'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-csl-text font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-csl-blue shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs">You are responsible for activities conducted through your account, subject to applicable law.</p>
+              </section>
+
+              {/* 5. Course and Program Enrollment */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">5.</span> Course and Program Enrollment
+                </h2>
+                <p>Enrollment becomes effective after the applicable registration requirements and payment requirements have been completed.</p>
+                <p className="font-semibold text-csl-text">Program information may include:</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pl-2 text-xs font-mono text-csl-text">
+                  {[
+                    'Program name', 'Duration', 'Batch dates', 'Training schedule', 'Curriculum',
+                    'Mode of delivery', 'Project requirements', 'Certificate requirements', 'Access period'
+                  ].map((item, i) => (
+                    <div key={i} className="p-2 bg-white/70 border border-csl-gold/25 rounded-md">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+                <p>Creator Space Lab reserves the right to reasonably modify schedules, trainers, session timings, curriculum components, or delivery methods when necessary.</p>
+                <p>Where material changes significantly affect a program, reasonable communication will be provided.</p>
+              </section>
+
+              {/* 6. Course Access */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">6.</span> Course Access
+                </h2>
+                <p>Course access may include live sessions, recordings, learning materials, assignments, projects, software/tools, community groups, or other resources depending on the selected program.</p>
+                <p>Access may be limited to the duration specified for the particular program. Unless expressly stated otherwise:</p>
+                <ul className="space-y-2 pl-2">
+                  {[
+                    'Course access is personal to the enrolled learner.',
+                    'Login credentials must not be shared.',
+                    'Paid recordings and learning materials must not be redistributed.',
+                    'Course materials must not be uploaded to public platforms.',
+                    'Course materials must not be sold or commercially redistributed.'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="text-csl-gold font-bold">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* 7. Batch Changes and Rescheduling */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">7.</span> Batch Changes and Rescheduling
+                </h2>
+                <p>Batch transfer or rescheduling may be permitted at the sole discretion of Creator Space Lab and subject to availability.</p>
+                <p>Requests should be submitted through the official communication channel within the applicable notice period.</p>
+                <p>Creator Space Lab may impose reasonable conditions or charges for repeated or late batch-transfer requests. Specific batch-transfer terms applicable to a program will be communicated at enrollment where applicable.</p>
+              </section>
+
+              {/* 8. Attendance and Participation */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">8.</span> Attendance and Participation
+                </h2>
+                <p>Students are expected to attend scheduled training sessions and actively participate in the program. Attendance requirements may apply to:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2 text-csl-text font-medium">
+                  {['Internship completion', 'Course completion', 'Project completion', 'Certificate eligibility', 'Assessment eligibility'].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-csl-gold shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-amber-800 bg-amber-500/10 p-3 rounded-lg border border-amber-500/25">
+                  Failure to attend required sessions may affect eligibility for a certificate or completion status.
+                </p>
+              </section>
+
+              {/* 9. Assignments and Projects */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">9.</span> Assignments and Projects
+                </h2>
+                <p>Students may be required to complete assignments, assessments, projects, or other activities. Students are responsible for:</p>
+                <ul className="space-y-2 pl-2">
+                  {[
+                    'Completing their own work',
+                    'Meeting submission deadlines',
+                    'Following project guidelines',
+                    'Avoiding plagiarism',
+                    'Using third-party content lawfully',
+                    'Maintaining academic and professional integrity'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-csl-text font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-csl-blue shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs">Creator Space Lab may reject copied, plagiarized, fraudulent, or substantially unauthorized work.</p>
+              </section>
+
+              {/* 10. Certificates */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">10.</span> Certificates
+                </h2>
+                <p>Where a certificate is offered, it may be issued only after the applicable completion requirements have been satisfied. Requirements may include:</p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2 text-csl-text font-medium">
+                  {[
+                    'Minimum attendance',
+                    'Completion of required assignments',
+                    'Project completion',
+                    'Assessment completion',
+                    'Program completion',
+                    'Payment of applicable fees'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs">Registration or payment alone does not automatically guarantee issuance of a certificate. Creator Space Lab may verify completion before issuing a certificate.</p>
+              </section>
+
+              {/* 11. Intellectual Property */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">11.</span> Intellectual Property
+                </h2>
+                <p>All intellectual property associated with Creator Space Lab's Services, including course materials, videos, training presentations, documents, notes, graphics, logos, website content, branding, software, source code, templates, training frameworks, and recorded sessions belongs to Creator Space Lab or the relevant third-party rights holder.</p>
+                <p>Enrollment grants the student a limited, personal, non-exclusive, non-transferable right to use the applicable educational materials for personal learning purposes. It does not transfer ownership of the intellectual property to the student.</p>
+              </section>
+
+              {/* 12. Prohibited Use of Course Materials */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">12.</span> Prohibited Use of Course Materials
+                </h2>
+                <p>Students must not, without prior written permission:</p>
+                <ul className="space-y-2 pl-2">
+                  {[
+                    'Record live sessions for redistribution',
+                    'Share paid recordings',
+                    'Upload course materials publicly',
+                    'Sell course materials',
+                    'Distribute login credentials',
+                    'Reproduce proprietary training content',
+                    'Create competing commercial content using proprietary materials',
+                    'Reverse-engineer proprietary software',
+                    'Remove copyright or ownership notices'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span className="text-red-500 font-bold mt-0.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {/* 13. Student-Submitted Content */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">13.</span> Student-Submitted Content
+                </h2>
+                <p>Students may submit assignments, projects, code, designs, presentations, feedback, reviews, and testimonials. Students remain responsible for ensuring that submitted content does not infringe the rights of another person.</p>
+                <p>By submitting content for assessment or program administration, the student permits Creator Space Lab to access, review, store, and use that content for legitimate program-related purposes. Any public promotional use will be handled in accordance with applicable consent and privacy standards.</p>
+              </section>
+
+              {/* 14. Payments */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">14.</span> Payments
+                </h2>
+                <p>Program fees must be paid according to the pricing and payment schedule displayed or communicated during enrollment. Applicable taxes, including GST where applicable, may be charged in accordance with law.</p>
+                <p>Failure to complete required payments may result in suspension of access, withholding of certificates, restriction from further sessions, or cancellation of enrollment.</p>
+              </section>
+
+              {/* 15. Promotional Offers */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">15.</span> Promotional Offers
+                </h2>
+                <p>Promotional discounts, coupons, early-bird offers, scholarships, referral benefits, or special pricing may be subject to specific conditions. Unless expressly stated otherwise, offers have limited validity, cannot be combined, and cannot be transferred.</p>
+              </section>
+
+              {/* 16. Placement and Career Assistance */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">16.</span> Placement and Career Assistance
+                </h2>
+                <p>Creator Space Lab may provide placement assistance, career guidance, interview preparation, resume assistance, industry connections, or hiring-related support.</p>
+                <div className="bg-amber-500/10 border border-amber-500/25 p-4 rounded-xl space-y-2">
+                  <p className="font-bold text-csl-text text-sm">Please Note:</p>
+                  <p className="text-xs">Placement assistance does not constitute a guarantee of employment, job offer, specific salary, or selection by a hiring company. Hiring decisions are made solely by individual employers based on their internal requirements.</p>
+                </div>
+              </section>
+
+              {/* 17. Third-Party Services */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">17.</span> Third-Party Services
+                </h2>
+                <p>Our Services may use or link to third-party platforms, including payment providers, communication platforms, analytics services, software platforms, hosting providers, recruitment platforms, or other external services. Third-party services have their own terms and privacy policies.</p>
+              </section>
+
+              {/* 18. Disclaimer of Warranties */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">18.</span> Disclaimer of Warranties
+                </h2>
+                <p>We aim to provide accurate and useful educational and professional Services. However, we do not guarantee uninterrupted website availability, error-free content, or that every course will produce the identical result for every learner.</p>
+              </section>
+
+              {/* 19. Limitation of Liability */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">19.</span> Limitation of Liability
+                </h2>
+                <p>To the maximum extent permitted by applicable law, Creator Space Lab will not be liable for indirect, incidental, special, consequential, or loss-of-opportunity damages arising from the use of the website or Services.</p>
+              </section>
+
+              {/* 20. Suspension or Termination */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">20.</span> Suspension or Termination
+                </h2>
+                <p>Creator Space Lab may suspend or terminate access where reasonably necessary due to violation of these Terms, fraudulent activity, non-payment, unauthorized distribution of content, security violations, or abuse.</p>
+              </section>
+
+              {/* 21. Changes to Services */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">21.</span> Changes to Services
+                </h2>
+                <p>We may modify, discontinue, replace, or update parts of our Services when reasonably necessary, providing reasonable notice where appropriate.</p>
+              </section>
+
+              {/* 22. Changes to These Terms */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">22.</span> Changes to These Terms
+                </h2>
+                <p>Creator Space Lab may update these Terms from time to time. The updated version will be published on this website with a revised “Last Updated” date.</p>
+              </section>
+
+              {/* 23. Governing Law */}
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">23.</span> Governing Law
+                </h2>
+                <p>These Terms shall be governed by the laws of India. Subject to applicable law, disputes shall be subject to the jurisdiction of the competent courts in Chennai, Tamil Nadu, India.</p>
+              </section>
+
+              {/* 24. Contact */}
+              <section className="space-y-4 pt-4 border-t border-csl-gold/20">
+                <h2 className="text-xl sm:text-2xl font-bold text-csl-text tracking-tight flex items-center gap-2">
+                  <span className="text-csl-blue">24.</span> Contact Information
+                </h2>
+                <p>For questions regarding these Terms:</p>
+                <div className="bg-white/80 border border-csl-gold/30 rounded-2xl p-5 text-sm space-y-1.5 text-csl-text">
+                  <div className="font-extrabold text-base text-csl-blue mb-1">Creator Space Lab</div>
+                  <div><span className="font-bold text-csl-muted">Email:</span> hr@creatorspacelab.com</div>
+                  <div><span className="font-bold text-csl-muted">Address:</span> No.48A, Rajiv Gandhi Salai (OMR), Karapakkam, Chennai – 600097, Tamil Nadu, India</div>
+                </div>
+              </section>
+
             </article>
           </div>
         </section>
