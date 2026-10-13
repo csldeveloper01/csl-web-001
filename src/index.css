@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design Tokens - Colors */
+  --color-csl-blue: #1455B8;
+  --color-csl-deep-blue: #0B2E6F;
+  --color-csl-gold: #F5B83D;
+  --color-csl-light-gold: #FFD45C;
+  --color-csl-bg: #FCFAF5;
+  --color-csl-text: #111111;
+  --color-csl-muted: #6B7280;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Global Reset & Base Enhancements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Section Subheading — shared supporting text under section headings.
+   Keeps the existing font size & typography, but gives multi-line
+   subheadings comfortable breathing room between wrapped lines. */
+.section-subheading {
+  line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .section-subheading {
+    line-height: 1.8;
+  }
+}
+
+/* Section Heading — display headings inside page sections.
+   Opens up line spacing so multi-line headings breathe comfortably. */
+.section-heading {
+  line-height: 1 !important;
+}
+
+@media (max-width: 767px) {
+  .section-heading {
+    line-height: 1.05 !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-csl-bg);
+  color: var(--color-csl-text);
+  line-height: 1.5;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.intro-video::-webkit-media-controls,
+.intro-video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.section-eyebrow > span {
+  font-size: 0.8rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-csl-blue);
+}
+
+.section-eyebrow > div {
+  width: 2rem;
+  height: 2px;
+  background: rgba(245, 184, 61, 0.7);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .section-eyebrow > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+/* ==================================================
+   INFINITE MARQUEE ANIMATIONS (FOR WHAT OUR INTERNS SAY)
+   ================================================== */
+@keyframes marquee-scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-scroll-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-left 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll-right 54s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .animate-marquee-left:hover,
+  .animate-marquee-right:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+    transform: none !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
