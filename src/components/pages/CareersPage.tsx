@@ -47,8 +47,8 @@ export interface CareerPosition {
 
 export const careerPositions: CareerPosition[] = [
   {
-    id: 'full-stack-devloper',
-    title: 'Full stack devloper',
+    id: 'full-stack-developer',
+    title: 'Full Stack Developer',
     category: 'Technical',
     experience: 'Freshers',
     vacancies: '2 Vacancies',
