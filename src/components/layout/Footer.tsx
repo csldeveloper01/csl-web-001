@@ -114,12 +114,14 @@ export function Footer() {
       window.location.pathname === '/student-portal'
     ) {
       const targetId = href.replace('#', '');
+      const targetPath = targetId === 'contact' ? '/contact' : targetId === 'tie-ups' ? '/tieups' : '/';
 
-      window.history.pushState({}, '', '/');
+      window.history.pushState({}, '', targetPath);
       window.dispatchEvent(new PopStateEvent('popstate'));
 
+      const resolvedId = targetId === 'contact' ? 'contact-form' : targetId;
       const scrollToTarget = () => {
-        const el = document.getElementById(targetId);
+        const el = document.getElementById(resolvedId) || document.getElementById(targetId);
 
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
@@ -137,6 +139,17 @@ export function Footer() {
 
     const rawTargetId = href.replace('#', '');
     const targetId = rawTargetId === 'contact' ? 'contact-form' : rawTargetId;
+    if (rawTargetId === 'contact') {
+      if (window.location.pathname !== '/contact') {
+        window.history.pushState({}, '', '/contact');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+    } else if (rawTargetId === 'tie-ups') {
+      if (window.location.pathname !== '/tieups') {
+        window.history.pushState({}, '', '/tieups');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+    }
     const element = document.getElementById(targetId) || document.getElementById(rawTargetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });

@@ -201,10 +201,13 @@ export function Navbar() {
 
   const isItemActive = (targetId: string, isHomeLink?: boolean) => {
     if (isHomeLink || targetId === 'hero') {
-      return currentPath === '/' && !activeSection;
+      return (currentPath === '/' || currentPath === '') && !activeSection;
     }
     if (targetId === 'contact') {
-      return activeSection === 'contact';
+      return activeSection === 'contact' || currentPath === '/contact';
+    }
+    if (targetId === 'tie-ups') {
+      return currentPath === '/tieups';
     }
     return currentPath === `/${targetId}`;
   };
@@ -218,8 +221,9 @@ export function Navbar() {
     setIsCoursesOpen(false);
     setIsMobileCoursesOpen(false);
 
-    // If target is contact, scroll specifically to the contact form rather than the section heading
+    // If target is contact, route to /contact or scroll to form
     const resolvedTargetId = targetId === 'contact' ? 'contact-form' : targetId;
+    const targetPath = targetId === 'contact' ? '/contact' : (isHomeLink || targetId === 'hero') ? '/' : (targetId === 'tie-ups') ? '/tieups' : '/';
 
     if (isHomeLink || targetId === 'hero') {
       if (window.location.pathname !== '/') {
@@ -229,6 +233,20 @@ export function Navbar() {
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      return;
+    }
+
+    if (targetId === 'contact' || targetId === 'tie-ups') {
+      if (window.location.pathname !== targetPath) {
+        window.history.pushState({}, '', targetPath);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
+      setTimeout(() => {
+        const el = document.getElementById(resolvedTargetId) || document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
       return;
     }
 

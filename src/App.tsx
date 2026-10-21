@@ -29,6 +29,24 @@ const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage'));
 
 const INTRO_SESSION_KEY = 'csl-intro-complete';
 
+// Helper to determine if a given pathname should display the homepage content
+function isHomePath(pathname: string): boolean {
+  return (
+    pathname === '/' ||
+    pathname === '/contact' ||
+    pathname === '/tieups' ||
+    pathname === '/portfolio'
+  );
+}
+
+// Maps special aliases/routes to the specific DOM section ID to scroll into view
+function getSectionIdForPath(pathname: string): string | null {
+  if (pathname === '/contact') return 'contact';
+  if (pathname === '/tieups') return 'tie-ups';
+  if (pathname === '/portfolio') return 'services';
+  return null;
+}
+
 export function App() {
   const [currentPath, setCurrentPath] = useState<string>(() => 
     typeof window !== 'undefined' ? window.location.pathname : '/'
@@ -37,27 +55,71 @@ export function App() {
     typeof window !== 'undefined' ? window.location.pathname : '/'
   );
   const [isNavigating, setIsNavigating] = useState(false);
-  const [introComplete, setIntroComplete] = useState(() => {
+  const [introComplete, setIntroComplete] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true;
-    if (window.location.pathname !== '/') return true;
+    // The intro should only play on homepage entry once per session
+    if (!isHomePath(window.location.pathname)) return true;
     return sessionStorage.getItem(INTRO_SESSION_KEY) === 'true';
   });
   const [introFading, setIntroFading] = useState(false);
+
+  // Helper to scroll smoothly to a section element with retries in case layout/suspense is rendering
+  const scrollToSectionWithRetry = (sectionId: string, maxAttempts = 20) => {
+    let attempts = 0;
+    const checkAndScroll = () => {
+      // Prioritize contact-form over section header for contact
+      const resolvedId = sectionId === 'contact' ? 'contact-form' : sectionId;
+      const el = document.getElementById(resolvedId) || document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else if (attempts < maxAttempts) {
+        attempts++;
+        requestAnimationFrame(checkAndScroll);
+      }
+    };
+    requestAnimationFrame(checkAndScroll);
+  };
   
   useEffect(() => {
     const handleLocationChange = () => {
       const targetPath = window.location.pathname;
       setCurrentPath(targetPath);
 
-      if (targetPath === displayedPath) return;
+      if (targetPath === displayedPath) {
+        // If navigating to the same path or section on home, trigger section scroll if applicable
+        const sectionId = getSectionIdForPath(targetPath);
+        if (sectionId) {
+          scrollToSectionWithRetry(sectionId);
+        }
+        return;
+      }
 
       setIsNavigating(true);
 
-      const assetLoader = targetPath === '/' ? preloadHomeAssets() : preloadPageAssets(targetPath);
+      const isTargetHome = isHomePath(targetPath);
+      const isDisplayedHome = isHomePath(displayedPath);
+
+      // If we are already on home and moving between home alias routes (/contact, /tieups, /portfolio)
+      if (isTargetHome && isDisplayedHome) {
+        setDisplayedPath(targetPath);
+        setIsNavigating(false);
+        const sectionId = getSectionIdForPath(targetPath);
+        if (sectionId) {
+          scrollToSectionWithRetry(sectionId);
+        } else if (!window.location.hash) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
+      }
+
+      const assetLoader = isTargetHome ? preloadHomeAssets() : preloadPageAssets(targetPath);
 
       assetLoader.then(() => {
         setDisplayedPath(targetPath);
-        if (!window.location.hash) {
+        const sectionId = getSectionIdForPath(targetPath);
+        if (sectionId) {
+          scrollToSectionWithRetry(sectionId);
+        } else if (!window.location.hash) {
           window.scrollTo({ top: 0, behavior: 'instant' });
         }
         setTimeout(() => {
@@ -70,7 +132,15 @@ export function App() {
     return () => window.removeEventListener('popstate', handleLocationChange);
   }, [displayedPath]);
 
-  // Removed side‑rail IntersectionObserver; no longer needed after NavigationRail removal.
+  // Initial scroll if entering directly on a section route
+  useEffect(() => {
+    if (introComplete || introFading) {
+      const sectionId = getSectionIdForPath(window.location.pathname);
+      if (sectionId) {
+        scrollToSectionWithRetry(sectionId);
+      }
+    }
+  }, [introComplete, introFading]);
 
   const handleIntroFadeStart = () => {
     setIntroFading(true);
@@ -82,16 +152,21 @@ export function App() {
     setIntroFading(false);
   };
 
-  const isHomePage = currentPath === '/';
-  const showIntro = isHomePage && !introComplete;
-  const homeVisible = isHomePage && (introComplete || introFading);
+  const isCurrentHome = isHomePath(currentPath);
+  const isDisplayedHome = isHomePath(displayedPath);
+  const showIntro = isCurrentHome && !introComplete;
+  // Homepage DOM only mounts or becomes visible when intro is fading or complete
+  const homeMounted = isDisplayedHome && (introComplete || introFading);
 
   return (
     <div className="relative w-full min-h-screen bg-csl-bg overflow-x-hidden">
-      {/* Persistent Sticky Navbar */}
-      <Navbar />
+      {/* Intro Overlay — Mounted before homepage and rendered with top stacking order */}
+      {showIntro && (
+        <IntroOverlay onFadeStart={handleIntroFadeStart} onComplete={handleIntroComplete} />
+      )}
 
-      
+      {/* Persistent Sticky Navbar — only visible when intro is fading or completed */}
+      {(!showIntro || introFading) && <Navbar />}
 
       {/* Main Page Render Area */}
       <div className={`transition-opacity duration-300 ease-out ${isNavigating ? 'opacity-0' : 'opacity-100'}`}>
@@ -120,52 +195,49 @@ export function App() {
             <TermsPage />
           ) : displayedPath === '/privacy' ? (
             <PrivacyPage />
-          ) : displayedPath === '/' ? (
-          <div
-            className={`transition-opacity duration-500 ease-out ${homeVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            aria-hidden={!homeVisible}
-          >
-            <div id="hero">
-              <Hero />
-            </div>
-            <div id="about">
-              <AboutSection />
-            </div>
-            <div id="courses">
-              <CoursesSection />
-            </div>
-            <div id="internships">
-              <InternshipsSection />
-            </div>
-            <div id="services">
-              <ServicesSection />
-            </div>
-            <div id="tie-ups">
-              <TieupsSection />
-            </div>
-            <div id="success-stories">
-              <SuccessStoriesSection />
-            </div>
-            <div id="contact">
-              <ContactSection />
-            </div>
-          </div>
-        ) : (
-          <NotFoundPage />
-        )}
+          ) : isDisplayedHome ? (
+            homeMounted ? (
+              <div
+                className={`transition-opacity duration-500 ease-out ${introFading || introComplete ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                aria-hidden={!introComplete && !introFading}
+              >
+                <div id="hero">
+                  <Hero />
+                </div>
+                <div id="about">
+                  <AboutSection />
+                </div>
+                <div id="courses">
+                  <CoursesSection />
+                </div>
+                <div id="internships">
+                  <InternshipsSection />
+                </div>
+                <div id="services">
+                  <ServicesSection />
+                </div>
+                <div id="tie-ups">
+                  <TieupsSection />
+                </div>
+                <div id="success-stories">
+                  <SuccessStoriesSection />
+                </div>
+                <div id="contact">
+                  <ContactSection />
+                </div>
+              </div>
+            ) : null
+          ) : (
+            <NotFoundPage />
+          )}
         </Suspense>
       </div>
 
-      {/* Universal Footer */}
-      <Footer />
+      {/* Universal Footer — rendered only when home or page is mounted/visible */}
+      {(!showIntro || introFading) && <Footer />}
       
       {/* Floating WhatsApp Button */}
-      <FloatingWhatsApp />
-
-      {/* Intro Overlay — Video Only, pure white background */}
-      {showIntro && (
-        <IntroOverlay onFadeStart={handleIntroFadeStart} onComplete={handleIntroComplete} />
-      )}
+      {(!showIntro || introFading) && <FloatingWhatsApp />}
 
       {/* Page Navigation CSL Loading GIF Overlay */}
       {isNavigating && (
