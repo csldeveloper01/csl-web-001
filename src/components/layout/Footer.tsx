@@ -165,6 +165,8 @@ export function Footer() {
       <img 
         src={cslC} 
         alt="CSL Geometric C" 
+        loading="lazy"
+        decoding="async"
         className="absolute -top-8 -left-8 md:-top-10 md:-left-10 w-44 md:w-56 lg:w-64 h-auto object-contain opacity-[0.03] grayscale pointer-events-none z-0 select-none"
       />
 
@@ -172,6 +174,8 @@ export function Footer() {
       <img 
         src={heroBitmap} 
         alt="Hero Bitmap Ambient" 
+        loading="lazy"
+        decoding="async"
         className="absolute -bottom-10 -right-10 md:-bottom-14 md:-right-12 w-80 md:w-[420px] lg:w-[480px] h-auto object-contain opacity-[0.16] md:opacity-[0.20] blur-[6px] md:blur-[8px] pointer-events-none z-0 select-none"
       />
 

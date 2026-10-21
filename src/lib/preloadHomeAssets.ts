@@ -15,13 +15,11 @@ import cslTypography from '../../Elements/LOGOS/CSL-TYPOGRAPHY.png';
 
 const CRITICAL_HOME_ASSETS = [
   cslBook,
-  cslC,
+  cslTypography,
   state1,
   state2,
   state3,
   state4,
-  cslTypography,
-  '/thumbnail.png',
 ];
 
 let preloadPromise: Promise<void> | null = null;

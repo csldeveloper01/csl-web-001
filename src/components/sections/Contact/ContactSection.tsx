@@ -222,6 +222,8 @@
                 <img 
                   src={contactIllustration} 
                   alt="Contact 3D Map Pin" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,30,80,0.12)]"
                 />
               </motion.div>

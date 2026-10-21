@@ -118,7 +118,7 @@ export function AboutCarousel() {
               onClick={() => goToSlide(prev)}
               whileHover={{ opacity: 0.7, scale: 0.9, filter: 'grayscale(0%)', x: 5 }}
             >
-              <img src={carouselData[prev].image} alt="Previous" className="w-full h-auto object-contain" />
+              <img src={carouselData[prev].image} alt="Previous" loading="lazy" decoding="async" className="w-full h-auto object-contain" />
             </motion.div>
 
             {/* Next State */}
@@ -133,7 +133,7 @@ export function AboutCarousel() {
               onClick={() => goToSlide(next)}
               whileHover={{ opacity: 0.7, scale: 0.9, filter: 'grayscale(0%)', x: -5 }}
             >
-              <img src={carouselData[next].image} alt="Next" className="w-full h-auto object-contain" />
+              <img src={carouselData[next].image} alt="Next" loading="lazy" decoding="async" className="w-full h-auto object-contain" />
             </motion.div>
 
             {/* Current Active State */}
@@ -195,6 +195,8 @@ export function AboutCarousel() {
               <img 
                 src={carouselData[current].image} 
                 alt={carouselData[current].title} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain drop-shadow-2xl" 
               />
             </motion.div>
@@ -251,6 +253,8 @@ export function AboutCarousel() {
                 <img 
                   src={item.image} 
                   alt={item.title} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-lg transition-all" 
                 />
               </div>

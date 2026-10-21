@@ -345,6 +345,8 @@ export function ServicesSection() {
                 <img 
                   src={servicesIllustration} 
                   alt="Services 3D Ecosystem" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,30,80,0.14)]"
                 />
               </motion.div>
