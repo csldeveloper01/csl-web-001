@@ -75,10 +75,25 @@ const tracksData: InternshipTrack[] = [
   },
   {
     id: '04',
-    title: 'Full Stack Web & Mobile Application Development',
-    description: 'Design and deploy modern full-stack web platforms and cross-platform mobile apps using industry-standard frameworks.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600&h=450',
-    techs: ['React', 'Node.js', 'Next.js', 'PostgreSQL', 'Tailwind CSS', 'REST APIs'],
+    title: 'Embedded C Programming Internship',
+    description: 'Gain hands-on experience in Embedded C programming, microcontroller interfacing, and firmware development. Learn to develop and debug embedded applications for real-world electronics and IoT systems.',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
+    techs: ['Embedded C Programming', 'Microcontrollers (8051 / AVR / ARM)', 'GPIO, Timers & Interrupts', 'UART, SPI & I2C Communication', 'Sensor Interfacing', 'Firmware Development & Debugging'],
+    duration: '15 or 30 Days',
+    mode: 'Hybrid',
+    projects: [
+      'Microcontroller-based embedded applications',
+      'Sensor monitoring and control systems',
+      'Real-time hardware interfacing',
+      'Embedded system testing and debugging'
+    ]
+  },
+  {
+    id: '05',
+    title: 'DevOps & Cloud Engineering',
+    description: 'Implement automated CI/CD delivery pipelines, containerization, microservices deployment, and cloud infrastructure.',
+    image: 'https://images.unsplash.com/photo-1690627931320-16ac56eb2588?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    techs: ['AWS', 'Docker', 'Kubernetes', 'CI/CD Pipelines', 'Linux', 'Terraform'],
     duration: '15 or 30 Days',
     mode: 'Hybrid',
     projects: [
@@ -88,7 +103,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '05',
+    id: '06',
     title: 'DevOps & Cloud Engineering',
     description: 'Implement automated CI/CD delivery pipelines, containerization, microservices deployment, and cloud infrastructure.',
     image: 'https://images.unsplash.com/photo-1690627931320-16ac56eb2588?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -102,7 +117,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '06',
+    id: '07',
     title: 'Software Testing & QA Automation',
     description: 'Master manual and automated testing methodologies, API verification, test frameworks, and defect tracking lifecycles.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=450',
@@ -116,7 +131,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '07',
+    id: '08',
     title: 'UI/UX Product Design',
     description: 'Create user journeys, design systems, accessible interfaces, and interactive Figma prototypes tested for usability.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600&h=450',
@@ -130,7 +145,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '08',
+    id: '09',
     title: 'Data Analytics & Business Intelligence',
     description: 'Transform complex datasets into actionable business intelligence using SQL, statistical analysis, and executive dashboards.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=450',

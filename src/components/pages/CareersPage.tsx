@@ -1059,9 +1059,12 @@ export function CareersPage() {
                       Office Location
                     </h4>
                     <p className="text-xs font-medium text-white/85 leading-relaxed">
-                      No.48A, Rajiv Gandhi Salai (OMR) <br />
-                      Karapakkam, <br />
-                      Chennai – 600097, Tamil Nadu, India
+                      Creator Space Lab, <br />
+                      11/330, Perumbakkam Main Rd, <br />
+                      Next to eagle mobiles, <br />
+                      Opp. to AIMORE TECHNOLOGIES, <br />
+                      Medavakkam, <br />
+                      Tamil Nadu, India - 600 100
                     </p>
                   </div>
                 </div>
