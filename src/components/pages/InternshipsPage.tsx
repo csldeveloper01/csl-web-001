@@ -104,20 +104,6 @@ const tracksData: InternshipTrack[] = [
   },
   {
     id: '06',
-    title: 'DevOps & Cloud Engineering',
-    description: 'Implement automated CI/CD delivery pipelines, containerization, microservices deployment, and cloud infrastructure.',
-    image: 'https://images.unsplash.com/photo-1690627931320-16ac56eb2588?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    techs: ['AWS', 'Docker', 'Kubernetes', 'CI/CD Pipelines', 'Linux', 'Terraform'],
-    duration: '15 or 30 Days',
-    mode: 'Hybrid',
-    projects: [
-      'Automated GitHub Actions build & deploy pipeline',
-      'Containerized multi-service Docker deployment',
-      'Cloud resource provisioning and monitoring'
-    ]
-  },
-  {
-    id: '07',
     title: 'Software Testing & QA Automation',
     description: 'Master manual and automated testing methodologies, API verification, test frameworks, and defect tracking lifecycles.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=450',
@@ -131,7 +117,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '08',
+    id: '07',
     title: 'UI/UX Product Design',
     description: 'Create user journeys, design systems, accessible interfaces, and interactive Figma prototypes tested for usability.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600&h=450',
@@ -145,7 +131,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '09',
+    id: '08',
     title: 'Data Analytics & Business Intelligence',
     description: 'Transform complex datasets into actionable business intelligence using SQL, statistical analysis, and executive dashboards.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=450',
