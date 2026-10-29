@@ -61,6 +61,34 @@ const tracksData: InternshipTrack[] = [
   },
   {
     id: '03',
+    title: 'CyberSecurity',
+    description: 'Develop practical cybersecurity skills by learning network security, vulnerability assessment, ethical hacking fundamentals, and security monitoring. Explore how to identify potential threats, protect digital systems, and strengthen application security through hands-on excercises',
+    techs: ['Network Security', 'Ethical Hacking Fundamentals', 'Linux & Command-Line Tools', 'Vulnerability Assessment', 'Web Application Security', 'SIEM & Security Monitoring'],
+    duration: '15 or 30 Days',
+    mode: 'Hybrid',
+    projects: [
+      'Basic network security assessment',
+      'Web application vulnerability testing in authorized labs',
+      'Security log analysis and threat detection'
+    ],
+    image: 'https://images.unsplash.com/photo-1760199789455-49098afd02f0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
+  },
+  {
+    id: '04',
+    title: 'Full Stack Development with AI',
+    description: 'Build modern web applications by combining frontend and backend development with AI integration. Learn to create responsive websites, develop secure APIs, manage databases, and integrate AI-powered features into real-world applications.',
+    techs: ['HTML, CSS & JavaScript', 'React.js', 'Node.js & Express.js', 'Python / REST APIs', 'SQL & MongoDB', 'AI Integration & LLM APIs'],
+    duration: '15 or 30 Days',
+    mode: 'Hybrid',
+    projects: [
+      'AI-powered web application development',
+      'Intelligent chatbot integratiion',
+      'Full stack application with database connectivity'
+    ],
+    image: 'https://images.unsplash.com/photo-1763568258338-94886e7533ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
+  },
+  {
+    id: '05',
     title: 'Agentic AI & Intelligent Automation',
     description: 'Architect multi-agent autonomous systems, intelligent tool-calling workflows, and goal-driven decision loops.',
     image: 'https://images.unsplash.com/photo-1746286720984-72f386e1872e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -74,7 +102,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '04',
+    id: '06',
     title: 'Embedded C Programming Internship',
     description: 'Gain hands-on experience in Embedded C programming, microcontroller interfacing, and firmware development. Learn to develop and debug embedded applications for real-world electronics and IoT systems.',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
@@ -89,7 +117,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '05',
+    id: '07',
     title: 'DevOps & Cloud Engineering',
     description: 'Implement automated CI/CD delivery pipelines, containerization, microservices deployment, and cloud infrastructure.',
     image: 'https://images.unsplash.com/photo-1690627931320-16ac56eb2588?q=80&w=2093&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -103,7 +131,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '06',
+    id: '08',
     title: 'Software Testing & QA Automation',
     description: 'Master manual and automated testing methodologies, API verification, test frameworks, and defect tracking lifecycles.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600&h=450',
@@ -117,7 +145,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '07',
+    id: '09',
     title: 'UI/UX Product Design',
     description: 'Create user journeys, design systems, accessible interfaces, and interactive Figma prototypes tested for usability.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=600&h=450',
@@ -131,7 +159,7 @@ const tracksData: InternshipTrack[] = [
     ]
   },
   {
-    id: '08',
+    id: '10',
     title: 'Data Analytics & Business Intelligence',
     description: 'Transform complex datasets into actionable business intelligence using SQL, statistical analysis, and executive dashboards.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600&h=450',
