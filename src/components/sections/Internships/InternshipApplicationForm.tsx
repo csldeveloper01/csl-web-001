@@ -19,6 +19,8 @@ export const INTERNSHIP_DOMAINS = [
   'Artificial Intelligence & Machine Learning Engineering',
   'Generative AI & Prompt Engineering',
   'Agentic AI & Intelligent Automation',
+  'Cybersecurity',
+  'Full-Stack Development with AI',
   'Embedded and C',
   'Full Stack Web & Mobile Application Development',
   'DevOps & Cloud Engineering',
