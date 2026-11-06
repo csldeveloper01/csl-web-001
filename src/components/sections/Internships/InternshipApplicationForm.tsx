@@ -166,7 +166,7 @@ Interested Domain: ${formData.domain}
 Duration: ${formData.duration}
 Message: ${formData.message || 'N/A'}`;
 
-    openWhatsApp(message);
+    openWhatsApp(message, '919500802806');
 
     setSubmitState('button-green-swipe');
     setTimeout(() => {

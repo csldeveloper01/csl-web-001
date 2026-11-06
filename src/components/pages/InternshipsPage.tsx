@@ -61,7 +61,7 @@ const tracksData: InternshipTrack[] = [
   },
   {
     id: '03',
-    title: 'CyberSecurity',
+    title: 'Cybersecurity',
     description: 'Develop practical cybersecurity skills by learning network security, vulnerability assessment, ethical hacking fundamentals, and security monitoring. Explore how to identify potential threats, protect digital systems, and strengthen application security through hands-on excercises',
     techs: ['Network Security', 'Ethical Hacking Fundamentals', 'Linux & Command-Line Tools', 'Vulnerability Assessment', 'Web Application Security', 'SIEM & Security Monitoring'],
     duration: '15 or 30 Days',
@@ -103,7 +103,7 @@ const tracksData: InternshipTrack[] = [
   },
   {
     id: '06',
-    title: 'Embedded C Programming Internship',
+    title: 'Embedded & C Programming',
     description: 'Gain hands-on experience in Embedded C programming, microcontroller interfacing, and firmware development. Learn to develop and debug embedded applications for real-world electronics and IoT systems.',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D',
     techs: ['Embedded C Programming', 'Microcontrollers (8051 / AVR / ARM)', 'GPIO, Timers & Interrupts', 'UART, SPI & I2C Communication', 'Sensor Interfacing', 'Firmware Development & Debugging'],
